@@ -18,7 +18,8 @@ public enum GameState
 
 public class GameManager : Singleton<GameManager>
 {
-    public int testInt = 1;
+    public bool maxCharactersInPlay = false;
+    public int characters;
 
     public override void Awake()
     {
