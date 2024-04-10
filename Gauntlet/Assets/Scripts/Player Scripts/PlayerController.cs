@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author: [Dorey, Dylan]
+ * Last Updated: [4/10/2024]
+ * [Allows Player to move around and interact with game environment]
+ */
+
 public class PlayerController : MonoBehaviour
 {
     //reference to scriptable object PlayerInput

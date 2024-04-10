@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author: [Dorey, Dylan]
+ * Last Updated: [4/10/2024]
+ * [Stores all player data related to number values, such as stats]
+ */
+
 //various base player states
 public enum PlayerEvent
 {
