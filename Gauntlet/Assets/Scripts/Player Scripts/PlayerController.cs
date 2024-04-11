@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
     public PlayerInput playerActions;
 
     [Range(0f, 10f)]
-    public float speed;
+    [SerializeField]
+    private float speed;
 
     private GameObject characterPrefab;
     public IMeleeBehavior meleeBehavior;
