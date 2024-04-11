@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WarriorMelee : Warriro, IPlayerBehavior
+public class WarriorMelee : Warrior, IPlayerBehavior
 {
     public void PlayerBehavior(PlayerController player)
     {
