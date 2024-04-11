@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WarriorMelee : Warrior, IPlayerBehavior
+public class WarriorMelee : Warriro, IPlayerBehavior
 {
-    private RaycastHit hit;
-    private Vector3 rayDirection = new Vector3.forward();
-    private float rayDistance = 2f;
-
     public void PlayerBehavior(PlayerController player)
     {
         StartCoroutine(Melee());
@@ -16,11 +12,11 @@ public class WarriorMelee : Warrior, IPlayerBehavior
     /// <summary>
     /// allows the player to hit directly in front of them
     /// </summary>
-    private IEnumerator Melee()
+    public IEnumerator Melee()
     {
         while(true)
         {
-            if (Physics.Raycast(transform.position, rayDirection, out hit, rayDistance))
+            if (Physics.Raycast(transform.position, rayDirection, out hit, meleeDistance))
             {
                 Debug.DrawRay(transform.position, rayDirection, Color.green);
             }
