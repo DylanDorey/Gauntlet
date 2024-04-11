@@ -187,8 +187,8 @@ public class PlayerController : MonoBehaviour
     }
 
     //apply a behavior
-    public void ApplyBehavior(IPlayerBehavior behavior)
+    public void ApplyMeleeBehavior(IMeleeBehavior behavior)
     {
-        behavior.PlayerBehavior(this);
+        behavior.MeleeBehavior(this);
     }
 }
