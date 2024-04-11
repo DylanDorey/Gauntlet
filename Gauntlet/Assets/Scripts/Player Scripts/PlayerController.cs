@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [Range(0f, 10f)]
     public float speed;
 
-    public GameObject characterPrefab;
+    private GameObject characterPrefab;
     public IMeleeBehavior meleeBehavior;
 
     private void OnEnable()
@@ -146,6 +146,8 @@ public class PlayerController : MonoBehaviour
 
         //turn playerActions on
         playerActions.Enable();
+
+        characterPrefab = transform.GetChild(0).gameObject;
 
         //determine which character this player will be
         //int characterToAdd = GameManager.Instance.characters;
