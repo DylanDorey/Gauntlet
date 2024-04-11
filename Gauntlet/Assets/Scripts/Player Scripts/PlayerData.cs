@@ -18,6 +18,8 @@ public enum PlayerEvent
 public class PlayerData : MonoBehaviour
 {
     public float health;
+    public float meleeAttack;
+    public float magic;
 
     [Range(1f, 5f)]
     public float healthTickRate;
@@ -33,6 +35,19 @@ public class PlayerData : MonoBehaviour
     void Update()
     {
         
+    }
+
+    /// <summary>
+    /// Takes health away from player whenever taking damage
+    /// </summary>
+    /// <param name="damage"> the incoming damage </param>
+    /// <returns></returns>
+    public float TakeDamage(float damage)
+    {
+        //remove the damage value from the players health, then return the players new health
+        health -= damage;
+
+        return health;
     }
 
     /// <summary>

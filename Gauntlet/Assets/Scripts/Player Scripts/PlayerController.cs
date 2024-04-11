@@ -13,7 +13,10 @@ public class PlayerController : MonoBehaviour
 {
     //reference to scriptable object PlayerInput
     public PlayerInput playerActions;
+
+    [Range(0f, 10f)]
     public float speed;
+
     public GameObject characterPrefab;
 
     private void OnEnable()
@@ -39,6 +42,11 @@ public class PlayerController : MonoBehaviour
         transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (speed * Time.deltaTime));
 
         SetRotation(moveVecX, moveVecY);
+    }
+
+    public virtual void OnCollisionEnter(Collision collision)
+    {
+        
     }
 
     /// <summary>
@@ -174,5 +182,11 @@ public class PlayerController : MonoBehaviour
     public void StartPlayerController()
     {
         InitializePlayerController();
+    }
+
+    //apply a behavior
+    public void ApplyBehavior(IPlayerBehavior behavior)
+    {
+        behavior.PlayerBehavior(this);
     }
 }
