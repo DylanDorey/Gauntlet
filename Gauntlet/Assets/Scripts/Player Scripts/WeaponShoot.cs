@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class WeaponShoot : MonoBehaviour
 {
+    public float bulletSpeed = 5f;
+    public Rigidbody projectile;
+    public GameObject spawnPoint;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +20,9 @@ public class WeaponShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Right Trigger"))
+        { 
+            
+        }
     }
 }
