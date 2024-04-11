@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
 
     public GameObject characterPrefab;
+    public IMeleeBehavior meleeBehavior;
 
     private void OnEnable()
     {
@@ -59,6 +60,14 @@ public class PlayerController : MonoBehaviour
         Vector2 moveVecY = context.ReadValue<Vector2>();
         Vector2 moveVecX = context.ReadValue<Vector2>();
         transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (speed * Time.deltaTime));
+    }
+
+    public void OnMelee(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            ApplyMeleeBehavior(meleeBehavior);
+        }
     }
 
     /// <summary>
