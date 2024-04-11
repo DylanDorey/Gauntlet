@@ -165,6 +165,8 @@ public class PlayerController : MonoBehaviour
         //        break;
         //}
 
+        //characterToAdd++;
+
         //if (characterToAdd == 3)
         //{
         //    GameManager.Instance.maxCharactersInPlay = true;
