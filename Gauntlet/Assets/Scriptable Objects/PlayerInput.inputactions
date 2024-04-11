@@ -15,9 +15,36 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Look",
+                    "name": "LookUp",
                     "type": "Button",
-                    "id": "4a225f75-79a8-45ee-aca3-2f9212b611f7",
+                    "id": "1ab5afc0-89d8-4d4f-a978-d35d89a06802",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LookDown",
+                    "type": "Button",
+                    "id": "8739881d-fc2c-4306-8fae-decd6e9413f5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LookLeft",
+                    "type": "Button",
+                    "id": "0f3444ef-058a-40e0-8b33-dc0602c8ed1a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LookRight",
+                    "type": "Button",
+                    "id": "91022721-008b-4a9b-85f4-a66465fcce4e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -82,45 +109,45 @@
                 },
                 {
                     "name": "",
-                    "id": "649f759a-32cf-43be-989c-668c58480cda",
+                    "id": "22931385-e5f0-4727-9b18-f2f9a4d31c95",
                     "path": "<Gamepad>/rightStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look",
+                    "action": "LookUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "762f207c-8f9a-44fb-b905-87401f01e1ce",
+                    "id": "4c4e9af7-59ba-43c4-8210-0612880bc98a",
                     "path": "<Gamepad>/rightStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look",
+                    "action": "LookDown",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "9d9e57a7-da9c-4c8c-bcf5-84f111772d16",
+                    "id": "f387ec3b-ea69-4212-9b3d-8a1ef0d851fc",
                     "path": "<Gamepad>/rightStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look",
+                    "action": "LookLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "80ee1d2b-6690-4e9e-b461-10475cc326be",
+                    "id": "36f8cc60-c402-423d-a9d4-c45d9cc1f493",
                     "path": "<Gamepad>/rightStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look",
+                    "action": "LookRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
