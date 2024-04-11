@@ -21,7 +21,7 @@ public class WarriorMelee : Warrior, IMeleeBehavior
             {
                 Debug.DrawRay(player.transform.position, rayDirection, Color.green);
             }
-            yield return new WaitForSeconds(meleeSpeed);
+            yield return new WaitForSeconds(meleeDelay);
         }
     }
 }

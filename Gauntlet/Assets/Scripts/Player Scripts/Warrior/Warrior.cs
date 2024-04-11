@@ -14,9 +14,8 @@ public class Warrior : MonoBehaviour
     public Vector3 rayDirection;
     public float meleeDistance = 10f;
 
-    public void Awake()
+    public void Start()
     {
-        gameObject.AddComponent<PlayerController>();
         GetComponent<PlayerController>().meleeBehavior = gameObject.AddComponent<WarriorMelee>();
         rayDirection = Vector3.forward;
     }

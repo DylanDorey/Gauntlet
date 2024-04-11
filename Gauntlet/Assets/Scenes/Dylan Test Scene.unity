@@ -237,9 +237,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 175118093}
-  - component: {fileID: 175118100}
+  - component: {fileID: 175118102}
+  - component: {fileID: 175118101}
   - component: {fileID: 175118099}
-  - component: {fileID: 175118098}
+  - component: {fileID: 175118100}
   - component: {fileID: 175118095}
   - component: {fileID: 175118094}
   - component: {fileID: 175118097}
@@ -385,22 +386,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &175118098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175118092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a09522b62f58e1948a1f4e261f936a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 500
-  meleeAttack: 0
-  magic: 0
-  healthTickRate: 1.5
 --- !u!114 &175118099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +398,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f866592f6c3d796419dd374472e81fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  meleeDelay: 0
+  meleeAttack: 0
+  rayDirection: {x: 0, y: 0, z: 0}
+  meleeDistance: 10
 --- !u!114 &175118100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,11 +414,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c865836b836c64fa35e03cea2b121d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  meleeSpeed: 0
+  meleeDelay: 0
   meleeAttack: 0
   rayDirection: {x: 0, y: 0, z: 0}
   meleeDistance: 10
+--- !u!114 &175118101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175118092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09522b62f58e1948a1f4e261f936a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthTickRate: 0
+--- !u!114 &175118102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175118092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 352ecc4017086f44da90c0636ea766c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1 &683074181
 GameObject:
   m_ObjectHideFlags: 0
