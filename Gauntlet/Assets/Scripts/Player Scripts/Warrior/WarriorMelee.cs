@@ -6,14 +6,21 @@ public class WarriorMelee : Warrior, IMeleeBehavior
 {
     public void MeleerBehavior(PlayerController player)
     {
-        Melee();
+        StartCoroutine(Melee());
     }
 
     /// <summary>
     /// allows the player to hit directly in front of them
     /// </summary>
-    private void Melee()
-    { 
-        
+    public IEnumerator Melee()
+    {
+        while(true)
+        {
+            if (Physics.Raycast(transform.position, rayDirection, out hit, meleeDistance))
+            {
+                Debug.DrawRay(transform.position, rayDirection, Color.green);
+            }
+            yield return new WaitForSeconds(1.0f);
+        }
     }
 }
