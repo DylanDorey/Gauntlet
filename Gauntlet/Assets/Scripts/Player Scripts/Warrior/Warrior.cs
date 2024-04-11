@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Warrior : MonoBehaviour
+public class Warrior : PlayerController
 {
 
     [Range(1f, 10f)]
@@ -28,7 +28,7 @@ public class Warrior : MonoBehaviour
         Debug.DrawRay(transform.position, rayDirection, Color.red);
     }
 
-    public void OnCollisionEnter(Collision collider)
+    public override void OnCollisionEnter(Collision collider)
     {
 
     }
