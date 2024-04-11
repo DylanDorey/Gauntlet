@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WarriorMelee : Warrior, IMeleeBehavior
+public class WarriorMelee : MonoBehaviour, IMeleeBehavior
 {
+    private bool hasMeleed = false;
+
     public void MeleeBehavior(PlayerController player)
     {
-        StartCoroutine(Melee(player));
+        if(!hasMeleed)
+        {
+            StartCoroutine(Melee(player));
+        }
     }
 
     /// <summary>
@@ -14,14 +19,22 @@ public class WarriorMelee : Warrior, IMeleeBehavior
     /// </summary>
     public IEnumerator Melee(PlayerController player)
     {
-        while (true)
+        for (int index = 0; index < 1; index++)
         {
-            Debug.Log("Ray");
-            if (Physics.Raycast(player.transform.position, rayDirection, out hit, meleeDistance))
+            if (Physics.Raycast(player.transform.position, player.gameObject.GetComponent<Warrior>().rayDirection, out player.gameObject.GetComponent<Warrior>().hit, player.gameObject.GetComponent<Warrior>().meleeDistance))
             {
-                Debug.DrawRay(player.transform.position, rayDirection, Color.green);
+                hasMeleed = true;
+                Debug.DrawRay(player.transform.position, player.gameObject.GetComponent<Warrior>().rayDirection, Color.green);
+
+                //if (player.gameObject.GetComponent<Warrior>().hit.collider.gameObject.GetComponent<Enemy>())
+                //{
+                //    player.gameObject.GetComponent<Warrior>().hit.collider.gameObject.GetComponent<Enemy>().enemyHealth -= player.gameObject.GetComponent<Warrior>().meleeDamage;
+                //}
+
+                yield return new WaitForSeconds(player.gameObject.GetComponent<Warrior>().meleeDelay);
             }
-            yield return new WaitForSeconds(meleeDelay);
+
+            hasMeleed = false;
         }
     }
 }
