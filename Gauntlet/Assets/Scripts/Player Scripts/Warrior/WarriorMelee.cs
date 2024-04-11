@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WarriorMelee : Warrior, IPlayerBehavior
+public class WarriorMelee : Warrior, IMeleeBehavior
 {
-    public void PlayerBehavior(PlayerController player)
+    public void MeleerBehavior(PlayerController player)
     {
         Melee();
     }
