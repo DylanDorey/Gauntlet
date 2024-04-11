@@ -71,6 +71,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""86e70f06-3fd6-4f50-bb59-441e353904b2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Melee"",
+                    ""type"": ""Button"",
+                    ""id"": ""e627142d-c192-4ac8-8a34-08a6d07276b1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +190,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""LookRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4cdc5da-9055-4e83-b34e-698336d19824"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3146d868-5db4-49cf-80b3-94b3dbe30072"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Melee"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,6 +225,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_LookDown = m_Player.FindAction("LookDown", throwIfNotFound: true);
         m_Player_LookLeft = m_Player.FindAction("LookLeft", throwIfNotFound: true);
         m_Player_LookRight = m_Player.FindAction("LookRight", throwIfNotFound: true);
+        m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
+        m_Player_Melee = m_Player.FindAction("Melee", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,6 +293,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_LookDown;
     private readonly InputAction m_Player_LookLeft;
     private readonly InputAction m_Player_LookRight;
+    private readonly InputAction m_Player_Shoot;
+    private readonly InputAction m_Player_Melee;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -260,6 +304,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @LookDown => m_Wrapper.m_Player_LookDown;
         public InputAction @LookLeft => m_Wrapper.m_Player_LookLeft;
         public InputAction @LookRight => m_Wrapper.m_Player_LookRight;
+        public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
+        public InputAction @Melee => m_Wrapper.m_Player_Melee;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -284,6 +330,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @LookRight.started += instance.OnLookRight;
             @LookRight.performed += instance.OnLookRight;
             @LookRight.canceled += instance.OnLookRight;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @Melee.started += instance.OnMelee;
+            @Melee.performed += instance.OnMelee;
+            @Melee.canceled += instance.OnMelee;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -303,6 +355,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @LookRight.started -= instance.OnLookRight;
             @LookRight.performed -= instance.OnLookRight;
             @LookRight.canceled -= instance.OnLookRight;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @Melee.started -= instance.OnMelee;
+            @Melee.performed -= instance.OnMelee;
+            @Melee.canceled -= instance.OnMelee;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -327,5 +385,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnLookDown(InputAction.CallbackContext context);
         void OnLookLeft(InputAction.CallbackContext context);
         void OnLookRight(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnMelee(InputAction.CallbackContext context);
     }
 }
