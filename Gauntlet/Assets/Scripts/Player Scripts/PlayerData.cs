@@ -11,7 +11,6 @@ using UnityEngine;
 //various base player states
 public enum PlayerEvent
 {
-    Initialization,
     OnSpawn,
     OnDeath
 }
