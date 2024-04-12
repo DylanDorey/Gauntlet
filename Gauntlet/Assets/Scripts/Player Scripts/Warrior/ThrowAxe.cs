@@ -23,7 +23,7 @@ public class ThrowAxe : MonoBehaviour, IShootBehavior
         {
             hasShot = true;
 
-            GameObject axe = Instantiate(player.gameObject.GetComponent<Warrior>().axePrefab, player.transform.position, player.gameObject.GetComponent<Warrior>().axePrefab.transform.rotation);
+            GameObject axe = Instantiate(player.gameObject.GetComponent<Warrior>().axePrefab, player.gameObject.GetComponent<Warrior>().axeSpawnPos.position, player.gameObject.GetComponent<Warrior>().axePrefab.transform.rotation);
 
             axe.GetComponent<Axe>().moveDirection = transform.GetChild(0).transform.forward;
 

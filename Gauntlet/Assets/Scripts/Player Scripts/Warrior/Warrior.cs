@@ -26,6 +26,7 @@ public class Warrior : MonoBehaviour
     public Vector3 rayDirection;
 
     public GameObject axePrefab;
+    public Transform axeSpawnPos;
 
     public void Start()
     {

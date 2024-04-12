@@ -21,6 +21,11 @@ public class Axe : MonoBehaviour
 
     public Vector3 moveDirection;
 
+    private void Start()
+    {
+        Destroy(gameObject, 3f);
+    }
+
     private void FixedUpdate()
     {
         Move();
@@ -32,6 +37,7 @@ public class Axe : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             //collision.gameObject.GetComponent<Enemy>().TakeDamage(axeDamage);
+            Destroy(gameObject);
         }
     }
 
@@ -42,6 +48,6 @@ public class Axe : MonoBehaviour
 
     private void RotateAxe()
     {
-        transform.Rotate(0f, rotateSpeed, 0f);
+        transform.Rotate(0f, 0f, rotateSpeed);
     }
 }

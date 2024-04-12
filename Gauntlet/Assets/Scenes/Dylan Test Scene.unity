@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 30503530}
   - component: {fileID: 30503529}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 175118100}
   - component: {fileID: 175118103}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,12 +261,11 @@ Transform:
   m_GameObject: {fileID: 175118092}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.69, z: 0}
+  m_LocalPosition: {x: 0, y: 0.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1859006872}
-  - {fileID: 1410830290}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &175118094
@@ -397,7 +396,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1.2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &175118099
 MonoBehaviour:
@@ -412,11 +411,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeDelay: 1
-  throwDelay: 0
+  throwDelay: 1
   meleeDamage: 0
   meleeDistance: 2
   rayDirection: {x: 0, y: 0, z: 0}
-  axePrefab: {fileID: 5684626177381566858, guid: e12352666ff85fb4f9649f0adb47a6ae, type: 3}
+  axePrefab: {fileID: 4870490442639679435, guid: e12352666ff85fb4f9649f0adb47a6ae, type: 3}
+  axeSpawnPos: {fileID: 510173442}
 --- !u!114 &175118100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,6 +467,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37175bc148729c4292f2b6e012e83d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &510173441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 510173442}
+  m_Layer: 0
+  m_Name: AxeSpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &510173442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510173441}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.781, z: 0.89}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1859006872}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &683074181
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,8 +556,8 @@ Transform:
   m_GameObject: {fileID: 694699673}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 1.3299999, z: 0.53}
-  m_LocalScale: {x: 0.59341, y: 0.59341, z: 0.59341}
+  m_LocalPosition: {x: 0.008, y: 1.3299999, z: 0.349}
+  m_LocalScale: {x: 0.7874551, y: 0.7874551, z: 0.7874551}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1859006872}
@@ -551,7 +582,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7a7052f47e0fe504a953769b8793d517, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -666,12 +697,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410830287}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
   m_LocalPosition: {x: 4, y: 10, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 175118093}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!1 &1458148911
 GameObject:
@@ -860,7 +891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1859006872}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: WarriorPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -874,13 +905,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859006871}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.10520741, y: -0.69, z: 0.2940196}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.855, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1458148915}
   - {fileID: 694699674}
+  - {fileID: 510173442}
   m_Father: {fileID: 175118093}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2130559079
@@ -896,7 +928,7 @@ GameObject:
   - component: {fileID: 2130559081}
   - component: {fileID: 2130559080}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -993,6 +1025,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1600643955}
+  - {fileID: 1410830290}
   - {fileID: 683074182}
   - {fileID: 30503532}
   - {fileID: 175118093}
