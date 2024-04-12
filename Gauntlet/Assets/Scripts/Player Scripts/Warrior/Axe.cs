@@ -39,6 +39,11 @@ public class Axe : MonoBehaviour
             //collision.gameObject.GetComponent<Enemy>().TakeDamage(axeDamage);
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Move()
