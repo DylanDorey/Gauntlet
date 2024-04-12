@@ -17,11 +17,15 @@ public enum PlayerEvent
 
 public class PlayerData : MonoBehaviour
 {
-    private float playerHealth;
-    private float playerMagic;
+    public float playerHealth;
+    public float playerMagic;
+    public float playerArmor;
+    public float playerSpeed;
 
     [Range(1f, 5f)]
     public float healthTickRate;
+
+    public bool hasMelee;
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +40,13 @@ public class PlayerData : MonoBehaviour
         
     }
 
-    public void InitializePlayerData(float health, float magic)
+    public void InitializePlayerData(float health, float magic, float armor, float speed, bool isMelee)
     {
         playerHealth = health;
         playerMagic = magic;
+        playerArmor = armor;
+        playerSpeed = speed;
+        hasMelee = isMelee;
     }
 
     /// <summary>
@@ -50,7 +57,7 @@ public class PlayerData : MonoBehaviour
     public float TakeDamage(float damage)
     {
         //remove the damage value from the players health, then return the players new health
-        playerHealth -= damage;
+        playerHealth -= damage/playerArmor;
 
         return playerHealth;
     }

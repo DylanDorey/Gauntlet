@@ -9,17 +9,29 @@ using UnityEngine.InputSystem;
  * [Allows Player to move around and interact with game environment]
  */
 
+public enum CharacterType
+{
+    Warrior,
+    Valkyrie,
+    Wizard,
+    Elf
+}
+
 public class PlayerController : MonoBehaviour
 {
-    //reference to scriptable object PlayerInput
-    public PlayerInput playerActions;
+    //reference to various scriptable objects, character inputs
+    public PlayerInput playerInput;
 
-    [Range(0f, 10f)]
-    [SerializeField]
-    private float speed;
+    //the various character prefabs
+    public GameObject[] characterPrefabs = new GameObject[4];
 
-    private GameObject characterPrefab;
+    //the various projectile prefabs
+    public GameObject[] projectilePrefabs = new GameObject[4];
+
+    public CharacterType character;
+
     public IMeleeBehavior meleeBehavior;
+    public IShootBehavior shootBehavior;
 
     private void OnEnable()
     {
@@ -38,11 +50,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //reads the Vector2 value from the playerActions components and from the move action (AD) in our actions scriptable object
-        Vector2 moveVecY = playerActions.Player.Move.ReadValue<Vector2>();
-        Vector2 moveVecX = playerActions.Player.Move.ReadValue<Vector2>();
-        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (speed * Time.deltaTime));
-
+        Vector2 moveVecY = playerInput.Player.Move.ReadValue<Vector2>();
+        Vector2 moveVecX = playerInput.Player.Move.ReadValue<Vector2>();
+        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
         SetRotation(moveVecX, moveVecY);
     }
 
@@ -60,14 +70,25 @@ public class PlayerController : MonoBehaviour
         //On move is only going to fire when called with W or S
         Vector2 moveVecY = context.ReadValue<Vector2>();
         Vector2 moveVecX = context.ReadValue<Vector2>();
-        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (speed * Time.deltaTime));
+        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
     }
 
     public void OnMelee(InputAction.CallbackContext context)
     {
+        if (GetComponent<PlayerData>().hasMelee)
+        {
+            if (context.performed)
+            {
+                ApplyMeleeBehavior(meleeBehavior);
+            }
+        }
+    }
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
         if (context.performed)
         {
-            ApplyMeleeBehavior(meleeBehavior);
+            ApplyShootBehavior(shootBehavior);
         }
     }
 
@@ -142,40 +163,55 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void InitializePlayerController()
     {
+        switch(GameManager.Instance.characters)
+        {
+            case 0:
+                character = CharacterType.Warrior;
+                break;
+
+            case 1:
+                character = CharacterType.Wizard;
+                break;
+
+            case 2:
+                character = CharacterType.Valkyrie;
+                break;
+
+            case 3:
+                character = CharacterType.Elf;
+                break;
+
+        }
+
+        switch (character)
+        {
+            case CharacterType.Warrior:
+                gameObject.AddComponent<Warrior>();
+                gameObject.AddComponent<ThrowAxe>();
+                gameObject.AddComponent<WarriorMelee>();
+                break;
+
+            case CharacterType.Wizard:
+                gameObject.AddComponent<Wizard>();
+                gameObject.AddComponent<ThrowFireball>();
+                break;
+
+                //case CharacterType.Valkyrie:
+                //    gameObject.AddComponent<Valkyrie>();
+                //    gameObject.AddComponent<ThrowSword>();
+                //    gameObject.AddComponent<ValkyrieMelee>();
+                //    break;
+                //case CharacterType.Elf:
+                //    gameObject.AddComponent<Elf>();
+                //    gameObject.AddComponent<ShootArrow>();
+                //    gameObject.AddComponent<ElfMelee>();
+                //    break;
+        }
+
         //reference for the PlayerInput scriptable object
-        playerActions = new PlayerInput(); //constructor
-
-        //turn playerActions on
-        playerActions.Enable();
-
-        characterPrefab = transform.GetChild(0).gameObject;
-
-        //determine which character this player will be
-        //int characterToAdd = GameManager.Instance.characters;
-        //switch (characterToAdd)
-        //{
-        //    case 0:
-        //        gameObject.AddComponent<Warrior>();
-        //        gameObject.AddComponent<ThrowAxe>();
-        //        gameObject.AddComponent<WarriorMelee>();
-        //        break;
-        //    case 1:
-        //        gameObject.AddComponent<Wizard>();
-        //        gameObject.AddComponent<ThrowFireball>();
-        //        break;
-        //    case 2:
-        //        gameObject.AddComponent<Valkyrie>();
-        //        gameObject.AddComponent<ThrowSword>();
-        //        gameObject.AddComponent<ValkyrieMelee>();
-        //        break;
-        //    case 3:
-        //        gameObject.AddComponent<Elf>();
-        //        gameObject.AddComponent<ShootArrow>();
-        //        gameObject.AddComponent<ElfMelee>();
-        //        break;
-        //    default:
-        //        break;
-        //}
+        playerInput = new PlayerInput(); //constructor
+        //turn player on
+        playerInput.Enable();
 
         //characterToAdd++;
 
@@ -198,9 +234,15 @@ public class PlayerController : MonoBehaviour
         InitializePlayerController();
     }
 
-    //apply a behavior
+    //apply a melee behavior
     public void ApplyMeleeBehavior(IMeleeBehavior behavior)
     {
         behavior.MeleeBehavior(this);
+    }
+
+    //apply a shoot behavior
+    public void ApplyShootBehavior(IShootBehavior behavior)
+    {
+        behavior.ShootBehavior(this);
     }
 }

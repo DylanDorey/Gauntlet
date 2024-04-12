@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author: [Dorey, Dylan]
+ * Last Updated: [4/11/2024]
+ * [Allows Player melee with the Warrior]
+ */
+
 public class WarriorMelee : MonoBehaviour, IMeleeBehavior
 {
     private bool hasMeleed = false;

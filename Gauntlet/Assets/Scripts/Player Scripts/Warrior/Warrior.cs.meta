@@ -3,7 +3,9 @@ guid: f866592f6c3d796419dd374472e81fcd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - axePrefab: {fileID: 4870490442639679435, guid: e12352666ff85fb4f9649f0adb47a6ae, type: 3}
+  - axeSpawnPos: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
