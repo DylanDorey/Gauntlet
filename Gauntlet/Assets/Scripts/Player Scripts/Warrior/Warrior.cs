@@ -30,7 +30,7 @@ public class Warrior : MonoBehaviour
 
     public void Start()
     {
-        GetComponent<PlayerData>().InitializePlayerData(700f, 0f, 0f, 5f);
+        GetComponent<PlayerData>().InitializePlayerData(700f, 0f, 0f, 5f, true);
     }
 
     private void Update()

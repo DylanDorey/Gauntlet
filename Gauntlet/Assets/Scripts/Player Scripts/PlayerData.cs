@@ -25,6 +25,8 @@ public class PlayerData : MonoBehaviour
     [Range(1f, 5f)]
     public float healthTickRate;
 
+    public bool hasMelee;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,12 +40,13 @@ public class PlayerData : MonoBehaviour
         
     }
 
-    public void InitializePlayerData(float health, float magic, float armor, float speed)
+    public void InitializePlayerData(float health, float magic, float armor, float speed, bool isMelee)
     {
         playerHealth = health;
         playerMagic = magic;
         playerArmor = armor;
         playerSpeed = speed;
+        hasMelee = isMelee;
     }
 
     /// <summary>

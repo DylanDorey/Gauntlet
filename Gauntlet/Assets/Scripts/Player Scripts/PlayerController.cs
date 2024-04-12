@@ -22,9 +22,14 @@ public class PlayerController : MonoBehaviour
     //reference to various scriptable objects, character inputs
     public PlayerInput playerInput;
 
+    //the various character prefabs
+    public GameObject[] characterPrefabs = new GameObject[4];
+
+    //the various projectile prefabs
+    public GameObject[] projectilePrefabs = new GameObject[4];
+
     public CharacterType character;
 
-    private GameObject characterPrefab;
     public IMeleeBehavior meleeBehavior;
     public IShootBehavior shootBehavior;
 
@@ -45,10 +50,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-            Vector2 warriorVecY = playerInput.Player.Move.ReadValue<Vector2>();
-            Vector2 warriorVecX = playerInput.Player.Move.ReadValue<Vector2>();
-            transform.Translate(new Vector3(warriorVecX.x, 0f, warriorVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
-            SetRotation(warriorVecX, warriorVecY);
+        Vector2 moveVecY = playerInput.Player.Move.ReadValue<Vector2>();
+        Vector2 moveVecX = playerInput.Player.Move.ReadValue<Vector2>();
+        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+        SetRotation(moveVecX, moveVecY);
     }
 
     public virtual void OnCollisionEnter(Collision collision)
@@ -70,9 +75,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnMelee(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (GetComponent<PlayerData>().hasMelee)
         {
-            ApplyMeleeBehavior(meleeBehavior);
+            if (context.performed)
+            {
+                ApplyMeleeBehavior(meleeBehavior);
+            }
         }
     }
 
@@ -204,8 +212,6 @@ public class PlayerController : MonoBehaviour
         playerInput = new PlayerInput(); //constructor
         //turn player on
         playerInput.Enable();
-
-        characterPrefab = transform.GetChild(0).gameObject;
 
         //characterToAdd++;
 
