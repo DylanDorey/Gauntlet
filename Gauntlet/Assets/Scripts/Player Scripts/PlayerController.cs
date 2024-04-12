@@ -14,10 +14,6 @@ public class PlayerController : MonoBehaviour
     //reference to scriptable object PlayerInput
     public PlayerInput playerActions;
 
-    [Range(0f, 10f)]
-    [SerializeField]
-    private float speed;
-
     private GameObject characterPrefab;
     public IMeleeBehavior meleeBehavior;
     public IShootBehavior shootBehavior;
@@ -42,7 +38,7 @@ public class PlayerController : MonoBehaviour
         //reads the Vector2 value from the playerActions components and from the move action (AD) in our actions scriptable object
         Vector2 moveVecY = playerActions.Player.Move.ReadValue<Vector2>();
         Vector2 moveVecX = playerActions.Player.Move.ReadValue<Vector2>();
-        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (speed * Time.deltaTime));
+        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
 
         SetRotation(moveVecX, moveVecY);
     }
@@ -61,7 +57,7 @@ public class PlayerController : MonoBehaviour
         //On move is only going to fire when called with W or S
         Vector2 moveVecY = context.ReadValue<Vector2>();
         Vector2 moveVecX = context.ReadValue<Vector2>();
-        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (speed * Time.deltaTime));
+        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
     }
 
     public void OnMelee(InputAction.CallbackContext context)
