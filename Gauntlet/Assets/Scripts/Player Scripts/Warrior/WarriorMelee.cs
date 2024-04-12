@@ -24,7 +24,7 @@ public class WarriorMelee : MonoBehaviour, IMeleeBehavior
             if (Physics.Raycast(player.transform.position, player.gameObject.GetComponent<Warrior>().rayDirection, out player.gameObject.GetComponent<Warrior>().hit, player.gameObject.GetComponent<Warrior>().meleeDistance))
             {
                 hasMeleed = true;
-                Debug.DrawRay(player.transform.position, player.gameObject.GetComponent<Warrior>().rayDirection, Color.green);
+                Debug.DrawRay(player.transform.position, player.gameObject.GetComponent<Warrior>().rayDirection, Color.red);
 
                 //if (player.gameObject.GetComponent<Warrior>().hit.collider.gameObject.GetComponent<Enemy>())
                 //{

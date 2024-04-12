@@ -19,7 +19,11 @@ public class Warrior : MonoBehaviour
     public void Start()
     {
         GetComponent<PlayerController>().meleeBehavior = GetComponent<WarriorMelee>();
-        rayDirection = Vector3.forward;
+    }
+
+    private void Update()
+    {
+        rayDirection = transform.GetChild(0).transform.forward;
     }
 
     public void OnCollisionEnter(Collision collider)
