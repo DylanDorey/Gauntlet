@@ -13,9 +13,6 @@ public class Wizard : MonoBehaviour
     [Range(1f, 10f)]
     public float throwDelay;
 
-    public RaycastHit hit;
-    public Vector3 rayDirection;
-
     public GameObject wizardPrefab;
     public GameObject fireballPrefab;
     public Transform fireballSpawnPos;
@@ -32,10 +29,5 @@ public class Wizard : MonoBehaviour
 
         GetComponent<PlayerData>().InitializePlayerData(700f, 2f, 0f, 3f, false);
         GetComponent<PlayerController>().shootBehavior = GetComponent<ThrowFireball>();
-    }
-
-    private void Update()
-    {
-        rayDirection = transform.GetChild(0).transform.forward;
     }
 }

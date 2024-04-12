@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCharactersInPlay: 0
-  characters: 1
+  characters: 0
 --- !u!1 &1410830287
 GameObject:
   m_ObjectHideFlags: 0
