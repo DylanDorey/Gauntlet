@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private GameObject characterPrefab;
     public IMeleeBehavior meleeBehavior;
+    public IShootBehavior shootBehavior;
 
     private void OnEnable()
     {
@@ -68,6 +69,14 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             ApplyMeleeBehavior(meleeBehavior);
+        }
+    }
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            ApplyShootBehavior(shootBehavior);
         }
     }
 
@@ -198,9 +207,15 @@ public class PlayerController : MonoBehaviour
         InitializePlayerController();
     }
 
-    //apply a behavior
+    //apply a melee behavior
     public void ApplyMeleeBehavior(IMeleeBehavior behavior)
     {
         behavior.MeleeBehavior(this);
+    }
+
+    //apply a shoot behavior
+    public void ApplyShootBehavior(IShootBehavior behavior)
+    {
+        behavior.ShootBehavior(this);
     }
 }
