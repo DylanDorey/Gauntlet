@@ -13,8 +13,13 @@ public class PlayerController : MonoBehaviour
 {
     //reference to scriptable object PlayerInput
     public PlayerInput playerActions;
-    public float speed;
-    public GameObject characterPrefab;
+
+    [Range(0f, 10f)]
+    [SerializeField]
+    private float speed;
+
+    private GameObject characterPrefab;
+    public IMeleeBehavior meleeBehavior;
 
     private void OnEnable()
     {
@@ -26,7 +31,7 @@ public class PlayerController : MonoBehaviour
         PlayerEventBus.Unsubscribe(PlayerEvent.OnSpawn, StartPlayerController);
     }
 
-    private void Start()
+    public virtual void Start()
     {
         PlayerEventBus.Publish(PlayerEvent.OnSpawn);
     }
@@ -41,6 +46,11 @@ public class PlayerController : MonoBehaviour
         SetRotation(moveVecX, moveVecY);
     }
 
+    public virtual void OnCollisionEnter(Collision collision)
+    {
+        
+    }
+
     /// <summary>
     /// Allows the player to move around
     /// </summary>
@@ -51,6 +61,14 @@ public class PlayerController : MonoBehaviour
         Vector2 moveVecY = context.ReadValue<Vector2>();
         Vector2 moveVecX = context.ReadValue<Vector2>();
         transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (speed * Time.deltaTime));
+    }
+
+    public void OnMelee(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            ApplyMeleeBehavior(meleeBehavior);
+        }
     }
 
     /// <summary>
@@ -130,6 +148,8 @@ public class PlayerController : MonoBehaviour
         //turn playerActions on
         playerActions.Enable();
 
+        characterPrefab = transform.GetChild(0).gameObject;
+
         //determine which character this player will be
         //int characterToAdd = GameManager.Instance.characters;
         //switch (characterToAdd)
@@ -157,6 +177,8 @@ public class PlayerController : MonoBehaviour
         //        break;
         //}
 
+        //characterToAdd++;
+
         //if (characterToAdd == 3)
         //{
         //    GameManager.Instance.maxCharactersInPlay = true;
@@ -174,5 +196,11 @@ public class PlayerController : MonoBehaviour
     public void StartPlayerController()
     {
         InitializePlayerController();
+    }
+
+    //apply a behavior
+    public void ApplyMeleeBehavior(IMeleeBehavior behavior)
+    {
+        behavior.MeleeBehavior(this);
     }
 }
