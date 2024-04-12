@@ -9,10 +9,23 @@ using UnityEngine.InputSystem;
  * [Allows Player to move around and interact with game environment]
  */
 
+public enum CharacterType
+{
+    Warrior,
+    Valkyrie,
+    Wizard,
+    Elf
+}
+
 public class PlayerController : MonoBehaviour
 {
-    //reference to scriptable object PlayerInput
-    public PlayerInput playerActions;
+    //reference to various scriptable objects, character inputs
+    public WarriorInput warriorInput;
+    public ValkyrieInput valkyrieInput;
+    public WizardInput wizardInput;
+    public ElfInput elfInput;
+
+    public CharacterType character;
 
     private GameObject characterPrefab;
     public IMeleeBehavior meleeBehavior;
@@ -35,12 +48,43 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //reads the Vector2 value from the playerActions components and from the move action (AD) in our actions scriptable object
-        Vector2 moveVecY = playerActions.Player.Move.ReadValue<Vector2>();
-        Vector2 moveVecX = playerActions.Player.Move.ReadValue<Vector2>();
-        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+        switch (character)
+        {
+            case CharacterType.Warrior:
 
-        SetRotation(moveVecX, moveVecY);
+                Vector2 warriorVecY = warriorInput.Warrior.Move.ReadValue<Vector2>();
+                Vector2 warriorVecX = warriorInput.Warrior.Move.ReadValue<Vector2>();
+                transform.Translate(new Vector3(warriorVecX.x, 0f, warriorVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+                SetRotation(warriorVecX, warriorVecY);
+                break;
+
+            case CharacterType.Valkyrie:
+
+                //reads the Vector2 value from the playerActions components and from the move action (AD) in our actions scriptable object
+                Vector2 valkyrieVecY = valkyrieInput.Valkyrie.Move.ReadValue<Vector2>();
+                Vector2 valkyrieVecX = valkyrieInput.Valkyrie.Move.ReadValue<Vector2>();
+                transform.Translate(new Vector3(valkyrieVecX.x, 0f, valkyrieVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+                SetRotation(valkyrieVecX, valkyrieVecY);
+                break;
+
+            case CharacterType.Wizard:
+
+                //reads the Vector2 value from the playerActions components and from the move action (AD) in our actions scriptable object
+                Vector2 wizardVecY = wizardInput.Wizard.Move.ReadValue<Vector2>();
+                Vector2 wizardVecX = wizardInput.Wizard.Move.ReadValue<Vector2>();
+                transform.Translate(new Vector3(wizardVecX.x, 0f, wizardVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+                SetRotation(wizardVecX, wizardVecY);
+                break;
+
+            case CharacterType.Elf:
+
+                //reads the Vector2 value from the playerActions components and from the move action (AD) in our actions scriptable object
+                Vector2 elfVecY = elfInput.Elf.Move.ReadValue<Vector2>();
+                Vector2 elfVecX = elfInput.Elf.Move.ReadValue<Vector2>();
+                transform.Translate(new Vector3(elfVecX.x, 0f, elfVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+                SetRotation(elfVecX, elfVecY);
+                break;
+        }
     }
 
     public virtual void OnCollisionEnter(Collision collision)
@@ -147,11 +191,40 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void InitializePlayerController()
     {
-        //reference for the PlayerInput scriptable object
-        playerActions = new PlayerInput(); //constructor
+        switch (character)
+        {
+            case CharacterType.Warrior:
 
-        //turn playerActions on
-        playerActions.Enable();
+                //reference for the WarriorInput scriptable object
+                warriorInput = new WarriorInput(); //constructor
+                //turn warrior on
+                warriorInput.Enable();
+                break;
+
+            case CharacterType.Valkyrie:
+
+                //reference for the ValkyrieInput scriptable object
+                valkyrieInput = new ValkyrieInput(); //constructor
+                //turn valkyrie on
+                valkyrieInput.Enable();
+                break;
+
+            case CharacterType.Wizard:
+
+                //reference for the WizardInput scriptable object
+                wizardInput = new WizardInput(); //constructor
+                //turn wizard on
+                wizardInput.Enable();
+                break;
+
+            case CharacterType.Elf:
+
+                //reference for the ElfInput scriptable object
+                elfInput = new ElfInput(); //constructor
+                //turn elf on
+                elfInput.Enable();
+                break;
+        }
 
         characterPrefab = transform.GetChild(0).gameObject;
 

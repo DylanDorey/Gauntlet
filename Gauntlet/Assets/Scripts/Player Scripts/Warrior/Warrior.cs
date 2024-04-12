@@ -33,6 +33,7 @@ public class Warrior : MonoBehaviour
         GetComponent<PlayerController>().meleeBehavior = GetComponent<WarriorMelee>();
         GetComponent<PlayerController>().shootBehavior = GetComponent<ThrowAxe>();
         GetComponent<PlayerData>().InitializePlayerData(700f, 0f, 0f, 5f);
+        GetComponent<PlayerController>().character = CharacterType.Warrior;
     }
 
     private void Update()

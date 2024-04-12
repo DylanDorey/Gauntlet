@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: f8972b4fcd36518489eddffb384e68da, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 76ca15ec74a48754b985a832f0c8e8e6, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -322,24 +322,24 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 9995efa1-9571-4615-80be-b74f1131c8c4
-    m_ActionName: Player/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
+    m_ActionId: 0a0f09fb-fe0b-481a-a5b1-1fcfd171e446
+    m_ActionName: Warrior/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 1ab5afc0-89d8-4d4f-a978-d35d89a06802
-    m_ActionName: Player/LookUp[/XInputControllerWindows/rightStick/up]
+    m_ActionId: acd0938f-53b3-4472-a1c3-decb5adab3f1
+    m_ActionName: Warrior/LookUp[/XInputControllerWindows/rightStick/up]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 8739881d-fc2c-4306-8fae-decd6e9413f5
-    m_ActionName: Player/LookDown[/XInputControllerWindows/rightStick/down]
+    m_ActionId: bd66f35b-0d64-464c-9af3-b0d8223bf756
+    m_ActionName: Warrior/LookDown[/XInputControllerWindows/rightStick/down]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 0f3444ef-058a-40e0-8b33-dc0602c8ed1a
-    m_ActionName: Player/LookLeft[/XInputControllerWindows/rightStick/left]
+    m_ActionId: c7dc2a89-c9c3-4573-adda-a5c5fefde5f3
+    m_ActionName: Warrior/LookLeft[/XInputControllerWindows/rightStick/left]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 91022721-008b-4a9b-85f4-a66465fcce4e
-    m_ActionName: Player/LookRight[/XInputControllerWindows/rightStick/right]
+    m_ActionId: 24193b73-2f79-485f-ab73-e87f0710de8c
+    m_ActionName: Warrior/LookRight[/XInputControllerWindows/rightStick/right]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 175118102}
@@ -354,8 +354,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 86e70f06-3fd6-4f50-bb59-441e353904b2
-    m_ActionName: Player/Shoot[/XInputControllerWindows/rightTrigger]
+    m_ActionId: 876f33fd-6116-4a13-8094-6e77a8dd909f
+    m_ActionName: Warrior/Shoot[/XInputControllerWindows/rightTrigger]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 175118102}
@@ -370,11 +370,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: e627142d-c192-4ac8-8a34-08a6d07276b1
-    m_ActionName: Player/Melee[/XInputControllerWindows/leftTrigger]
+    m_ActionId: 24f8b678-4975-4cb1-8fbd-1139ea742232
+    m_ActionName: Warrior/Melee[/XInputControllerWindows/leftTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: Warrior
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!65 &175118097
@@ -458,6 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352ecc4017086f44da90c0636ea766c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: 0
 --- !u!114 &175118103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,6 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352ecc4017086f44da90c0636ea766c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: 0
 --- !u!114 &465445505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: f8972b4fcd36518489eddffb384e68da, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 20a15ad737b447141acb89b3cb61ce7f, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -549,24 +551,24 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 9995efa1-9571-4615-80be-b74f1131c8c4
-    m_ActionName: Player/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
+    m_ActionId: 47810e5c-0aa0-4a63-aa17-26c711a297b4
+    m_ActionName: Wizard/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 1ab5afc0-89d8-4d4f-a978-d35d89a06802
-    m_ActionName: Player/LookUp[/XInputControllerWindows/rightStick/up]
+    m_ActionId: 5ec23270-50d9-465e-b48b-02e1dc884743
+    m_ActionName: Wizard/LookUp[/XInputControllerWindows/rightStick/up]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 8739881d-fc2c-4306-8fae-decd6e9413f5
-    m_ActionName: Player/LookDown[/XInputControllerWindows/rightStick/down]
+    m_ActionId: 2a651d5e-c7f4-4fa5-bfc1-f07d00e40ae3
+    m_ActionName: Wizard/LookDown[/XInputControllerWindows/rightStick/down]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 0f3444ef-058a-40e0-8b33-dc0602c8ed1a
-    m_ActionName: Player/LookLeft[/XInputControllerWindows/rightStick/left]
+    m_ActionId: bb5e5089-0e58-40cb-b4aa-56076a3cb198
+    m_ActionName: Wizard/LookLeft[/XInputControllerWindows/rightStick/left]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 91022721-008b-4a9b-85f4-a66465fcce4e
-    m_ActionName: Player/LookRight[/XInputControllerWindows/rightStick/right]
+    m_ActionId: 1478ad4d-a54c-46ab-8a51-b455992288fb
+    m_ActionName: Wizard/LookRight[/XInputControllerWindows/rightStick/right]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 465445504}
@@ -581,27 +583,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 86e70f06-3fd6-4f50-bb59-441e353904b2
-    m_ActionName: Player/Shoot[/XInputControllerWindows/rightTrigger]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 465445504}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnMelee
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: e627142d-c192-4ac8-8a34-08a6d07276b1
-    m_ActionName: Player/Melee[/XInputControllerWindows/leftTrigger]
+    m_ActionId: 1b2b5dbc-2077-4afa-b477-3c0d1f93bd50
+    m_ActionName: Wizard/Shoot[/XInputControllerWindows/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: Wizard
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!65 &465445506
@@ -1488,6 +1474,6 @@ SceneRoots:
   - {fileID: 1410830290}
   - {fileID: 683074182}
   - {fileID: 30503532}
-  - {fileID: 175118093}
   - {fileID: 465445508}
+  - {fileID: 175118093}
   - {fileID: 2130559083}
