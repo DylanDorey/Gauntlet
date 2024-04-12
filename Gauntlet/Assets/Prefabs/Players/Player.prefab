@@ -62,7 +62,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1095053287415032874
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -178,6 +178,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352ecc4017086f44da90c0636ea766c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterPrefabs:
+  - {fileID: 9023392820244342524, guid: 136380eb539d7854785e2658247ed621, type: 3}
+  - {fileID: 7197700089058974574, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  projectilePrefabs:
+  - {fileID: 4870490442639679435, guid: e12352666ff85fb4f9649f0adb47a6ae, type: 3}
+  - {fileID: 656569471141158888, guid: ae7a70d0375f7384f8339e4aefb25685, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   character: 0
 --- !u!114 &5164162895434177593
 MonoBehaviour:

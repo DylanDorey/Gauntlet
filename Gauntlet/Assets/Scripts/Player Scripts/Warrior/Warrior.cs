@@ -25,21 +25,27 @@ public class Warrior : MonoBehaviour
     public RaycastHit hit;
     public Vector3 rayDirection;
 
+    public GameObject warriorPrefab;
     public GameObject axePrefab;
     public Transform axeSpawnPos;
 
     public void Start()
     {
+        warriorPrefab = GetComponent<PlayerController>().characterPrefabs[0];
+        axePrefab = GetComponent<PlayerController>().projectilePrefabs[0];
+
+        GameObject warrior = Instantiate(warriorPrefab, transform.position, Quaternion.identity);
+        warrior.transform.parent = GetComponent<PlayerController>().gameObject.transform;
+
+        axeSpawnPos = warrior.transform.GetChild(2);
+
         GetComponent<PlayerData>().InitializePlayerData(700f, 0f, 0f, 5f, true);
+        GetComponent<PlayerController>().shootBehavior = GetComponent<ThrowAxe>();
+        GetComponent<PlayerController>().meleeBehavior = GetComponent<WarriorMelee>();
     }
 
     private void Update()
     {
         rayDirection = transform.GetChild(0).transform.forward;
-    }
-
-    public void OnCollisionEnter(Collision collider)
-    {
-
     }
 }
