@@ -7,6 +7,9 @@ public class Valkyrie : MonoBehaviour, IValkyrieMelee, IValkyrieShoot
     public float bulletSpeed = 5f;
     public Rigidbody projectile;
 
+    [Range(1f, 10f)]
+    public float meleeSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +27,7 @@ public class Valkyrie : MonoBehaviour, IValkyrieMelee, IValkyrieShoot
         swingSword();
     }
 
-    private new MonoBehaviour(IValkyrieShoot)
+    private MonoBehaviour(IValkyrieShoot)
     {
         shootSword();
     }
