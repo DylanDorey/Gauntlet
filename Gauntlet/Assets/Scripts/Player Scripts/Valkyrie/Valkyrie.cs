@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Valkyrie : MonoBehaviour, IValkyrieMelee, IValkyrieShoot
+public class Valkyrie : MonoBehaviour
 {
     public float bulletSpeed = 5f;
     public Rigidbody projectile;
@@ -20,16 +20,6 @@ public class Valkyrie : MonoBehaviour, IValkyrieMelee, IValkyrieShoot
     void Update()
     {
         
-    }
-
-    private new MonoBehaviour(IValkyrieMelee)
-    {
-        swingSword();
-    }
-
-    private MonoBehaviour(IValkyrieShoot)
-    {
-        shootSword();
     }
 
     private void swingSword()
