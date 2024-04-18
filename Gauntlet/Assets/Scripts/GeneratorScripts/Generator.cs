@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author: [Dorey, Dylan]
+ * Last Updated: [4/18/2024]
+ * [Base class for generators]
+ */
+
 public class Generator : MonoBehaviour
 {
     public int generatorLevel;
