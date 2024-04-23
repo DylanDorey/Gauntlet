@@ -18,6 +18,7 @@ public enum PlayerEvent
 public class PlayerData : MonoBehaviour
 {
     public float playerHealth;
+    public float playerScore;
     public float playerMagic;
     public float playerArmor;
     public float playerSpeed;
@@ -40,9 +41,10 @@ public class PlayerData : MonoBehaviour
         
     }
 
-    public void InitializePlayerData(float health, float magic, float armor, float speed, bool isMelee)
+    public void InitializePlayerData(float health, float score, float magic, float armor, float speed, bool isMelee)
     {
         playerHealth = health;
+        playerScore = score;
         playerMagic = magic;
         playerArmor = armor;
         playerSpeed = speed;
