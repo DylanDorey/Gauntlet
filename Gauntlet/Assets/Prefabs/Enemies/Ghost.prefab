@@ -131,11 +131,11 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 10
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8455143617549704139
 MonoBehaviour:
@@ -298,6 +298,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b340c7c6bd5bb184492189c89d7e0ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAggro: 0
+  enemyPoints: 0
+  enemyLevel: 0
+  enemyDamage: 0
+  enemyHealth: 0
+  enemySpeed: 0
+  enemyRadius: 0
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!1 &6692778379103802398
 GameObject:
   m_ObjectHideFlags: 0
