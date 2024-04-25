@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 80193992971291451}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.94, y: 0.001, z: 0.445}
+  m_LocalPosition: {x: -0.007999912, y: 0.001, z: 0.216}
   m_LocalScale: {x: 0.15, y: 0.07, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -115,6 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 842856225339146344}
   - component: {fileID: 5636344909966734542}
+  - component: {fileID: -6898924473843433026}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -159,8 +160,23 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.45099008, y: 0.10772729, z: 0.87036335}
-  m_Center: {x: 1.944684, y: -0.004638195, z: 0.25338346}
+  m_Size: {x: 0.45, y: 0.1, z: 0.9}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6898924473843433026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744112362532714893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585413a52d38f6b4793b07272313aa52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordSpeed: 6
+  swordDamage: 5
+  moveDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &2802767335994898686
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +205,7 @@ Transform:
   m_GameObject: {fileID: 2802767335994898686}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.94, y: 0, z: 0.045}
+  m_LocalPosition: {x: -0.008, y: 0, z: -0.184}
   m_LocalScale: {x: 0.1, y: 0.07, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -294,7 +310,7 @@ Transform:
   m_GameObject: {fileID: 4640096090304438666}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.941, y: 0, z: 0.214}
+  m_LocalPosition: {x: -0.007000029, y: 0, z: -0.01500003}
   m_LocalScale: {x: 0.1, y: 0.09, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []

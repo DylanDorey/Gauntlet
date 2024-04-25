@@ -3,7 +3,12 @@ guid: f3f50f02a3b05d0409ba7fb9dfe31f68
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - characterPanels: {instanceID: 0}
+  - keySlots: {instanceID: 0}
+  - keyPrefab: {fileID: 120186224271754500, guid: ed15f84cac843d24ebc3dad87e676453, type: 3}
+  - bluePotionPrefab: {instanceID: 0}
+  - orangePotionPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

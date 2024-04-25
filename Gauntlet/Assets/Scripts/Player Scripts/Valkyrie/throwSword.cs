@@ -12,8 +12,6 @@ public class throwSword : MonoBehaviour, IShootBehavior
         {
             StartCoroutine(Throw(player));
         }
-
-
     }
 
     public IEnumerator Throw(PlayerController player)
