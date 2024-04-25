@@ -36,11 +36,11 @@ public class Item : MonoBehaviour
 
     public void PassPoints(Collision collision)
     {
-        GetComponent<Collider>().gameObject.GetComponent<PlayerData>().playerScore += pointAmount;
+        collision.gameObject.GetComponent<PlayerData>().playerScore += pointAmount;
     }
 
     public void PassHealth(Collision collision)
     {
-        GetComponent<Collider>().gameObject.GetComponent<PlayerData>().playerHealth += healAmount;
+        collision.gameObject.GetComponent<PlayerData>().playerHealth += healAmount;
     }
 }

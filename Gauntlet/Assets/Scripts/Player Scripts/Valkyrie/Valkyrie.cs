@@ -34,8 +34,8 @@ public class Valkyrie : MonoBehaviour
 
     public void Start()
     {
-        valkyriePrefab = GetComponent<PlayerController>().characterPrefabs[2];
-        swordPrefab = GetComponent<PlayerController>().projectilePrefabs[2];
+        valkyriePrefab = GetComponent<PlayerController>().characterPrefabs[1];
+        swordPrefab = GetComponent<PlayerController>().projectilePrefabs[1];
 
         GameObject valkyrie = Instantiate(valkyriePrefab, transform.position, Quaternion.identity);
         valkyrie.transform.parent = GetComponent<PlayerController>().gameObject.transform;

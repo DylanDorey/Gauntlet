@@ -27,6 +27,7 @@ public class PlayerData : MonoBehaviour
     public float healthTickRate;
 
     public bool hasMelee;
+    public bool hasKey;
 
     // Start is called before the first frame update
     void Start()

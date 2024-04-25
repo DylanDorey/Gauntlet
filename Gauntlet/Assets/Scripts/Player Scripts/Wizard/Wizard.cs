@@ -19,8 +19,8 @@ public class Wizard : MonoBehaviour
 
     public void Start()
     {
-        wizardPrefab = GetComponent<PlayerController>().characterPrefabs[1];
-        fireballPrefab = GetComponent<PlayerController>().projectilePrefabs[1];
+        wizardPrefab = GetComponent<PlayerController>().characterPrefabs[2];
+        fireballPrefab = GetComponent<PlayerController>().projectilePrefabs[2];
 
         GameObject wizard = Instantiate(wizardPrefab, transform.position, Quaternion.identity);
         wizard.transform.parent = GetComponent<PlayerController>().gameObject.transform;

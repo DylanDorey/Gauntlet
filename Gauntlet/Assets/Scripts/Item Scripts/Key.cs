@@ -8,6 +8,8 @@ public class Key : Item
     {
         base.OnCollisionEnter(collision);
 
-        //InventoryManager.Instance.PickupItem(gameObject);
+        collision.gameObject.GetComponent<InventoryManager>().PickupItem(gameObject);
+
+        Destroy(gameObject);
     }
 }

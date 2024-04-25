@@ -170,11 +170,11 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case 1:
-                character = CharacterType.Wizard;
+                character = CharacterType.Valkyrie;
                 break;
 
             case 2:
-                character = CharacterType.Valkyrie;
+                character = CharacterType.Wizard;
                 break;
 
             case 3:
@@ -196,17 +196,19 @@ public class PlayerController : MonoBehaviour
                 gameObject.AddComponent<ThrowFireball>();
                 break;
 
-                //case CharacterType.Valkyrie:
-                //    gameObject.AddComponent<Valkyrie>();
-                //    gameObject.AddComponent<ThrowSword>();
-                //    gameObject.AddComponent<ValkyrieMelee>();
-                //    break;
-                //case CharacterType.Elf:
-                //    gameObject.AddComponent<Elf>();
-                //    gameObject.AddComponent<ShootArrow>();
-                //    gameObject.AddComponent<ElfMelee>();
-                //    break;
+            case CharacterType.Valkyrie:
+                gameObject.AddComponent<Valkyrie>();
+                gameObject.AddComponent<throwSword>();
+                gameObject.AddComponent<swordMelee>();
+                break;
+            //case CharacterType.Elf:
+            //    gameObject.AddComponent<Elf>();
+            //    gameObject.AddComponent<ShootArrow>();
+            //    gameObject.AddComponent<ElfMelee>();
+            //    break;
         }
+
+        GetComponent<InventoryManager>().InitializeSlots();
 
         //reference for the PlayerInput scriptable object
         playerInput = new PlayerInput(); //constructor
