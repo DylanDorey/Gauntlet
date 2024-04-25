@@ -19,9 +19,19 @@ public class Enemy : MonoBehaviour
     public float enemySpeed;
     public float enemyRadius;
 
+    public Vector3 targetPos;
+
     public virtual void OnCollisionEnter(Collision collision)
     {
         
+    }
+
+    private void FixedUpdate()
+    {
+        if (isAggro)
+        {
+            Move();
+        }
     }
 
     /// <summary>
@@ -45,12 +55,8 @@ public class Enemy : MonoBehaviour
 
     public virtual void Move()
     {
-
-    }
-
-    public void TurnTowardsPlayer()
-    {
-
+        transform.LookAt(targetPos);
+        transform.Translate(Vector3.forward * (enemySpeed * Time.deltaTime));
     }
 
     public int PassPoints()
@@ -65,7 +71,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void OnDeath()
     {
-
+        
     }
 
     //public void ApplyBehavior(IEnemytBehavior behavior)
