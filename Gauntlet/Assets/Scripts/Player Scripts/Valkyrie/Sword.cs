@@ -38,6 +38,6 @@ public class Sword : MonoBehaviour
 
     private void firingSword()
     {
-        transform.Rotate(0f, 0f, rotateSpeed);
+        transform.Rotate(0f, rotateSpeed, 0f);
     }
 }

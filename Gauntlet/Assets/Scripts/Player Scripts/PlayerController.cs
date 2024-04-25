@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         PlayerEventBus.Unsubscribe(PlayerEvent.OnSpawn, StartPlayerController);
     }
 
-    public virtual void Start()
+    public void Start()
     {
         PlayerEventBus.Publish(PlayerEvent.OnSpawn);
     }
