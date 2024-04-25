@@ -5,14 +5,6 @@ using UnityEngine;
 
 public class Ghost : Enemy
 {
-    private bool _isChasingPlayer = false;
-    private Transform player;
-
-
-    private void Start()
-    {
-        InitializeEnemy(40, 1, 1.5f, 10, 10f, 3f);
-    }
     public override void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision);
