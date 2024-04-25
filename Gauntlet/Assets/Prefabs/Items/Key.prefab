@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da6630bc694d3c47b34a31f33e67846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 1
+  itemType: 2
   healAmount: 0
   pointAmount: 0
 --- !u!1 &2266974068949583069

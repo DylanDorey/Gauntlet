@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * Author: [Dorey, Dylan]
+ * Last Updated: [4/16/2024]
+ * [An inventory for the keys and potions the player can collect and store for future use]
+ */
+
 public class InventoryManager : MonoBehaviour
 {
     //determines if the inventory is full or not

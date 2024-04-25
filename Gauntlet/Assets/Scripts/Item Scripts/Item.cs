@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author: [Dorey, Dylan]
+ * Last Updated: [4/22/2024]
+ * [Base class for all items like doors, food, treasure, potions, and keys]
+ */
+
 //enum for the type of item the object is
 public enum ItemType
 {
+    Door,
     Treasure,
     Key,
     Food,
