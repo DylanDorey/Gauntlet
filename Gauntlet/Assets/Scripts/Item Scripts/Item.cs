@@ -27,7 +27,7 @@ public class Item : MonoBehaviour
 
     public virtual void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.GetComponent<PlayerData>())
+        if (collision.gameObject.GetComponent<PlayerData>())
         {
             PassPoints(collision);
             PassHealth(collision);

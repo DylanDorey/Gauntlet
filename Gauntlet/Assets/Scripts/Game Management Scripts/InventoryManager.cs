@@ -22,7 +22,7 @@ public class InventoryManager : Singleton<InventoryManager>
     //public OrangePotion orangePotionAbility;
 
     //private void Start()
-    //{ 
+    //{
     //    //arrays for the item game objects and the items abilities/uses
     //    itemsArray = new GameObject[] { keyPrefab, bluePotionPrefab, orangePotionPrefab };
     //    itemAbilities = new IItemBehavior[] { bluePotionAbility, orangePotionAbility };

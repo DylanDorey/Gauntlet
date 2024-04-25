@@ -2088,7 +2088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   healAmount: 0
-  pointAmount: 0
+  pointAmount: 100
 --- !u!1 &8092581040170274004
 GameObject:
   m_ObjectHideFlags: 0
