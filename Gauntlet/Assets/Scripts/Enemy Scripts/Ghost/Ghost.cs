@@ -5,8 +5,15 @@ using UnityEngine;
 
 public class Ghost : Enemy
 {
-    private bool _isChasingPlayer = false;
-    private Transform player;
+    public override void OnCollisionEnter(Collision collision)
+    {
+        base.OnCollisionEnter(collision);
+
+        if (collision.gameObject.GetComponent<PlayerController>())
+        {
+            ApplyBehavior(enemyBehavior);
+        }
+    }
 
     //private void Update()
     //{

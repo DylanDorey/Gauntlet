@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public float enemyRadius;
 
     public Vector3 targetPos;
+    public IEnemyBehavior enemyBehavior;
 
     public virtual void OnCollisionEnter(Collision collision)
     {
@@ -51,6 +52,8 @@ public class Enemy : MonoBehaviour
         enemyDamage = damage * level;
         enemyHealth = health * level;
         enemyRadius = radius;
+
+        transform.GetComponentInChildren<SphereCollider>().radius = enemyRadius;
     }
 
     public virtual void Move()
@@ -74,8 +77,8 @@ public class Enemy : MonoBehaviour
         
     }
 
-    //public void ApplyBehavior(IEnemytBehavior behavior)
-    //{
-    //    behavior.EnemyBehavior(this);
-    //}
+    public void ApplyBehavior(IEnemyBehavior behavior)
+    {
+        behavior.Behavior(this);
+    }
 }
