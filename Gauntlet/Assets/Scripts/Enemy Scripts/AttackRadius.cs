@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class AttackRadius : MonoBehaviour
 {
-    private Collider collider;
+    private Collider collide;
 
     private void Update()
     {
-        if (collider != null)
+        if (collide != null)
         {
-            transform.gameObject.GetComponentInParent<Enemy>().targetPos = collider.transform.position;
+            transform.gameObject.GetComponentInParent<Enemy>().targetPos = collide.transform.position;
         }
     }
 
@@ -18,7 +18,7 @@ public class AttackRadius : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            collider = other;
+            collide = other;
             transform.gameObject.GetComponentInParent<Enemy>().isAggro = true;
         }
     }
@@ -27,7 +27,7 @@ public class AttackRadius : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            collider = null;
+            collide = null;
             transform.gameObject.GetComponentInParent<Enemy>().isAggro = false;
         }
     }

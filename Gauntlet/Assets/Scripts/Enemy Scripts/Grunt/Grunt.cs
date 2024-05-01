@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grunt : Enemy
 {
-    private float meleeDistance = 3f;
+    private readonly float meleeDistance = 3f;
     public float meleeDelay = 3f;
     private Vector3 rayDirection;
     public RaycastHit hit;
