@@ -35,12 +35,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerEventBus.Subscribe(PlayerEvent.OnSpawn, StartPlayerController);
+        PlayerEventBus.Subscribe(PlayerEvent.OnSpawn, InitializePlayerController);
     }
 
     private void OnDisable()
     {
-        PlayerEventBus.Unsubscribe(PlayerEvent.OnSpawn, StartPlayerController);
+        PlayerEventBus.Unsubscribe(PlayerEvent.OnSpawn, InitializePlayerController);
     }
 
     public void Start()
@@ -228,13 +228,13 @@ public class PlayerController : MonoBehaviour
         //}
     }
 
-    /// <summary>
-    /// Spawns in the player controller prefab at its spawn location
-    /// </summary>
-    public void StartPlayerController()
-    {
-        InitializePlayerController();
-    }
+    ///// <summary>
+    ///// Spawns in the player controller prefab at its spawn location
+    ///// </summary>
+    //public void StartPlayerController()
+    //{
+    //    InitializePlayerController();
+    //}
 
     //apply a melee behavior
     public void ApplyMeleeBehavior(IMeleeBehavior behavior)

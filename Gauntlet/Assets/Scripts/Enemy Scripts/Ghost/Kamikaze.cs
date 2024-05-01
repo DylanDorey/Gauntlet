@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Kamikaze : Ghost, IEnemyBehavior
+public class Kamikaze : MonoBehaviour, IEnemyBehavior
 {
     public void Behavior(Enemy enemy)
     {
