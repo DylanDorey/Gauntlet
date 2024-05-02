@@ -10,6 +10,9 @@ public class Death : Enemy
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         InitializeEnemy(100, 5f, 20, 100f, 2f);
+
+        gameObject.AddComponent<Kamikaze>();
+        enemyBehavior = GetComponent<Kamikaze>();
     }
 
     public override void Move()
