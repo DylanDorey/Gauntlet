@@ -18,6 +18,7 @@ public enum PlayerEvent
 public class PlayerData : MonoBehaviour
 {
     public float playerHealth;
+    public int playerScore;
     public float playerMagic;
     public float playerArmor;
     public float playerSpeed;
@@ -26,12 +27,17 @@ public class PlayerData : MonoBehaviour
     public float healthTickRate;
 
     public bool hasMelee;
+    public bool hasKey;
+    public bool hasPotion;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        //start health drain system
-        InvokeRepeating("HealthTick", 3f, healthTickRate);
+        PlayerEventBus.Subscribe(PlayerEvent.OnSpawn, StartHealthTick);
+    }
+
+    private void OnDisable()
+    {
+        PlayerEventBus.Subscribe(PlayerEvent.OnSpawn, StopHealthTick);
     }
 
     // Update is called once per frame
@@ -40,9 +46,10 @@ public class PlayerData : MonoBehaviour
         
     }
 
-    public void InitializePlayerData(float health, float magic, float armor, float speed, bool isMelee)
+    public void InitializePlayerData(float health, int score, float magic, float armor, float speed, bool isMelee)
     {
         playerHealth = health;
+        playerScore = score;
         playerMagic = magic;
         playerArmor = armor;
         playerSpeed = speed;
@@ -66,12 +73,25 @@ public class PlayerData : MonoBehaviour
     /// removes 1 health from the player
     /// </summary>
     /// <returns> the players health </returns>
-    private float HealthTick()
+    private IEnumerator HealthTick()
     {
-        //remove 1 health
-        playerHealth -= 1f;
+        while (true)
+        {
+            //remove 1 health
+            playerHealth -= 1f;
+            yield return new WaitForSeconds(healthTickRate);
+        }
+    }
 
-        //return new health value
-        return playerHealth;
+    public void StartHealthTick()
+    {
+        //start health drain system
+        StartCoroutine(HealthTick());
+    }
+
+    public void StopHealthTick()
+    {
+        //stop health drain system
+        StopCoroutine(HealthTick());
     }
 }

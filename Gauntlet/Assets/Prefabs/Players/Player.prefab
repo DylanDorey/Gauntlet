@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8565779082088183822}
   - component: {fileID: 626317612336829388}
   - component: {fileID: 5164162895434177593}
+  - component: {fileID: -4570665724565477930}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -112,55 +113,31 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 3c0ca541-5b07-4fb1-acc3-803fa5966711
-    m_ActionName: Player/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
+    m_ActionName: Player/Move
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 1c66b641-f3ff-46cf-8279-fcb384401eed
-    m_ActionName: Player/LookUp[/XInputControllerWindows/rightStick/up]
+    m_ActionName: Player/LookUp
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 4fe36f5f-4304-45df-ae76-556488a3f19f
-    m_ActionName: Player/LookDown[/XInputControllerWindows/rightStick/down]
+    m_ActionName: Player/LookDown
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 0a5fcf57-c2ff-4b07-a046-4398bfb460c8
-    m_ActionName: Player/LookLeft[/XInputControllerWindows/rightStick/left]
+    m_ActionName: Player/LookLeft
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: eb5daf45-d6d0-40b7-b2a6-5ac74ac18eca
-    m_ActionName: Player/LookRight[/XInputControllerWindows/rightStick/right]
+    m_ActionName: Player/LookRight
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 626317612336829388}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnShoot
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 02ebbd22-cc8a-4918-bf22-826d03c10799
-    m_ActionName: Player/Shoot[/XInputControllerWindows/rightTrigger]
+    m_ActionName: Player/Shoot
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 626317612336829388}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnMelee
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 795ac558-bd25-4402-b673-99d73e7e1501
-    m_ActionName: Player/Melee[/XInputControllerWindows/leftTrigger]
+    m_ActionName: Player/Melee
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -180,14 +157,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterPrefabs:
   - {fileID: 9023392820244342524, guid: 136380eb539d7854785e2658247ed621, type: 3}
+  - {fileID: 6342615081377474035, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
   - {fileID: 7197700089058974574, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6621236399255312802, guid: 498086cb767c617438357224cb35eb96, type: 3}
   projectilePrefabs:
   - {fileID: 4870490442639679435, guid: e12352666ff85fb4f9649f0adb47a6ae, type: 3}
+  - {fileID: 1744112362532714893, guid: fc30d22dd58b8fc48bfdbe2e44f0f6b4, type: 3}
   - {fileID: 656569471141158888, guid: ae7a70d0375f7384f8339e4aefb25685, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5665019585703974377, guid: 4e6f15f7f64fb4d43aacd8576f29a95d, type: 3}
   character: 0
 --- !u!114 &5164162895434177593
 MonoBehaviour:
@@ -202,8 +179,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 0
+  playerScore: 0
   playerMagic: 0
   playerArmor: 0
   playerSpeed: 0
   healthTickRate: 0
   hasMelee: 0
+  hasKey: 0
+--- !u!114 &-4570665724565477930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223138439669218836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f50f02a3b05d0409ba7fb9dfe31f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryFull: 0
+  characterPanels: {fileID: 0}
+  keySlots: {fileID: 0}
+  keyPrefab: {fileID: 120186224271754500, guid: ed15f84cac843d24ebc3dad87e676453, type: 3}
+  bluePotionPrefab: {fileID: 0}
+  orangePotionPrefab: {fileID: 0}
+  itemsArray: []

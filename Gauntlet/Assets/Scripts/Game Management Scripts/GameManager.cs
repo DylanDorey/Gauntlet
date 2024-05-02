@@ -79,4 +79,24 @@ public class GameManager : Singleton<GameManager>
         //quit the application
         Application.Quit();
     }
+
+    public void PlayerJoined()
+    {
+        if(characters <= 3)
+        {
+            maxCharactersInPlay = true;
+        }
+        else
+        {
+            characters++;
+        }
+    }
+
+    public void PlayerLeave()
+    {
+        if (characters != 0)
+        {
+            characters--;
+        }
+    }
 }

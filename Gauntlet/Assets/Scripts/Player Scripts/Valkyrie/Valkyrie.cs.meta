@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dbb8dc21573c910428e69f217e516422
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - projectile: {instanceID: 0}
+  - valkyriePrefab: {fileID: 6342615081377474035, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+  - swordPrefab: {fileID: 1744112362532714893, guid: fc30d22dd58b8fc48bfdbe2e44f0f6b4, type: 3}
+  - swordSpawnpos: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

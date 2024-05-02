@@ -19,15 +19,15 @@ public class Wizard : MonoBehaviour
 
     public void Start()
     {
-        wizardPrefab = GetComponent<PlayerController>().characterPrefabs[1];
-        fireballPrefab = GetComponent<PlayerController>().projectilePrefabs[1];
+        wizardPrefab = GetComponent<PlayerController>().characterPrefabs[2];
+        fireballPrefab = GetComponent<PlayerController>().projectilePrefabs[2];
 
         GameObject wizard = Instantiate(wizardPrefab, transform.position, Quaternion.identity);
         wizard.transform.parent = GetComponent<PlayerController>().gameObject.transform;
 
         fireballSpawnPos = wizard.transform.GetChild(2);
 
-        GetComponent<PlayerData>().InitializePlayerData(700f, 2f, 0f, 3f, false);
+        GetComponent<PlayerData>().InitializePlayerData(700f, 0, 2f, 0f, 3f, false);
         GetComponent<PlayerController>().shootBehavior = GetComponent<ThrowFireball>();
     }
 }

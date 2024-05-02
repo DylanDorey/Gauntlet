@@ -19,9 +19,20 @@ public class Enemy : MonoBehaviour
     public float enemySpeed;
     public float enemyRadius;
 
+    public Vector3 targetPos;
+    public IEnemyBehavior enemyBehavior;
+
     public virtual void OnCollisionEnter(Collision collision)
     {
         
+    }
+
+    private void FixedUpdate()
+    {
+        if (isAggro)
+        {
+            Move();
+        }
     }
 
     /// <summary>
@@ -33,24 +44,21 @@ public class Enemy : MonoBehaviour
     /// <param name="damage"> how hard the enemy can damage the player </param>
     /// <param name="health"> the enemey's amount of health </param>
     /// <param name="radius"> the attack radius of the enemy </param>
-    public void InitializeEnemy(int points, int level, float speed, int damage, float health, float radius)
+    public void InitializeEnemy(int points, float speed, int damage, float health, float radius)
     {
         enemyPoints = points;
-        enemyLevel = level;
         enemySpeed = speed;
-        enemyDamage = damage * level;
-        enemyHealth = health * level;
+        enemyDamage = damage;
+        enemyHealth = health;
         enemyRadius = radius;
+
+        transform.GetComponentInChildren<SphereCollider>().radius = enemyRadius;
     }
 
     public virtual void Move()
     {
-
-    }
-
-    public void TurnTowardsPlayer()
-    {
-
+        transform.LookAt(targetPos);
+        transform.Translate(Vector3.forward * (enemySpeed * Time.deltaTime));
     }
 
     public int PassPoints()
@@ -65,11 +73,11 @@ public class Enemy : MonoBehaviour
 
     public virtual void OnDeath()
     {
-
+        Destroy(gameObject);
     }
 
-    //public void ApplyBehavior(IEnemytBehavior behavior)
-    //{
-    //    behavior.EnemyBehavior(this);
-    //}
+    public void ApplyBehavior(IEnemyBehavior behavior)
+    {
+        behavior.Behavior(this);
+    }
 }
