@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void OnDeath()
     {
-        
+        Destroy(gameObject);
     }
 
     public void ApplyBehavior(IEnemyBehavior behavior)

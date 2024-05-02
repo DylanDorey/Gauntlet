@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Thief : Enemy
 {
+    public AudioClip thiefTone;
     private int targetPointValue;
+
+    public bool hasStolen = false;
+    public bool hasDied = false;
 
     private void Start()
     {
@@ -19,7 +23,10 @@ public class Thief : Enemy
 
     private void Update()
     {
-        FindRichestPlayer();
+        if (!hasStolen)
+        {
+            FindRichestPlayer();
+        }
     }
 
     public override void OnCollisionEnter(Collision collision)
@@ -30,7 +37,11 @@ public class Thief : Enemy
             GetComponent<Steal>().playerData = collision.transform.GetComponent<PlayerData>();
 
             collision.transform.GetComponent<PlayerData>().playerHealth -= enemyDamage;
-            ApplyBehavior(enemyBehavior);
+
+            if (!hasStolen)
+            {
+                ApplyBehavior(enemyBehavior);
+            }
         }
     }
 
@@ -53,8 +64,34 @@ public class Thief : Enemy
                     targetPointValue = collidedPoints;
 
                     targetPos = newCollider.transform.position;
+
+                    AudioManager.Instance.AddToSoundQueue(thiefTone);
                 }
             }
         }
+    }
+
+    public override void OnDeath()
+    {
+        if (hasStolen)
+        {
+            Instantiate(GetComponent<Steal>().stolenItem, transform.position, Quaternion.identity);
+        }
+
+        hasDied = true;
+
+        base.OnDeath();
+    }
+
+    public IEnumerator Flee()
+    {
+        for (int index = 0; index < 1; index++)
+        {
+            yield return new WaitForSeconds(5f);
+        }
+
+        gameObject.SetActive(false);
+
+        hasDied = false;
     }
 }
