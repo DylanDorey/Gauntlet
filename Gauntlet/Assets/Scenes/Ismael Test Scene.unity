@@ -801,17 +801,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3695821392531635200, guid: ac2a2842ff6ea554aa72f2453d122306, type: 3}
+      propertyPath: isAggro
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3695821392531635200, guid: ac2a2842ff6ea554aa72f2453d122306, type: 3}
+      propertyPath: enemyRadius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4136648315600787730, guid: ac2a2842ff6ea554aa72f2453d122306, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.577
       objectReference: {fileID: 0}
     - target: {fileID: 4136648315600787730, guid: ac2a2842ff6ea554aa72f2453d122306, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.41
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 4136648315600787730, guid: ac2a2842ff6ea554aa72f2453d122306, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -3.28
       objectReference: {fileID: 0}
     - target: {fileID: 4136648315600787730, guid: ac2a2842ff6ea554aa72f2453d122306, type: 3}
       propertyPath: m_LocalRotation.w
@@ -840,6 +848,10 @@ PrefabInstance:
     - target: {fileID: 4136648315600787730, guid: ac2a2842ff6ea554aa72f2453d122306, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466997187643515045, guid: ac2a2842ff6ea554aa72f2453d122306, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6411574852898725319, guid: ac2a2842ff6ea554aa72f2453d122306, type: 3}
       propertyPath: m_Name
