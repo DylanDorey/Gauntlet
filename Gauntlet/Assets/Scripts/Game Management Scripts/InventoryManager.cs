@@ -47,20 +47,9 @@ public class InventoryManager : MonoBehaviour
             PickupKey(item);
         }
 
-        //switch (item.GetComponent<Item>().itemType)
-        //{
-        //    case ItemType.Key:
-        //        PickupKey(item);
-        //        break;
-        //    case ItemType.Potion:
-        //        break;
-        //    default:
-        //        break;
-        //}
-
         if (item.GetComponent<Item>().itemType == ItemType.Potion)
         {
-
+            PickupPotion(item);
         }
 
         //for (int index = 0; index < inventorySlots.transform.childCount; index++)
@@ -126,6 +115,28 @@ public class InventoryManager : MonoBehaviour
                     break;
                 }
             }
+        }
+    }
+
+    private void PickupPotion(GameObject potion)
+    {
+        //if the item is a key
+        if (potion.GetComponent<Potion>().itemType == ItemType.Potion)
+        {
+            //for (int index = 0; index < keySlots.transform.childCount; index++)
+            //{
+            //    //reference to key slot script
+            //    KeySlot keySlot = keySlots.transform.GetChild(index).gameObject.GetComponent<KeySlot>();
+
+            //    //if the slot does not have an item in it
+            //    if (keySlot.hasKey == false)
+            //    {
+            //        keySlot.hasKey = true;
+            //        keySlot.GetComponent<Image>().sprite = keySlot.keyImage;
+            //        GetComponent<PlayerData>().hasKey = true;
+            //        break;
+            //    }
+            //}
         }
     }
 

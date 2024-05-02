@@ -10,6 +10,11 @@ using UnityEngine;
 
 public class Key : Item
 {
+    private void Start()
+    {
+        InitializeItem(ItemType.Key, 0f, 100);
+    }
+
     public override void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision);
