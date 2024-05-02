@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackRadius : MonoBehaviour
 {
-    private Collider collide;
+    public Collider collide;
 
     private void Update()
     {
