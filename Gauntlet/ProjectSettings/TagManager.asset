@@ -6,6 +6,7 @@ TagManager:
   tags:
   - characterPanels
   - Exit
+  - Enemy
   layers:
   - Default
   - TransparentFX
