@@ -25,7 +25,7 @@ public class AOECollider : MonoBehaviour
 
         for (int index = 0; index < 4; index++)
         {
-            aoeSize.radius += 2f;
+            aoeSize.radius += 4f;
 
             yield return new WaitForSeconds(0.2f);
         }

@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 8121345513122845350}
   m_Layer: 0
   m_Name: Thief
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,6 +257,9 @@ MonoBehaviour:
   enemySpeed: 0
   enemyRadius: 0
   targetPos: {x: 0, y: 0, z: 0}
+  thiefTone: {fileID: 0}
+  hasStolen: 0
+  hasDied: 0
 --- !u!1 &6524461472601115834
 GameObject:
   m_ObjectHideFlags: 0

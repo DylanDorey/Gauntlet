@@ -19,14 +19,6 @@ public class Potion : Item, IItemBehavior
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isDestructable)
-        {
-            if (other.gameObject.CompareTag("Projectile"))
-            {
-                ApplyBehavior(itemBehavior);
-            }
-        }
-
         if (other.transform.GetComponent<PlayerController>())
         {
             _playerData = other.gameObject.GetComponent<PlayerData>();
@@ -34,6 +26,17 @@ public class Potion : Item, IItemBehavior
 
             if(other.transform.GetComponent<InventoryManager>().potionInventoryFull == false)
             {
+                Destroy(gameObject);
+            }
+        }
+
+        if (isDestructable)
+        {
+            if (other.gameObject.CompareTag("Projectile"))
+            {
+                ApplyBehavior(itemBehavior);
+
+                Destroy(other.gameObject);
                 Destroy(gameObject);
             }
         }
@@ -56,6 +59,13 @@ public class Potion : Item, IItemBehavior
 
     public void UsePotion(PlayerData playerData)
     {
-        Instantiate(aoeCollider, playerData.transform.position, Quaternion.identity);
+        if (_playerData == null)
+        {
+            Instantiate(aoeCollider, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(aoeCollider, playerData.transform.position, Quaternion.identity);
+        }
     }
 }
