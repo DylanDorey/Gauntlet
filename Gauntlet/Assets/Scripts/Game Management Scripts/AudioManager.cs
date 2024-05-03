@@ -17,17 +17,8 @@ public class AudioManager : Singleton<AudioManager>
     {
         //initialize a new list of audio clips
         audioList = new List<AudioClip>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //if the audio list has more than 0 elements
-        if (audioList.Count > 0)
-        {
-            //play the sounds in it
-            PlaySound();
-        }
+        StartCoroutine(PlaySounds());
     }
 
     /// <summary>
@@ -60,6 +51,25 @@ public class AudioManager : Singleton<AudioManager>
 
             //remove the audio clip from the audio list
             audioList.Remove(sound);
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator PlaySounds()
+    {
+        while (true)
+        {
+            //if the audio list has more than 0 elements
+            if (audioList.Count > 0)
+            {
+                //play the sounds in it
+                PlaySound();
+            }
+
+            yield return new WaitForSeconds(0.2f);
         }
     }
 }
