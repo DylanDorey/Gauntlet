@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author: [Dorey, Dylan]
+ * Last Updated: [05/03/2024]
+ * [A potion that removes all enemies in a given radius]
+ */
+
 public class Potion : Item, IItemBehavior
 {
     public bool isDestructable;

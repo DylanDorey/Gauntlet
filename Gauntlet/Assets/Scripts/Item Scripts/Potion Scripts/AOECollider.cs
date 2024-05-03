@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author: [Dorey, Dylan]
+ * Last Updated: [05/02/2024]
+ * [The radius collider for potions that removes enemies]
+ */
 public class AOECollider : MonoBehaviour
 {
     private void Start()
