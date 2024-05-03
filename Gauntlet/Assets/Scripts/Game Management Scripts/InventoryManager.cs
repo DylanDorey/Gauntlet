@@ -17,6 +17,7 @@ public class InventoryManager : MonoBehaviour
     //inventory slot references
     public GameObject characterPanels;
     public GameObject keySlots;
+    public GameObject potionSlots;
 
     //Item prefabs
     public GameObject keyPrefab;
@@ -24,20 +25,17 @@ public class InventoryManager : MonoBehaviour
     public GameObject orangePotionPrefab;
     public GameObject[] itemsArray;
 
-    //Item abilities/elements
-    public IItemBehavior[] itemAbilities;
-    //public BluePotion bluePotionAbility;
-    //public OrangePotion orangePotionAbility;
+    public bool keyInventoryFull = false;
+    public bool potionInventoryFull = false;
 
     private void Start()
     {
         //arrays for the item game objects and the items abilities/uses
         itemsArray = new GameObject[] { keyPrefab, bluePotionPrefab, orangePotionPrefab };
-        //itemAbilities = new IItemBehavior[] { bluePotionAbility, orangePotionAbility };
     }
 
     /// <summary>
-    /// 
+    /// Picks up an item and passes it to the correct inventory
     /// </summary>
     /// <param name="item"> the item that is being picked up </param>
     public void PickupItem(GameObject item)
@@ -51,49 +49,6 @@ public class InventoryManager : MonoBehaviour
         {
             PickupPotion(item);
         }
-
-        //for (int index = 0; index < inventorySlots.transform.childCount; index++)
-        //{
-        //    //reference to inventory slot script
-        //    KeySlot keySlot = keySlots.transform.GetChild(index).gameObject.GetComponent<InventorySlot>();
-
-        //    //if the slot does not have an item in it
-        //    if (inventorySlot.hasItem == false)
-        //    {
-        //        //get the inventory slot image of the game object's image that the player just picked up
-        //        inventorySlot.slotImage = item.GetComponent<Item>().itemImage;
-
-        //        //set the inventory slot image to the game object's image that the player just picked up
-        //        inventorySlot.SetInventoryImage();
-
-        //        //set the game object in the inventory slot to the gameobject the player just picked up
-        //        for (int index2 = 0; index2 < itemsArray.Length; index2++)
-        //        {
-        //            //if the items name matches the items in the items array
-        //            if (item.name == itemsArray[index2].name)
-        //            {
-        //                //assign the items Use interface function to the inventory slot
-        //                inventorySlot.itemUse = itemAbilities[index2];
-        //                break;
-        //            }
-        //        }
-
-        //        //set hasItem to true for the index slot
-        //        inventorySlot.hasItem = true;
-
-        //        //show what item the player picked up
-        //        StartCoroutine(UIManager.Instance.ItemPickup(item.name));
-
-        //        break;
-        //    } //if all the slots are full
-        //    else if (inventorySlot.hasItem && index == 4)
-        //    {
-        //        inventoryFull = true;
-
-        //        //DISPLAY ERROR MESSAGE SAYING INVENTORY IS FULL
-        //        StartCoroutine(UIManager.Instance.ItemPickup(null));
-        //    }
-        //}
     }
 
     private void PickupKey(GameObject key)
@@ -114,29 +69,48 @@ public class InventoryManager : MonoBehaviour
                     GetComponent<PlayerData>().hasKey = true;
                     break;
                 }
+                else if (keySlot.hasKey && index == 5)
+                {
+                    keyInventoryFull = true;
+                }
             }
         }
     }
 
     private void PickupPotion(GameObject potion)
     {
-        //if the item is a key
+        //if the item is a potion
         if (potion.GetComponent<Potion>().itemType == ItemType.Potion)
         {
-            //for (int index = 0; index < keySlots.transform.childCount; index++)
-            //{
-            //    //reference to key slot script
-            //    KeySlot keySlot = keySlots.transform.GetChild(index).gameObject.GetComponent<KeySlot>();
+            for (int index = 0; index < potionSlots.transform.childCount; index++)
+            {
+                //reference to potion slot script
+                PotionSlot potionSlot = potionSlots.transform.GetChild(index).gameObject.GetComponent<PotionSlot>();
 
-            //    //if the slot does not have an item in it
-            //    if (keySlot.hasKey == false)
-            //    {
-            //        keySlot.hasKey = true;
-            //        keySlot.GetComponent<Image>().sprite = keySlot.keyImage;
-            //        GetComponent<PlayerData>().hasKey = true;
-            //        break;
-            //    }
-            //}
+                //if the slot does not have an item in it
+                if (potionSlot.hasPotion == false)
+                {
+                    potionSlot.hasPotion = true;
+
+                    if (potion.GetComponent<Potion>().isDestructable)
+                    {
+                        potionSlot.GetComponent<Image>().sprite = potionSlot.bluePotionImage;
+                    }
+                    else
+                    {
+                        potionSlot.GetComponent<Image>().sprite = potionSlot.orangePotionImage;
+                    }
+
+                    potionSlot.itemBehavior = potion.GetComponent<Potion>();
+
+                    GetComponent<PlayerData>().hasPotion = true;
+                    break;
+                }
+                else if(potionSlot.hasPotion && index == 3)
+                {
+                    potionInventoryFull = true;
+                }
+            }
         }
     }
 
@@ -163,9 +137,52 @@ public class InventoryManager : MonoBehaviour
                 }
                 else
                 {
-                    //otherwise set the previous child's image to null and set has key on key slot to false
+                    //otherwise set the previous child's image to null and set has key on KeySlot to false
                     keySlots.transform.GetChild(index - 1).GetComponent<Image>().sprite = null;
                     keySlots.transform.GetChild(index - 1).gameObject.GetComponent<KeySlot>().hasKey = false;
+
+                    if(keyInventoryFull)
+                    {
+                        keyInventoryFull = false;
+                    }
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Removes a potion from the potion inventory
+    /// </summary>
+    public void RemovePotionOnUse()
+    {
+        for (int index = 0; index < potionSlots.transform.childCount; index++)
+        {
+            //reference to potion slot script
+            PotionSlot potionSlot = potionSlots.transform.GetChild(index).gameObject.GetComponent<PotionSlot>();
+
+            //if the slot does not have a potion in it
+            if (potionSlot.hasPotion == false)
+            {
+                //if its the first slot
+                if (index == 0)
+                {
+                    //set the child slot's has potion to false, image to null, and player's hasPotion variable to false
+                    potionSlot.hasPotion = false;
+                    potionSlot.GetComponent<Image>().sprite = null;
+                    potionSlot.itemBehavior = null;
+                    GetComponent<PlayerData>().hasPotion = false;
+                }
+                else
+                {
+                    //otherwise set the previous child's image to null and set has potion on PotionSlot to false
+                    potionSlots.transform.GetChild(index - 1).GetComponent<Image>().sprite = null;
+                    potionSlots.transform.GetChild(index - 1).gameObject.GetComponent<PotionSlot>().hasPotion = false;
+                    potionSlots.transform.GetChild(index - 1).gameObject.GetComponent<PotionSlot>().itemBehavior = null;
+
+                    if(potionInventoryFull)
+                    {
+                        potionInventoryFull = false;
+                    }
                 }
             }
         }
@@ -182,40 +199,20 @@ public class InventoryManager : MonoBehaviour
         {
             case CharacterType.Warrior:
                 keySlots = characterPanels.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).gameObject;
+                potionSlots = characterPanels.transform.GetChild(0).transform.GetChild(0).transform.GetChild(1).gameObject;
                 break;
             case CharacterType.Valkyrie:
                 keySlots = characterPanels.transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).gameObject;
+                potionSlots = characterPanels.transform.GetChild(1).transform.GetChild(0).transform.GetChild(1).gameObject;
                 break;
             case CharacterType.Wizard:
                 keySlots = characterPanels.transform.GetChild(2).transform.GetChild(0).transform.GetChild(0).gameObject;
+                potionSlots = characterPanels.transform.GetChild(2).transform.GetChild(0).transform.GetChild(1).gameObject;
                 break;
             case CharacterType.Elf:
                 keySlots = characterPanels.transform.GetChild(3).transform.GetChild(0).transform.GetChild(0).gameObject;
+                potionSlots = characterPanels.transform.GetChild(3).transform.GetChild(0).transform.GetChild(1).gameObject;
                 break;
         }
     }
-
-    ///// <summary>
-    ///// Removes the item from the player's inventory when it is used
-    ///// </summary>
-    ///// <param name="slotIndex"> the slot the item is being removed from </param>
-    //public void RemoveItemOnUse(int slotIndex)
-    //{
-    //    //reference to slot image component and inventory slot script
-    //    Image slotImage = inventorySlots.transform.GetChild(slotIndex).gameObject.GetComponent<Image>();
-    //    InventorySlot slot = inventorySlots.transform.GetChild(slotIndex).gameObject.GetComponent<InventorySlot>();
-
-    //    //set all used/filled values to empty/false
-    //    slot.hasItem = false;
-    //    slotImage.sprite = null;
-    //    slot.slotImage = null;
-    //    slot.itemUse = null;
-
-    //    //if the inventory was full
-    //    if (inventoryFull == true)
-    //    {
-    //        //set it to not full
-    //        inventoryFull = false;
-    //    }
-    //}
 }

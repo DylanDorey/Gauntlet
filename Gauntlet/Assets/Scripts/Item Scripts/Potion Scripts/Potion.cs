@@ -5,40 +5,43 @@ using UnityEngine;
 public class Potion : Item, IItemBehavior
 {
     public bool isDestructable;
-    public int potionDamage;
 
-    IItemBehavior itemBehavior;
-    private PlayerData _playerData;
+    public IItemBehavior itemBehavior;
+    public PlayerData _playerData;
 
     public SphereCollider aoeCollider;
 
     private void Awake()
     {
-        InitializeItem(ItemType.Potion, 0f, 100);
+        InitializeItem(ItemType.Potion, 0f, 0);
         itemBehavior = this;
     }
 
-    public override void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         if (isDestructable)
         {
-            if (collision.gameObject.CompareTag("Projectile"))
+            if (other.gameObject.CompareTag("Projectile"))
             {
                 ApplyBehavior(itemBehavior);
             }
         }
 
-        if (collision.transform.GetComponent<PlayerController>())
+        if (other.transform.GetComponent<PlayerController>())
         {
-            _playerData = collision.gameObject.GetComponent<PlayerData>();
-            collision.transform.GetComponent<InventoryManager>().PickupItem(gameObject);
+            _playerData = other.gameObject.GetComponent<PlayerData>();
+            other.transform.GetComponent<InventoryManager>().PickupItem(gameObject);
+
+            if(other.transform.GetComponent<InventoryManager>().potionInventoryFull == false)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
     public void InitializePotion(bool destructable, int damage)
     {
         isDestructable = destructable;
-        potionDamage = damage;
     }
 
     public void ApplyBehavior(IItemBehavior behavior)

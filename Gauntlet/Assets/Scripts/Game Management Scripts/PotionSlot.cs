@@ -7,5 +7,6 @@ public class PotionSlot : MonoBehaviour
 {
     public bool hasPotion;
     public Sprite orangePotionImage;
-    public Sprite bluePotionSlot;
+    public Sprite bluePotionImage;
+    public IItemBehavior itemBehavior;
 }

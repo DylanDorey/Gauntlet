@@ -3,7 +3,9 @@ guid: 906c1af379b62cb4a873ffdbc2b34dfe
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - orangePotionImage: {fileID: 21300000, guid: 0503c98d00532004b891468acefabc11, type: 3}
+  - bluePotionImage: {fileID: 21300000, guid: b7469d8e6d531764d82f55ede79db853, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

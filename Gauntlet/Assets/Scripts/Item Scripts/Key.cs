@@ -21,6 +21,9 @@ public class Key : Item
 
         collision.gameObject.GetComponent<InventoryManager>().PickupItem(gameObject);
 
-        Destroy(gameObject);
+        if (collision.transform.GetComponent<InventoryManager>().keyInventoryFull == false)
+        {
+            Destroy(gameObject);
+        }
     }
 }
