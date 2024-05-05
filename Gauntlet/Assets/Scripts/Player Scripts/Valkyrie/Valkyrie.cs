@@ -45,6 +45,8 @@ public class Valkyrie : MonoBehaviour
         GetComponent<PlayerData>().InitializePlayerData(700f, 0, 0f, 0f, 5f, true);
         GetComponent<PlayerController>().shootBehavior = GetComponent<throwSword>();
         GetComponent<PlayerController>().meleeBehavior = GetComponent<swordMelee>();
+
+        UIManager.Instance.valkyrie = GetComponent<PlayerData>();
     }
 
     private void Update()

@@ -16,6 +16,23 @@ public class KeySlot : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Image>().sprite = null;
+        StartCoroutine(CheckSlotImage());
+    }
+
+    private IEnumerator CheckSlotImage()
+    {
+        while (true)
+        {
+            if (hasKey == false)
+            {
+                GetComponent<Image>().enabled = false;
+            }
+            else
+            {
+                GetComponent<Image>().enabled = true;
+            }
+
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 }
