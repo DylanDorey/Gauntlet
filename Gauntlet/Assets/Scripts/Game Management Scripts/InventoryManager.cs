@@ -121,31 +121,35 @@ public class InventoryManager : MonoBehaviour
     {
         for (int index = 0; index < keySlots.transform.childCount; index++)
         {
-            //reference to key slot script
-            KeySlot keySlot = keySlots.transform.GetChild(index).gameObject.GetComponent<KeySlot>();
+            //reference to potion slot script
+            KeySlot currentKeySlot = keySlots.transform.GetChild(index).gameObject.GetComponent<KeySlot>();
 
-            //if the slot does not have a key in it
-            if (keySlot.hasKey == false)
+            if (currentKeySlot.hasKey && index == 5)
             {
-                //if its the first slot
+                currentKeySlot.hasKey = false;
+                currentKeySlot.GetComponent<Image>().sprite = null;
+
+                if (keyInventoryFull)
+                {
+                    keyInventoryFull = false;
+                }
+
+                break;
+            }
+
+            KeySlot nextKeySlot = keySlots.transform.GetChild(index + 1).gameObject.GetComponent<KeySlot>();
+
+            if (currentKeySlot.hasKey && nextKeySlot.hasKey == false)
+            {
+                currentKeySlot.hasKey = false;
+                currentKeySlot.GetComponent<Image>().sprite = null;
+
                 if (index == 0)
                 {
-                    //set the child slot's has key to false, image to null, and player's hasKey variable to false
-                    keySlot.hasKey = false;
-                    keySlot.GetComponent<Image>().sprite = null;
                     GetComponent<PlayerData>().hasKey = false;
                 }
-                else
-                {
-                    //otherwise set the previous child's image to null and set has key on KeySlot to false
-                    keySlots.transform.GetChild(index - 1).GetComponent<Image>().sprite = null;
-                    keySlots.transform.GetChild(index - 1).gameObject.GetComponent<KeySlot>().hasKey = false;
 
-                    if(keyInventoryFull)
-                    {
-                        keyInventoryFull = false;
-                    }
-                }
+                break;
             }
         }
     }
@@ -158,28 +162,36 @@ public class InventoryManager : MonoBehaviour
         for (int index = 0; index < potionSlots.transform.childCount; index++)
         {
             //reference to potion slot script
-            PotionSlot potionSlot = potionSlots.transform.GetChild(index).gameObject.GetComponent<PotionSlot>();
+            PotionSlot currentPotionSlot = potionSlots.transform.GetChild(index).gameObject.GetComponent<PotionSlot>();
 
-            //if the slot does not have a potion in it
-            if (potionSlot.hasPotion == true)
+            if (currentPotionSlot.hasPotion && index == 3)
             {
-                //if its the last slot
+                currentPotionSlot.hasPotion = false;
+                currentPotionSlot.GetComponent<Image>().sprite = null;
+                currentPotionSlot.itemBehavior = null;
+
+                if (potionInventoryFull)
+                {
+                    potionInventoryFull = false;
+                }
+
+                break;
+            }
+
+            PotionSlot nextPotionSlot = potionSlots.transform.GetChild(index + 1).gameObject.GetComponent<PotionSlot>();
+
+            if (currentPotionSlot.hasPotion && nextPotionSlot.hasPotion == false)
+            {
+                currentPotionSlot.hasPotion = false;
+                currentPotionSlot.GetComponent<Image>().sprite = null;
+                currentPotionSlot.itemBehavior = null;
+
                 if (index == 0)
                 {
-                    //set the child slot's has potion to false, image to null, and player's hasPotion variable to false
                     GetComponent<PlayerData>().hasPotion = false;
                 }
-                else if(index == 3)
-                {
-                    if (potionInventoryFull)
-                    {
-                        potionInventoryFull = false;
-                    }
-                }
 
-                potionSlot.hasPotion = false;
-                potionSlot.GetComponent<Image>().sprite = null;
-                potionSlot.itemBehavior = null;
+                break;
             }
         }
     }
