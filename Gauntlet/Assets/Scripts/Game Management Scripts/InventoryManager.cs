@@ -161,29 +161,25 @@ public class InventoryManager : MonoBehaviour
             PotionSlot potionSlot = potionSlots.transform.GetChild(index).gameObject.GetComponent<PotionSlot>();
 
             //if the slot does not have a potion in it
-            if (potionSlot.hasPotion == false)
+            if (potionSlot.hasPotion == true)
             {
-                //if its the first slot
+                //if its the last slot
                 if (index == 0)
                 {
                     //set the child slot's has potion to false, image to null, and player's hasPotion variable to false
-                    potionSlot.hasPotion = false;
-                    potionSlot.GetComponent<Image>().sprite = null;
-                    potionSlot.itemBehavior = null;
                     GetComponent<PlayerData>().hasPotion = false;
                 }
-                else
+                else if(index == 3)
                 {
-                    //otherwise set the previous child's image to null and set has potion on PotionSlot to false
-                    potionSlots.transform.GetChild(index - 1).GetComponent<Image>().sprite = null;
-                    potionSlots.transform.GetChild(index - 1).gameObject.GetComponent<PotionSlot>().hasPotion = false;
-                    potionSlots.transform.GetChild(index - 1).gameObject.GetComponent<PotionSlot>().itemBehavior = null;
-
-                    if(potionInventoryFull)
+                    if (potionInventoryFull)
                     {
                         potionInventoryFull = false;
                     }
                 }
+
+                potionSlot.hasPotion = false;
+                potionSlot.GetComponent<Image>().sprite = null;
+                potionSlot.itemBehavior = null;
             }
         }
     }

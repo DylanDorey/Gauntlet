@@ -24,17 +24,16 @@ public class AOECollider : MonoBehaviour
 
     private IEnumerator IncreaseSize()
     {
-        SphereCollider aoeSize = GetComponent<SphereCollider>();
-
-        aoeSize.radius = 0f;
+        Vector3 scaleFactor = new Vector3(3f, 3f, 3f);
+        transform.localScale = scaleFactor;
 
         for (int index = 0; index < 4; index++)
         {
-            aoeSize.radius += 4f;
+            transform.localScale += scaleFactor;
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
 
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

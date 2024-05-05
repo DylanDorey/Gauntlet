@@ -351,4 +351,4 @@ MonoBehaviour:
   pointAmount: 0
   isDestructable: 1
   _playerData: {fileID: 0}
-  aoeCollider: {fileID: 3661768905656462888, guid: dfe970e926539b745aa95ad913d120f7, type: 3}
+  aoeCollider: {fileID: 6620006236947780080, guid: ad34ed6cc19a80a40b0feaaff663541d, type: 3}

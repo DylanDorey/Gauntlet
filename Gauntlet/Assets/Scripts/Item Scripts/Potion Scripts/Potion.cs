@@ -30,7 +30,7 @@ public class Potion : Item, IItemBehavior
             _playerData = other.gameObject.GetComponent<PlayerData>();
             other.transform.GetComponent<InventoryManager>().PickupItem(gameObject);
 
-            if(other.transform.GetComponent<InventoryManager>().potionInventoryFull == false)
+            if (other.transform.GetComponent<InventoryManager>().potionInventoryFull == false)
             {
                 Destroy(gameObject);
             }

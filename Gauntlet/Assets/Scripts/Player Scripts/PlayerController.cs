@@ -92,6 +92,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnPotionUse(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (GetComponent<PlayerData>().hasPotion)
+            {
+                GetComponent<InventoryManager>().potionSlots.transform.GetChild(0).GetComponent<PotionSlot>().itemBehavior.Behavior(GetComponent<PlayerData>());
+                GetComponent<InventoryManager>().RemovePotionOnUse();
+            }
+        }
+    }
+
     /// <summary>
     /// Set the player model's rotation based on the movement direction
     /// </summary>
