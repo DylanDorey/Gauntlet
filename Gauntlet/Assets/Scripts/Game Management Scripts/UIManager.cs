@@ -31,23 +31,9 @@ public class UIManager : Singleton<UIManager>
 
     private void Update()
     {
-        if (warrior != null)
-        {
-            warriorHealthText.text = warrior.playerHealth.ToString();
-            warriorScoreText.text = warrior.playerScore.ToString();
-        }
+        UpdatePlayerStats();
 
-        if (valkyrie != null)
-        {
-            valkyrieHealthText.text = valkyrie.playerHealth.ToString();
-            valkyrieScoreText.text = valkyrie.playerScore.ToString();
-        }
-
-        if (wizard != null)
-        {
-            wizardHealthText.text = wizard.playerHealth.ToString();
-            wizardScoreText.text = wizard.playerScore.ToString();
-        }
+        //levelText.text = LevelManager.Instance.currentLevel;
     }
 
     /// <summary>
@@ -93,5 +79,29 @@ public class UIManager : Singleton<UIManager>
         menuScreen.SetActive(menu);
         gameScreen.SetActive(game);
         gameOverScreen.SetActive(over);
+    }
+
+    /// <summary>
+    /// Updates the players stat values depending on which characters are in play
+    /// </summary>
+    private void UpdatePlayerStats()
+    {
+        if (warrior != null)
+        {
+            warriorHealthText.text = warrior.playerHealth.ToString();
+            warriorScoreText.text = warrior.playerScore.ToString();
+        }
+
+        if (valkyrie != null)
+        {
+            valkyrieHealthText.text = valkyrie.playerHealth.ToString();
+            valkyrieScoreText.text = valkyrie.playerScore.ToString();
+        }
+
+        if (wizard != null)
+        {
+            wizardHealthText.text = wizard.playerHealth.ToString();
+            wizardScoreText.text = wizard.playerScore.ToString();
+        }
     }
 }
