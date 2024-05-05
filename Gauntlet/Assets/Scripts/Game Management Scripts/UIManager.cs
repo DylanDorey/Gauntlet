@@ -33,8 +33,8 @@ public class UIManager : Singleton<UIManager>
     {
         if (warrior != null)
         {
-            warriorHealthText.text = warrior.GetComponent<PlayerData>().playerHealth.ToString();
-            warriorScoreText.text = warrior.GetComponent<PlayerData>().playerScore.ToString();
+            warriorHealthText.text = warrior.playerHealth.ToString();
+            warriorScoreText.text = warrior.playerScore.ToString();
         }
 
         if (valkyrie != null)
@@ -45,8 +45,8 @@ public class UIManager : Singleton<UIManager>
 
         if (wizard != null)
         {
-            wizardHealthText.text = wizard.GetComponent<PlayerData>().playerHealth.ToString();
-            wizardScoreText.text = wizard.GetComponent<PlayerData>().playerScore.ToString();
+            wizardHealthText.text = wizard.playerHealth.ToString();
+            wizardScoreText.text = wizard.playerScore.ToString();
         }
     }
 
