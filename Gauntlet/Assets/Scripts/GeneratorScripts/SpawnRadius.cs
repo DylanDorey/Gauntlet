@@ -10,35 +10,48 @@ using UnityEngine;
 
 public class SpawnRadius : MonoBehaviour
 {
-    public Generator generator;
-    private void Start()
+    private Generator generator;
+
+    private void Awake()
     {
-        generator = GetComponentInParent<Generator>();
+        if (transform.parent != null)
+        {
+            generator = GetComponentInParent<Generator>();
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (generator.generatorType == GeneratorType.Bones)
+        if (generator.hasSpawnedEnemy == false)
         {
-            GetComponentInParent<BonesGenerator>().StartSpawningEnemies();
-        }
+            if (other.transform.GetComponent<PlayerController>())
+            {
+                if (generator.generatorType == GeneratorType.Bones)
+                {
+                    GetComponentInParent<BonesGenerator>().StartSpawningEnemies();
+                }
 
-        if(generator.generatorType == GeneratorType.Block)
-        {
-            GetComponentInParent<BlockGenerator>().StartSpawningEnemies();
+                if (generator.generatorType == GeneratorType.Block)
+                {
+                    GetComponentInParent<BlockGenerator>().StartSpawningEnemies();
+                }
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (generator.generatorType == GeneratorType.Bones)
+        if (other.transform.GetComponent<PlayerController>())
         {
-            GetComponentInParent<BonesGenerator>().StopSpawningEnemies();
-        }
+            if (generator.generatorType == GeneratorType.Bones)
+            {
+                GetComponentInParent<BonesGenerator>().StopSpawningEnemies();
+            }
 
-        if (generator.generatorType == GeneratorType.Block)
-        {
-            GetComponentInParent<BlockGenerator>().StopSpawningEnemies();
+            if (generator.generatorType == GeneratorType.Block)
+            {
+                GetComponentInParent<BlockGenerator>().StopSpawningEnemies();
+            }
         }
     }
 }

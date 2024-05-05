@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void OnCollisionEnter(Collision collision)
     {
-        
+
     }
 
     private void FixedUpdate()
@@ -48,8 +48,8 @@ public class Enemy : MonoBehaviour
     {
         enemyPoints = points;
         enemySpeed = speed;
-        enemyDamage = damage;
-        enemyHealth = health;
+        enemyDamage = damage * enemyLevel;
+        enemyHealth = health * enemyLevel;
         enemyRadius = radius;
 
         transform.GetComponentInChildren<SphereCollider>().radius = enemyRadius;
@@ -68,7 +68,15 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        enemyHealth -= amount;
+        if (transform != GetComponent<Death>())
+        {
+            enemyHealth -= amount;
+        }
+
+        if (enemyHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public virtual void OnDeath()

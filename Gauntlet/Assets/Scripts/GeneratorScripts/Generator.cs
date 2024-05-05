@@ -21,10 +21,11 @@ public class Generator : MonoBehaviour
     public float spawnRate;
     public GeneratorType generatorType;
     public Transform[] spawnPoints;
+    public bool hasSpawnedEnemy = false;
 
-    public virtual void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
-        
+        AcceptDamage(collision);
     }
 
     public void InitializeGenerator(int level, int hitpoints, float rate, GeneratorType type)
@@ -35,15 +36,45 @@ public class Generator : MonoBehaviour
         generatorType = type;
     }
 
-    public void AcceptDamage(float amount)
+    public void AcceptDamage(Collision collision)
     {
-        //Check if what hit the generator was a valid object to deal damage
+        VerifyDamage(collision);
 
-        //If it was, remove health
-        //generatorHitpoints -= amount;
+        if (generatorHitpoints <= 0)
+        {
+            OnGeneratorDeath();
+        }
+    }
 
+    private void VerifyDamage(Collision collision)
+    {
+        if (generatorType == GeneratorType.Bones)
+        {
+            if (collision.gameObject.CompareTag("Projectile"))
+            {
+                //If it was, remove health
+                generatorHitpoints--;
+                generatorLevel--;
+                spawnRate++;
+            }
+        }
+        else if (generatorType == GeneratorType.Block)
+        {
+            if (collision.gameObject.CompareTag("Projectile"))
+            {
+                generatorHitpoints--;
+                generatorLevel--;
+                spawnRate++;
 
-        //Decrease spawnRate based upon health value
+                //if (collision.transform.GetComponent<Rock>() || collision.transform.GetComponent<FireBall>())
+                //{
+                //    if (generatorHitpoints <= 1)
+                //    {
+                //        generatorHitpoints = 1;
+                //    }
+                //}
+            }
+        }
     }
 
     public void OnGeneratorDeath()

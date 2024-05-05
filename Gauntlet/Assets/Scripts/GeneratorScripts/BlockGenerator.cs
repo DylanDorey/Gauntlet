@@ -31,13 +31,23 @@ public class BlockGenerator : Generator
 
     private IEnumerator SpawnEnemies()
     {
-        yield return new WaitForSeconds(spawnRate);
+        for (int index = 0; index < 1; index++)
+        {
+            hasSpawnedEnemy = true;
+
+            int enemyToSpawn = Random.Range(0, enemiesToSpawn.Length);
+            int spawnLocation = Random.Range(0, spawnPoints.Length);
+
+            GameObject enemy = Instantiate(enemiesToSpawn[enemyToSpawn], spawnPoints[spawnLocation].position, Quaternion.identity);
+
+            enemy.GetComponent<Enemy>().enemyLevel = generatorLevel;
+
+            yield return new WaitForSeconds(spawnRate);
+        }
+
+        hasSpawnedEnemy = false;
     }
 
-    private void VerifyDamage()
-    {
-
-    }
 
     private void InitializeLevelGenerator()
     {

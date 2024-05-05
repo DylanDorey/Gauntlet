@@ -19,14 +19,8 @@ public class BonesGenerator : Generator
         InitializeLevelGenerator();
     }
 
-    public  void StartSpawningEnemies()
+    public void StartSpawningEnemies()
     {
-        //store a random position from the spawnPoints list into an index
-        int randomSpawnPointIndex = Random.Range(0, spawnPoints.Length);
-
-        //set location equal to that random position index
-        //spawnPoints[randomSpawnPointIndex].position;
-
         StartCoroutine(SpawnEnemies());
     }
 
@@ -38,12 +32,20 @@ public class BonesGenerator : Generator
 
     private IEnumerator SpawnEnemies()
     {
-        yield return new WaitForSeconds(spawnRate);
-    }
+        for (int index = 0; index < 1; index++)
+        {
+            hasSpawnedEnemy = true;
 
-    private void VerifyDamage()
-    {
+            int spawnLocation = Random.Range(0, spawnPoints.Length);
 
+            GameObject ghost = Instantiate(ghostPrefab, spawnPoints[spawnLocation].position, Quaternion.identity);
+
+            ghost.GetComponent<Enemy>().enemyLevel = generatorLevel;
+
+            yield return new WaitForSeconds(spawnRate);
+        }
+
+        hasSpawnedEnemy = false;
     }
 
     private void InitializeLevelGenerator()
