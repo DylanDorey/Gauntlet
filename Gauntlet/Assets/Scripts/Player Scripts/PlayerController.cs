@@ -222,6 +222,8 @@ public class PlayerController : MonoBehaviour
 
         GetComponent<InventoryManager>().InitializeSlots();
 
+        GameManager.Instance.players.Add(this.gameObject);
+
         //reference for the PlayerInput scriptable object
         playerInput = new PlayerInput(); //constructor
         //turn player on

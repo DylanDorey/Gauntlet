@@ -13,14 +13,16 @@ public enum GameState
 {
     mainMenu,
     startGame,
-    gameOver
-    //add more game states
+    levelOver,
+    gameOver,
+    returnToMenu
 }
 
 public class GameManager : Singleton<GameManager>
 {
     public bool maxCharactersInPlay = false;
     public int characters;
+    public List<GameObject> players;
 
     private void Start()
     {
