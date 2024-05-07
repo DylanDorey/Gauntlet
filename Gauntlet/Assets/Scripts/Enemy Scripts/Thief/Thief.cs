@@ -29,7 +29,7 @@ public class Thief : Enemy
         }
     }
 
-    public override void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.GetComponent<PlayerController>())
         {
