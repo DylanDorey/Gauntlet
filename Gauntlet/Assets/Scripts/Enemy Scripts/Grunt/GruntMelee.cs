@@ -19,7 +19,7 @@ public class GruntMelee : MonoBehaviour, IEnemyBehavior
         for (int index = 0; index < 1; index++)
         {
             grunt.hasMeleed = true;
-            grunt.hit.transform.GetComponent<PlayerData>().playerHealth -= grunt.enemyDamage;
+            grunt.hit.transform.GetComponent<PlayerData>().TakeDamage(grunt.enemyDamage);
             yield return new WaitForSeconds(grunt.meleeDelay);
         }
 

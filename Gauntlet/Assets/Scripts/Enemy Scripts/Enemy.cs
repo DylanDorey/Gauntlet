@@ -22,11 +22,6 @@ public class Enemy : MonoBehaviour
     public Vector3 targetPos;
     public IEnemyBehavior enemyBehavior;
 
-    public virtual void OnCollisionEnter(Collision collision)
-    {
-
-    }
-
     private void FixedUpdate()
     {
         if (isAggro)

@@ -23,6 +23,7 @@ public class GameManager : Singleton<GameManager>
     public bool maxCharactersInPlay = false;
     public int characters;
     public List<GameObject> players;
+    public bool isPlaying;
 
     private void Start()
     {
@@ -56,6 +57,8 @@ public class GameManager : Singleton<GameManager>
     {
         //publish the startGame game event
         GameEventBus.Publish(GameState.startGame);
+        isPlaying = true;
+        
     }
 
     /// <summary>

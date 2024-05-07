@@ -13,12 +13,11 @@ public class Ghost : Enemy
         enemyBehavior = GetComponent<Kamikaze>();
     }
 
-    public override void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
-        base.OnCollisionEnter(collision);
-
         if (collision.gameObject.GetComponent<PlayerController>())
         {
+            GetComponent<Kamikaze>().collision = collision;
             ApplyBehavior(enemyBehavior);
         }
     }

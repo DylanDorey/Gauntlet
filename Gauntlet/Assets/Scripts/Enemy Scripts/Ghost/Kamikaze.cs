@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Kamikaze : MonoBehaviour, IEnemyBehavior
 {
+    public Collision collision;
+
     public void Behavior(Enemy enemy)
     {
         InitiateKamikaze(enemy);
@@ -11,6 +13,8 @@ public class Kamikaze : MonoBehaviour, IEnemyBehavior
 
     private void InitiateKamikaze(Enemy enemy)
     {
+        collision.gameObject.GetComponent<PlayerData>().TakeDamage(GetComponent<Enemy>().enemyDamage);
 
+        Destroy(gameObject);
     }
 }
