@@ -12,14 +12,25 @@ public class LevelManager : Singleton<LevelManager>
 
     private int levelToSpawnIndex = 0;
 
+    public int currentLevel;
+
     private void OnEnable()
     {
+        GameEventBus.Subscribe(GameState.startGame, StartNextLevel);
         GameEventBus.Subscribe(GameState.levelOver, StartNextLevel);
+        GameEventBus.Subscribe(GameState.gameOver, ResetLevelManager);
     }
 
     private void OnDisable()
     {
+        GameEventBus.Unsubscribe(GameState.startGame, StartNextLevel);
         GameEventBus.Unsubscribe(GameState.levelOver, StartNextLevel);
+        GameEventBus.Unsubscribe(GameState.gameOver, ResetLevelManager);
+    }
+
+    private void Update()
+    {
+        UIManager.Instance.levelText.text = currentLevel.ToString();
     }
 
     public void MovePlayers()
@@ -37,6 +48,8 @@ public class LevelManager : Singleton<LevelManager>
     /// </summary>
     public void InitializeLevel()
     {
+        currentLevel++;
+
         Instantiate(levelPrefabs[levelToSpawnIndex], levelSpawnPoint, Quaternion.identity);
 
         //set player spawns
@@ -73,5 +86,12 @@ public class LevelManager : Singleton<LevelManager>
         Instantiate(thiefItem, thiefItemSpawn, Quaternion.identity);
 
         thiefItem = null;
+    }
+
+    public void ResetLevelManager()
+    {
+        thiefItem = null;
+        levelToSpawnIndex = 0;
+        currentLevel = 0;
     }
 }
