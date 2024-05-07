@@ -50,10 +50,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 moveVecY = playerInput.Player.Move.ReadValue<Vector2>();
-        Vector2 moveVecX = playerInput.Player.Move.ReadValue<Vector2>();
-        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
-        SetRotation(moveVecX, moveVecY);
+        if (GameManager.Instance.isPlaying)
+        {
+            Vector2 moveVecY = playerInput.Player.Move.ReadValue<Vector2>();
+            Vector2 moveVecX = playerInput.Player.Move.ReadValue<Vector2>();
+            transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+            SetRotation(moveVecX, moveVecY);
+        }
     }
 
     public virtual void OnCollisionEnter(Collision collision)
