@@ -18,10 +18,8 @@ public class Sorcerer : Enemy
         ApplyBehavior(enemyBehavior);
     }
 
-    public override void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
-        base.OnCollisionEnter(collision);
-
         if (collision.transform.GetComponent<PlayerController>())
         {
             if (!hasMeleed)
@@ -43,7 +41,7 @@ public class Sorcerer : Enemy
         { 
             hasMeleed = true;
 
-            collision.gameObject.GetComponent<PlayerData>().playerHealth -= enemyDamage;
+            collision.gameObject.GetComponent<PlayerData>().TakeDamage(enemyDamage);
 
             yield return new WaitForSeconds(meleeDelay);
         }
