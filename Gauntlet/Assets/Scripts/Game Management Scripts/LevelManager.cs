@@ -6,7 +6,7 @@ public class LevelManager : Singleton<LevelManager>
 {
     public GameObject thiefItem;
     public GameObject[] levelPrefabs;
-    public Vector3[] playerSpawns;
+    public List<Vector3> playerSpawns;
     public Vector3 thiefItemSpawn;
     private Vector3 levelSpawnPoint = Vector3.zero;
 
@@ -52,10 +52,12 @@ public class LevelManager : Singleton<LevelManager>
 
         Instantiate(levelPrefabs[levelToSpawnIndex], levelSpawnPoint, Quaternion.identity);
 
+        playerSpawns.Clear();
+
         //set player spawns
-        for (int index = 0; index < 4; index++)
+        for (int index = 0; index < levelPrefabs[levelToSpawnIndex].gameObject.transform.GetChild(0).childCount; index++)
         {
-            playerSpawns[index] = levelPrefabs[levelToSpawnIndex].transform.GetChild(0).transform.GetChild(index).position;
+            playerSpawns.Add(levelPrefabs[levelToSpawnIndex].gameObject.transform.GetChild(0).transform.GetChild(index).position);
         }
 
         //set thief item spawn

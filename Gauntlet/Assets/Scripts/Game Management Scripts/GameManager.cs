@@ -27,8 +27,8 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         //start the game in the main menu by publishing the menu game event
-        //GameEventBus.Publish(GameState.mainMenu);
-        GameEventBus.Publish(GameState.startGame);
+        GameEventBus.Publish(GameState.mainMenu);
+        //GameEventBus.Publish(GameState.startGame);
     }
 
     private void OnEnable()
