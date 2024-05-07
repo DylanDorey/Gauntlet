@@ -89,6 +89,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Use Potion"",
+                    ""type"": ""Button"",
+                    ""id"": ""e449a97f-3f0b-4a37-9ff3-1229022830f3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -212,6 +221,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Melee"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1924ad1c-1442-466c-9b87-0d298cd53499"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Use Potion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -227,6 +247,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_LookRight = m_Player.FindAction("LookRight", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Melee = m_Player.FindAction("Melee", throwIfNotFound: true);
+        m_Player_UsePotion = m_Player.FindAction("Use Potion", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -295,6 +316,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_LookRight;
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Melee;
+    private readonly InputAction m_Player_UsePotion;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -306,6 +328,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @LookRight => m_Wrapper.m_Player_LookRight;
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @Melee => m_Wrapper.m_Player_Melee;
+        public InputAction @UsePotion => m_Wrapper.m_Player_UsePotion;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -336,6 +359,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Melee.started += instance.OnMelee;
             @Melee.performed += instance.OnMelee;
             @Melee.canceled += instance.OnMelee;
+            @UsePotion.started += instance.OnUsePotion;
+            @UsePotion.performed += instance.OnUsePotion;
+            @UsePotion.canceled += instance.OnUsePotion;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -361,6 +387,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Melee.started -= instance.OnMelee;
             @Melee.performed -= instance.OnMelee;
             @Melee.canceled -= instance.OnMelee;
+            @UsePotion.started -= instance.OnUsePotion;
+            @UsePotion.performed -= instance.OnUsePotion;
+            @UsePotion.canceled -= instance.OnUsePotion;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -387,5 +416,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnLookRight(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnMelee(InputAction.CallbackContext context);
+        void OnUsePotion(InputAction.CallbackContext context);
     }
 }

@@ -29,5 +29,7 @@ public class Wizard : MonoBehaviour
 
         GetComponent<PlayerData>().InitializePlayerData(700f, 0, 2f, 0f, 3f, false);
         GetComponent<PlayerController>().shootBehavior = GetComponent<ThrowFireball>();
+
+        UIManager.Instance.wizard = GetComponent<PlayerData>();
     }
 }

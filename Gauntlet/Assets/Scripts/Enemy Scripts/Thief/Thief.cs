@@ -93,5 +93,10 @@ public class Thief : Enemy
         gameObject.SetActive(false);
 
         hasDied = false;
+
+        if (GetComponent<Steal>().stolenItem != null)
+        {
+            LevelManager.Instance.thiefItem = GetComponent<Steal>().stolenItem;
+        }
     }
 }

@@ -29,7 +29,7 @@ public class Steal : MonoBehaviour, IEnemyBehavior
             }
             else if (playerData.hasPotion)
             {
-                //playerInventory.RemovePotionOnUse();
+                playerInventory.RemovePotionOnUse();
                 stolenItem = bluePotion;
                 stolenItem = orangePotion;
             }

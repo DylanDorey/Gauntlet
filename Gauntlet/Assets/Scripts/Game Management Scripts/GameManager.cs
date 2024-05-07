@@ -12,27 +12,23 @@ using UnityEngine;
 public enum GameState
 {
     mainMenu,
-    startGame
-    //add more game states
+    startGame,
+    levelOver,
+    gameOver,
+    returnToMenu
 }
 
 public class GameManager : Singleton<GameManager>
 {
     public bool maxCharactersInPlay = false;
     public int characters;
-
-    public override void Awake()
-    {
-        //initialize singleton
-        base.Awake();
-
-
-    }
+    public List<GameObject> players;
 
     private void Start()
     {
         //start the game in the main menu by publishing the menu game event
         GameEventBus.Publish(GameState.mainMenu);
+        //GameEventBus.Publish(GameState.startGame);
     }
 
     private void OnEnable()

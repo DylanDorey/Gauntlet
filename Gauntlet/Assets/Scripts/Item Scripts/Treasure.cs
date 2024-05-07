@@ -14,4 +14,14 @@ public class Treasure : Item
     {
         InitializeItem(ItemType.Treasure, 0f, 100);
     }
+
+    public override void OnCollisionEnter(Collision collision)
+    {
+        base.OnCollisionEnter(collision);
+
+        if (collision.gameObject.GetComponent<PlayerData>())
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }

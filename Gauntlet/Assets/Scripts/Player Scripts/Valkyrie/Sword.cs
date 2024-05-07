@@ -15,6 +15,20 @@ public class Sword : MonoBehaviour
 
     public Vector3 moveDirection;
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(swordDamage);
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Start()
     {
         Destroy (gameObject, 4f);

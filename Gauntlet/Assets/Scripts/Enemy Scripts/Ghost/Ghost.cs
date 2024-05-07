@@ -7,7 +7,7 @@ public class Ghost : Enemy
 {
     private void Start()
     {
-        InitializeEnemy(20, 3f, 10, 5, 2f);
+        InitializeEnemy(20, 3f, 10, 5, 10f);
 
         gameObject.AddComponent<Kamikaze>();
         enemyBehavior = GetComponent<Kamikaze>();
