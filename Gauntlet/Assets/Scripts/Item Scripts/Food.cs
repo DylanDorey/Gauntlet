@@ -8,4 +8,14 @@ public class Food : Item
     {
         InitializeItem(ItemType.Food, 100f, 0);
     }
+
+    public override void OnCollisionEnter(Collision collision)
+    {
+        base.OnCollisionEnter(collision);
+
+        if (collision.gameObject.GetComponent<PlayerData>())
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }

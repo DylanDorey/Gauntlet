@@ -15,7 +15,7 @@ public class BlockGenerator : Generator
 
     private void Start()
     {
-        InitializeGenerator(Random.Range(1, 4), 1, 5f, GeneratorType.Block);
+        InitializeGenerator(Random.Range(1, 4), 1, 2f, GeneratorType.Block);
         InitializeLevelGenerator();
     }
 
