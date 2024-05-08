@@ -44,7 +44,7 @@ public class Valkyrie : MonoBehaviour
 
         swordSpawnpos = valkyrie.transform.GetChild(0);
 
-        GetComponent<PlayerData>().InitializePlayerData(700f, 0, 1f, 3f, 5f, true);
+        GetComponent<PlayerData>().InitializePlayerData(700f, 0, 1f, 3f, 8f, true);
         playerController.shootBehavior = GetComponent<throwSword>();
         playerController.meleeBehavior = GetComponent<swordMelee>();
 

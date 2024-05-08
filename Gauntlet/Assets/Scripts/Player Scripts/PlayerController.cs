@@ -33,6 +33,11 @@ public class PlayerController : MonoBehaviour
     public IMeleeBehavior meleeBehavior;
     public IShootBehavior shootBehavior;
 
+    public AudioClip[] warriorAudioClips;
+    public AudioClip[] valkyrieAudioClips;
+    public AudioClip[] wizardAudioClips;
+    public AudioClip[] elfAudioClips;
+
     private void OnEnable()
     {
         PlayerEventBus.Subscribe(PlayerEvent.OnSpawn, InitializePlayerController);

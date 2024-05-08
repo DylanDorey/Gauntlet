@@ -29,7 +29,6 @@ public class Warrior : MonoBehaviour
     public GameObject axePrefab;
     public Transform axeSpawnPos;
 
-    public AudioClip[] warriorSounds;
     public AudioClip axeThrowSound;
     public AudioClip meleeSound;
 
@@ -45,11 +44,11 @@ public class Warrior : MonoBehaviour
 
         axeSpawnPos = warrior.transform.GetChild(2);
 
-        GetComponent<PlayerData>().InitializePlayerData(700f, 0, 1f, 1f, 5f, true);
+        GetComponent<PlayerData>().InitializePlayerData(700f, 0, 1f, 1f, 8f, true);
         playerController.shootBehavior = GetComponent<ThrowAxe>();
         playerController.meleeBehavior = GetComponent<WarriorMelee>();
 
-        axeThrowSound = warriorSounds[0];
+        axeThrowSound = playerController.warriorAudioClips[0];
 
         UIManager.Instance.warrior = GetComponent<PlayerData>();
     }

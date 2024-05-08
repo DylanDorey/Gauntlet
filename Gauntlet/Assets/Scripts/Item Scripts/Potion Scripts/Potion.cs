@@ -17,6 +17,8 @@ public class Potion : Item, IItemBehavior
 
     public SphereCollider aoeCollider;
 
+    public AudioClip usePotionSound;
+
     private void Awake()
     {
         InitializeItem(ItemType.Potion, 0f, 0);
@@ -73,5 +75,7 @@ public class Potion : Item, IItemBehavior
         {
             Instantiate(aoeCollider, playerData.transform.position, Quaternion.identity);
         }
+
+        AudioManager.Instance.AddToSoundQueue(usePotionSound);
     }
 }
