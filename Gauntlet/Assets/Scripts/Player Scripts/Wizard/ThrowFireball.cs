@@ -25,15 +25,17 @@ public class ThrowFireball : MonoBehaviour, IShootBehavior
     /// </summary>
     public IEnumerator Throw(PlayerController player)
     {
+        Wizard wizard = player.gameObject.GetComponent<Wizard>();
+
         for (int index = 0; index < 1; index++)
         {
             hasShot = true;
 
-            GameObject fireball = Instantiate(player.gameObject.GetComponent<Wizard>().fireballPrefab, player.gameObject.GetComponent<Wizard>().fireballSpawnPos.position, player.gameObject.GetComponent<Wizard>().fireballPrefab.transform.rotation);
+            GameObject fireball = Instantiate(wizard.fireballPrefab, wizard.fireballSpawnPos.position, wizard.fireballPrefab.transform.rotation);
 
             fireball.GetComponent<Fireball>().moveDirection = transform.GetChild(0).transform.forward;
 
-            yield return new WaitForSeconds(player.gameObject.GetComponent<Wizard>().throwDelay);
+            yield return new WaitForSeconds(wizard.throwDelay);
         }
 
         hasShot = false;

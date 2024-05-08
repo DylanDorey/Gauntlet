@@ -16,15 +16,17 @@ public class throwSword : MonoBehaviour, IShootBehavior
 
     public IEnumerator Throw(PlayerController player)
     {
+        Valkyrie valkyrie = player.gameObject.GetComponent<Valkyrie>();
+
         for (int index = 0; index< 1; index++)
         {
             hasFired = true;
 
-            GameObject sword = Instantiate(player.gameObject.GetComponent<Valkyrie>().swordPrefab, player.gameObject.GetComponent<Valkyrie>().swordSpawnpos.position, player.gameObject.GetComponent<Valkyrie>().swordPrefab.transform.rotation);
+            GameObject sword = Instantiate(valkyrie.swordPrefab, valkyrie.swordSpawnpos.position, valkyrie.swordPrefab.transform.rotation);
 
             sword.GetComponent<Sword>().moveDirection = transform.GetChild(0).transform.forward;
 
-            yield return new WaitForSeconds(player.gameObject.GetComponent<Valkyrie>().throwDelay);
+            yield return new WaitForSeconds(valkyrie.throwDelay);
         }
         hasFired = false;
     }
