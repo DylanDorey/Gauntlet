@@ -28,6 +28,14 @@ public class Sorcerer : Enemy
                 StartCoroutine(Melee(collision));
             }
         }
+
+        if (enemyHealth <= 0)
+        {
+            if (collision.transform.GetComponent<Axe>() || collision.transform.GetComponent<Fireball>() || collision.transform.GetComponent<Sword>())
+            {
+                UIManager.Instance.warrior.gameObject.GetComponent<PlayerData>().playerScore += PassPoints();
+            }
+        }
     }
 
     private void OnCollisionExit(Collision collision)

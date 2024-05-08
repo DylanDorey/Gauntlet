@@ -12,20 +12,20 @@ public class PotionSlot : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(CheckSlotImage());
+        //StartCoroutine(CheckSlotImage());
     }
 
     private IEnumerator CheckSlotImage()
     {
         while(true)
         {
-            if (hasPotion == false)
+            if (hasPotion == true)
             {
-                GetComponent<Image>().enabled = false;
+                GetComponent<Image>().enabled = true;
             }
             else
             {
-                GetComponent<Image>().enabled = true;
+                GetComponent<Image>().enabled = false;
             }
 
             yield return new WaitForSeconds(0.2f);

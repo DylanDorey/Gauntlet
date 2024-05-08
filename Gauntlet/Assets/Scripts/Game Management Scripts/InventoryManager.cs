@@ -90,8 +90,6 @@ public class InventoryManager : MonoBehaviour
                 //if the slot does not have an item in it
                 if (potionSlot.hasPotion == false)
                 {
-                    potionSlot.hasPotion = true;
-
                     if (potion.GetComponent<Potion>().isDestructable)
                     {
                         potionSlot.GetComponent<Image>().sprite = potionSlot.bluePotionImage;
@@ -100,6 +98,8 @@ public class InventoryManager : MonoBehaviour
                     {
                         potionSlot.GetComponent<Image>().sprite = potionSlot.orangePotionImage;
                     }
+
+                    potionSlot.hasPotion = true;
 
                     potionSlot.itemBehavior = potion.GetComponent<Potion>();
 

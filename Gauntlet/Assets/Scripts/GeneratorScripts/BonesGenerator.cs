@@ -15,7 +15,7 @@ public class BonesGenerator : Generator
 
     private void Start()
     {
-        InitializeGenerator(Random.Range(1, 4), 1, 2f, GeneratorType.Bones);
+        InitializeGenerator(Random.Range(1, 4), 1, 1f, GeneratorType.Bones);
         InitializeLevelGenerator();
     }
 

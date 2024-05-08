@@ -12,7 +12,7 @@ public class Thief : Enemy
 
     private void Start()
     {
-        InitializeEnemy(500, 5f, 10, 10f, 10f);
+        InitializeEnemy(500, 7f, 10, 10f, 10f);
 
         gameObject.AddComponent<Steal>();
         enemyBehavior = GetComponent<Steal>();
@@ -41,6 +41,14 @@ public class Thief : Enemy
             if (!hasStolen)
             {
                 ApplyBehavior(enemyBehavior);
+            }
+        }
+
+        if (enemyHealth <= 0)
+        {
+            if (collision.transform.GetComponent<Axe>() || collision.transform.GetComponent<Fireball>() || collision.transform.GetComponent<Sword>())
+            {
+                UIManager.Instance.warrior.gameObject.GetComponent<PlayerData>().playerScore += PassPoints();
             }
         }
     }

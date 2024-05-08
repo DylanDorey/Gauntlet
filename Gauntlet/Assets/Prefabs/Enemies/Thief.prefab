@@ -161,7 +161,7 @@ MonoBehaviour:
   enemySpeed: 0
   enemyRadius: 0
   targetPos: {x: 0, y: 0, z: 0}
-  thiefTone: {fileID: 0}
+  thiefTone: {fileID: 8300000, guid: 94e65e50864691f4baf8b4626927acab, type: 3}
   hasStolen: 0
   hasDied: 0
 --- !u!1 &6524461472601115834
