@@ -25,19 +25,21 @@ public class WarriorMelee : MonoBehaviour, IMeleeBehavior
     /// </summary>
     public IEnumerator Melee(PlayerController player)
     {
+        Warrior warrior = player.gameObject.GetComponent<Warrior>();
+
         for (int index = 0; index < 1; index++)
         {
-            if (Physics.Raycast(player.transform.position, player.gameObject.GetComponent<Warrior>().rayDirection, out player.gameObject.GetComponent<Warrior>().hit, player.gameObject.GetComponent<Warrior>().meleeDistance))
+            if (Physics.Raycast(player.transform.position, warrior.rayDirection, out warrior.hit, warrior.meleeDistance))
             {
                 hasMeleed = true;
-                Debug.DrawRay(player.transform.position, player.gameObject.GetComponent<Warrior>().rayDirection, Color.red);
+                Debug.DrawRay(player.transform.position, warrior.rayDirection, Color.red);
 
-                //if (player.gameObject.GetComponent<Warrior>().hit.collider.gameObject.GetComponent<Enemy>())
-                //{
-                //    player.gameObject.GetComponent<Warrior>().hit.collider.gameObject.GetComponent<Enemy>().enemyHealth -= player.gameObject.GetComponent<Warrior>().meleeDamage;
-                //}
+                if (warrior.hit.collider.gameObject.GetComponent<Enemy>())
+                {
+                    warrior.hit.collider.gameObject.GetComponent<Enemy>().enemyHealth -= warrior.meleeDamage;
+                }
 
-                yield return new WaitForSeconds(player.gameObject.GetComponent<Warrior>().meleeDelay);
+                yield return new WaitForSeconds(warrior.meleeDelay);
             }
 
             hasMeleed = false;

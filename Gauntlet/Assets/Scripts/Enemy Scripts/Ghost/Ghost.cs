@@ -19,6 +19,8 @@ public class Ghost : Enemy
         {
             GetComponent<Kamikaze>().collision = collision;
             ApplyBehavior(enemyBehavior);
+
+            Destroy(gameObject);
         }
     }
 }

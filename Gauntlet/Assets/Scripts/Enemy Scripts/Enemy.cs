@@ -47,7 +47,10 @@ public class Enemy : MonoBehaviour
         enemyHealth = health * enemyLevel;
         enemyRadius = radius;
 
-        transform.GetComponentInChildren<SphereCollider>().radius = enemyRadius;
+        if (!transform.GetComponent<Thief>())
+        {
+            transform.GetComponentInChildren<SphereCollider>().radius = enemyRadius;
+        }
     }
 
     public virtual void Move()

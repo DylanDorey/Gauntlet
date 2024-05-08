@@ -6,6 +6,7 @@ public class LevelManager : Singleton<LevelManager>
 {
     public GameObject thiefItem;
     public GameObject[] levelPrefabs;
+    private GameObject level;
     public List<Vector3> playerSpawns;
     public Vector3 thiefItemSpawn;
     private Vector3 levelSpawnPoint = Vector3.zero;
@@ -50,7 +51,12 @@ public class LevelManager : Singleton<LevelManager>
     {
         currentLevel++;
 
-        Instantiate(levelPrefabs[levelToSpawnIndex], levelSpawnPoint, Quaternion.identity);
+        if(level != null)
+        {
+            Destroy(level);
+        }
+
+        level = Instantiate(levelPrefabs[levelToSpawnIndex], levelSpawnPoint, Quaternion.identity);
 
         playerSpawns.Clear();
 

@@ -66,6 +66,7 @@ public class PlayerData : MonoBehaviour
         //remove the damage value from the players health, then return the players new health
         playerHealth -= damage/playerArmor;
 
+        Mathf.Floor(playerHealth);
         return playerHealth;
     }
 

@@ -31,17 +31,19 @@ public class Warrior : MonoBehaviour
 
     public void Start()
     {
-        warriorPrefab = GetComponent<PlayerController>().characterPrefabs[0];
-        axePrefab = GetComponent<PlayerController>().projectilePrefabs[0];
+        PlayerController playerController = GetComponent<PlayerController>();
+
+        warriorPrefab = playerController.characterPrefabs[0];
+        axePrefab = playerController.projectilePrefabs[0];
 
         GameObject warrior = Instantiate(warriorPrefab, transform.position, Quaternion.identity);
-        warrior.transform.parent = GetComponent<PlayerController>().gameObject.transform;
+        warrior.transform.parent = playerController.gameObject.transform;
 
         axeSpawnPos = warrior.transform.GetChild(2);
 
-        GetComponent<PlayerData>().InitializePlayerData(700f, 0, 0f, 0f, 5f, true);
-        GetComponent<PlayerController>().shootBehavior = GetComponent<ThrowAxe>();
-        GetComponent<PlayerController>().meleeBehavior = GetComponent<WarriorMelee>();
+        GetComponent<PlayerData>().InitializePlayerData(700f, 0, 1f, 1f, 5f, true);
+        playerController.shootBehavior = GetComponent<ThrowAxe>();
+        playerController.meleeBehavior = GetComponent<WarriorMelee>();
 
         UIManager.Instance.warrior = GetComponent<PlayerData>();
     }

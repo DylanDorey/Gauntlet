@@ -3430,6 +3430,7 @@ MonoBehaviour:
   maxCharactersInPlay: 0
   characters: 0
   players: []
+  isPlaying: 0
 --- !u!1 &686568170
 GameObject:
   m_ObjectHideFlags: 0
@@ -6758,6 +6759,7 @@ MonoBehaviour:
   thiefItem: {fileID: 0}
   levelPrefabs:
   - {fileID: 256739098838908916, guid: 3bc1feb2468ad904991c13a2e11135f0, type: 3}
+  - {fileID: 1877406137046820560, guid: e50dc469c62455346b8016061e3e20bb, type: 3}
   playerSpawns: []
   thiefItemSpawn: {x: 0, y: 0, z: 0}
   currentLevel: 0

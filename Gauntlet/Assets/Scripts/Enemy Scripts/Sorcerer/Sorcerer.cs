@@ -10,7 +10,7 @@ public class Sorcerer : Enemy
 
     private void Start()
     {
-        InitializeEnemy(10, 3f, 5, 5, 4f);
+        InitializeEnemy(10, 3f, 5, 5, 10f);
 
         gameObject.AddComponent<SorcererBlink>();
         enemyBehavior = GetComponent<SorcererBlink>();

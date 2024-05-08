@@ -12,7 +12,7 @@ public class Grunt : Enemy
 
     private void Start()
     {
-        InitializeEnemy(10, 2f, 5, 5, 2f);
+        InitializeEnemy(10, 2f, 5, 5, 10f);
 
         gameObject.AddComponent<GruntMelee>();
         enemyBehavior = GetComponent<GruntMelee>();

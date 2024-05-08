@@ -90,13 +90,13 @@ public class Thief : Enemy
             yield return new WaitForSeconds(5f);
         }
 
-        gameObject.SetActive(false);
-
         hasDied = false;
 
         if (GetComponent<Steal>().stolenItem != null)
         {
             LevelManager.Instance.thiefItem = GetComponent<Steal>().stolenItem;
         }
+
+        gameObject.SetActive(false);
     }
 }
