@@ -9936,7 +9936,7 @@ PrefabInstance:
       objectReference: {fileID: 9023392820244342524, guid: 136380eb539d7854785e2658247ed621, type: 3}
     - target: {fileID: 626317612336829388, guid: 107dbf0e5be61c341831b9ee64b126e4, type: 3}
       propertyPath: warriorAudioClips.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 626317612336829388, guid: 107dbf0e5be61c341831b9ee64b126e4, type: 3}
       propertyPath: characterPrefabs.Array.data[0]
@@ -9958,6 +9958,14 @@ PrefabInstance:
       propertyPath: warriorAudioClips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 37cd485fec5618d46bb6254e2490d524, type: 3}
+    - target: {fileID: 626317612336829388, guid: 107dbf0e5be61c341831b9ee64b126e4, type: 3}
+      propertyPath: warriorAudioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: fb49f49073826bf40b92a7f58f684e36, type: 3}
+    - target: {fileID: 626317612336829388, guid: 107dbf0e5be61c341831b9ee64b126e4, type: 3}
+      propertyPath: warriorAudioClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 745b2e55ac4c0bb4c846c97719b492dc, type: 3}
     - target: {fileID: 5164162895434177593, guid: 107dbf0e5be61c341831b9ee64b126e4, type: 3}
       propertyPath: healthTickRate
       value: 1

@@ -67,6 +67,23 @@ public class PlayerData : MonoBehaviour
         playerHealth -= damage/playerArmor;
 
         Mathf.Floor(playerHealth);
+
+        PlayerController playerController = GetComponent<PlayerController>();
+        switch (playerController.character)
+        {
+            case CharacterType.Warrior:
+                AudioManager.Instance.AddToSoundQueue(playerController.warriorAudioClips[2]);
+                break;
+            case CharacterType.Valkyrie:
+                break;
+            case CharacterType.Wizard:
+                break;
+            case CharacterType.Elf:
+                break;
+            default:
+                break;
+        }
+
         return playerHealth;
     }
 
@@ -80,6 +97,12 @@ public class PlayerData : MonoBehaviour
         {
             //remove 1 health
             playerHealth -= 1f;
+
+            if(playerHealth <= 0)
+            {
+                GameEventBus.Publish(GameState.gameOver);
+            }
+
             yield return new WaitForSeconds(healthTickRate);
         }
     }

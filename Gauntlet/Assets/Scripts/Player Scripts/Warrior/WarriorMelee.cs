@@ -37,6 +37,7 @@ public class WarriorMelee : MonoBehaviour, IMeleeBehavior
                 if (warrior.hit.collider.gameObject.GetComponent<Enemy>())
                 {
                     warrior.hit.collider.gameObject.GetComponent<Enemy>().enemyHealth -= warrior.meleeDamage;
+                    AudioManager.Instance.AddToSoundQueue(warrior.meleeSound);
                 }
 
                 yield return new WaitForSeconds(warrior.meleeDelay);

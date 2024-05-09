@@ -31,6 +31,7 @@ public class Warrior : MonoBehaviour
 
     public AudioClip axeThrowSound;
     public AudioClip meleeSound;
+    public AudioClip hurtSound;
 
     public void Start()
     {
@@ -49,6 +50,8 @@ public class Warrior : MonoBehaviour
         playerController.meleeBehavior = GetComponent<WarriorMelee>();
 
         axeThrowSound = playerController.warriorAudioClips[0];
+        meleeSound = playerController.warriorAudioClips[1];
+        hurtSound = playerController.warriorAudioClips[2];
 
         UIManager.Instance.warrior = GetComponent<PlayerData>();
     }
