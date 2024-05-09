@@ -32,7 +32,6 @@ public class Lobber : Enemy
 
     IEnumerator ThrowProjectileWithDelay()
     {
-        // Set flag to prevent multiple throws before delay
         canThrow = false;
         yield return new WaitForSeconds(throwDelay);
 
@@ -41,14 +40,8 @@ public class Lobber : Enemy
 
         // Create and throw the projectile
         GameObject projectile = Instantiate(projectilePrefab, throwPoint.position, Quaternion.identity);
-        Rigidbody rb = projectile.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            // Apply force towards the player
-            rb.AddForce(directionToPlayer * throwForce, ForceMode.Impulse);
-        }
 
-        canThrow = true; // Reset flag to allow next throw
+        canThrow = true;
     }
 
     void FindNearestPlayer()
