@@ -81,7 +81,7 @@ public class GameManager : Singleton<GameManager>
 
     public void PlayerJoined()
     {
-        if(characters <= 3)
+        if(characters >= 3)
         {
             maxCharactersInPlay = true;
         }

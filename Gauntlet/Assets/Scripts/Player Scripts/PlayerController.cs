@@ -230,7 +230,7 @@ public class PlayerController : MonoBehaviour
 
         GetComponent<InventoryManager>().InitializeSlots();
 
-        GameManager.Instance.players.Add(this.gameObject);
+        GameManager.Instance.players.Add(gameObject);
 
         //reference for the PlayerInput scriptable object
         playerInput = new PlayerInput(); //constructor
