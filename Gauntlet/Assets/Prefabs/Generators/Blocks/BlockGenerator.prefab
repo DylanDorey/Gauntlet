@@ -340,6 +340,7 @@ MonoBehaviour:
   enemiesToSpawn:
   - {fileID: 517144782441949899, guid: 80e247a245181bb4499f75cb95fe7b80, type: 3}
   - {fileID: 4650451841492275985, guid: e4a619e16d5883b4a9c91d68735c3768, type: 3}
+  - {fileID: 8988278498849153993, guid: 641e9874dcede564594e43aaafc9d2ba, type: 3}
 --- !u!1 &7895629144891230674
 GameObject:
   m_ObjectHideFlags: 0

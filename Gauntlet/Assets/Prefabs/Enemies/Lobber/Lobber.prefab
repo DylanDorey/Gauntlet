@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 640833202693626107}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.04, y: 0.978, z: -0.00000011920929}
+  m_LocalPosition: {x: 0, y: 0.2, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -359,11 +359,10 @@ GameObject:
   - component: {fileID: 1423186119846016166}
   - component: {fileID: 6282054928730699070}
   - component: {fileID: 1499496371261623098}
-  - component: {fileID: 7079631403554302972}
   - component: {fileID: 7776647884429193936}
   m_Layer: 0
   m_Name: Lobber
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -376,18 +375,18 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8988278498849153993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27999997, y: 1.5879998, z: -1.775}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 168377783237449181}
   - {fileID: 2006283580696266385}
   - {fileID: 1562486910287817502}
   - {fileID: 6135884108124779782}
-  - {fileID: 168377783237449181}
   - {fileID: 4986888097655171897}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &1423186119846016166
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -459,33 +458,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &7079631403554302972
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8988278498849153993}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &7776647884429193936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,5 +480,4 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0, z: 0}
   projectilePrefab: {fileID: 6580256175343902851, guid: 920df661f8b736c4c83e6b9058d220f1, type: 3}
   throwPoint: {fileID: 4986888097655171897}
-  throwForce: 10
   throwDelay: 2
