@@ -22,7 +22,7 @@ public class Potion : Item, IItemBehavior
 
     private void Awake()
     {
-        InitializeItem(ItemType.Potion, 0f, 0);
+        InitializeItem(ItemType.Potion, 0, 0);
         itemBehavior = this;
     }
 

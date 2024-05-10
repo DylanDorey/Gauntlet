@@ -15,7 +15,7 @@ public class Door : Item
     private void Start()
     {
         //initialize the door item
-        InitializeItem(ItemType.Door, 0f, 0);
+        InitializeItem(ItemType.Door, 0, 0);
     }
 
     public override void OnCollisionEnter(Collision collision)

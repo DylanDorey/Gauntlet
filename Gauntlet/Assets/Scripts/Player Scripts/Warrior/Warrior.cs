@@ -46,7 +46,7 @@ public class Warrior : MonoBehaviour
         //axeSpawnPos = warrior.transform.GetChild(2);
         axeSpawnPos = transform.GetChild(0).transform.GetChild(2);
 
-        GetComponent<PlayerData>().InitializePlayerData(700f, 0, 1f, 1f, 8f, true);
+        GetComponent<PlayerData>().InitializePlayerData(700, 0, 1f, 1, 8f, true);
         playerController.shootBehavior = GetComponent<ThrowAxe>();
         playerController.meleeBehavior = GetComponent<WarriorMelee>();
 

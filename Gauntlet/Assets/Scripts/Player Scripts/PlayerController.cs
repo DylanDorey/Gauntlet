@@ -45,66 +45,78 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerEventBus.Subscribe(PlayerEvent.OnSpawn, InitializePlayerController);
+        //PlayerEventBus.Subscribe(PlayerEvent.OnSpawn, InitializePlayerController);
         GameEventBus.Subscribe(GameState.startGame, ResetPositionOnStart);
     }
 
     private void OnDisable()
     {
-        PlayerEventBus.Unsubscribe(PlayerEvent.OnSpawn, InitializePlayerController);
+        //PlayerEventBus.Unsubscribe(PlayerEvent.OnSpawn, InitializePlayerController);
         GameEventBus.Unsubscribe(GameState.startGame, ResetPositionOnStart);
     }
 
     public void Start()
     {
-        PlayerEventBus.Publish(PlayerEvent.OnSpawn);
+        InitializePlayerController();
+        //PlayerEventBus.Publish(PlayerEvent.OnSpawn);
     }
 
     private void FixedUpdate()
     {
         if (GameManager.Instance.isPlaying)
         {
-            InputMapMove();
-        }
-    }
-
-    private void InputMapMove()
-    {
-        switch (characterType)
-        {
-            case CharacterType.Warrior:
+            if (characterType == CharacterType.Warrior)
+            {
                 Vector2 warriorVecY = warriorInput.Warrior.Move.ReadValue<Vector2>();
                 Vector2 warriorVecX = warriorInput.Warrior.Move.ReadValue<Vector2>();
                 transform.Translate(new Vector3(warriorVecX.x, 0f, warriorVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
                 SetRotation(warriorVecX, warriorVecY);
-                break;
-
-            case CharacterType.Wizard:
+            }
+            else if(characterType == CharacterType.Wizard)
+            {
                 Vector2 wizardVecY = wizardInput.Wizard.Move.ReadValue<Vector2>();
                 Vector2 wizardVecX = wizardInput.Wizard.Move.ReadValue<Vector2>();
                 transform.Translate(new Vector3(wizardVecX.x, 0f, wizardVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
                 SetRotation(wizardVecX, wizardVecY);
-                break;
-
-            case CharacterType.Valkyrie:
+            }
+            else if (characterType == CharacterType.Valkyrie)
+            {
                 Vector2 valkyrieVecY = valkyrieInput.Valkyrie.Move.ReadValue<Vector2>();
                 Vector2 valkyrieVecX = valkyrieInput.Valkyrie.Move.ReadValue<Vector2>();
                 transform.Translate(new Vector3(valkyrieVecX.x, 0f, valkyrieVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
                 SetRotation(valkyrieVecX, valkyrieVecY);
-                break;
+            }
+            //switch (characterType)
+            //{
+            //    case CharacterType.Warrior:
+            //        Vector2 warriorVecY = warriorInput.Warrior.Move.ReadValue<Vector2>();
+            //        Vector2 warriorVecX = warriorInput.Warrior.Move.ReadValue<Vector2>();
+            //        transform.Translate(new Vector3(warriorVecX.x, 0f, warriorVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+            //        SetRotation(warriorVecX, warriorVecY);
+            //        break;
 
-                //case CharacterType.Elf:
-                //Vector2 elfVecY = elfInput.Elf.Move.ReadValue<Vector2>();
-                //Vector2 elfVecX = elfInput.Elf.Move.ReadValue<Vector2>();
-                //transform.Translate(new Vector3(elfVecX.x, 0f, elfVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
-                //SetRotation(elfVecX, elfVecY);
-                //    break;
+            //    case CharacterType.Valkyrie:
+            //        Vector2 wizardVecY = wizardInput.Wizard.Move.ReadValue<Vector2>();
+            //        Vector2 wizardVecX = wizardInput.Wizard.Move.ReadValue<Vector2>();
+            //        transform.Translate(new Vector3(wizardVecX.x, 0f, wizardVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+            //        SetRotation(wizardVecX, wizardVecY);
+            //        break;
+
+            //    case CharacterType.Wizard:
+            //        Vector2 valkyrieVecY = valkyrieInput.Valkyrie.Move.ReadValue<Vector2>();
+            //        Vector2 valkyrieVecX = valkyrieInput.Valkyrie.Move.ReadValue<Vector2>();
+            //        transform.Translate(new Vector3(valkyrieVecX.x, 0f, valkyrieVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+            //        SetRotation(valkyrieVecX, valkyrieVecY);
+            //        break;
+
+            //    case CharacterType.Elf:
+            //        //Vector2 elfVecY = elfInput.Elf.Move.ReadValue<Vector2>();
+            //        //Vector2 elfVecX = elfInput.Elf.Move.ReadValue<Vector2>();
+            //        //transform.Translate(new Vector3(elfVecX.x, 0f, elfVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+            //        //SetRotation(elfVecX, elfVecY);
+            //        break;
+            //}
         }
-    }
-
-    public virtual void OnCollisionEnter(Collision collision)
-    {
-        
     }
 
     /// <summary>
@@ -225,28 +237,28 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void InitializePlayerController()
     {
-        //switch(GameManager.Instance.characters)
-        //{
-        //    case 0:
-        //        character = CharacterType.Warrior;
-        //        playerIndex = 0;
-        //        break;
+        switch (GameManager.Instance.characters)
+        {
+            case 0:
+                characterType = CharacterType.Warrior;
+                playerIndex = 0;
+                break;
 
-        //    case 1:
-        //        character = CharacterType.Valkyrie;
-        //        playerIndex = 1;
-        //        break;
+            case 1:
+                characterType = CharacterType.Valkyrie;
+                playerIndex = 1;
+                break;
 
-        //    case 2:
-        //        character = CharacterType.Wizard;
-        //        playerIndex = 2;
-        //        break;
+            case 2:
+                characterType = CharacterType.Wizard;
+                playerIndex = 2;
+                break;
 
-        //    case 3:
-        //        character = CharacterType.Elf;
-        //        playerIndex = 3;
-        //        break;
-        //}
+            case 3:
+                characterType = CharacterType.Elf;
+                playerIndex = 3;
+                break;
+        }
 
         //switch (character)
         //{
@@ -279,38 +291,35 @@ public class PlayerController : MonoBehaviour
             case CharacterType.Warrior:
                 warriorInput = new WarriorInput();
                 warriorInput.Enable();
+                GameManager.Instance.characters++;
+                GameManager.Instance.players.Add(gameObject);
+                GetComponent<InventoryManager>().InitializeSlots();
                 break;
 
             case CharacterType.Wizard:
                 wizardInput = new WizardInput();
                 wizardInput.Enable();
+                GameManager.Instance.characters++;
+                GameManager.Instance.players.Add(gameObject);
+                GetComponent<InventoryManager>().InitializeSlots();
                 break;
 
             case CharacterType.Valkyrie:
                 valkyrieInput = new ValkyrieInput();
                 valkyrieInput.Enable();
+                GameManager.Instance.characters++;
+                GameManager.Instance.players.Add(gameObject);
+                GetComponent<InventoryManager>().InitializeSlots();
                 break;
 
                 //case CharacterType.Elf:
                 //elfInput = new ElfInput();
                 //elfInput.Enable();
+                //GameManager.Instance.characters++;
+                //GameManager.Instance.players.Add(gameObject);
+                //GetComponent<InventoryManager>().InitializeSlots();
                 //    break;
         }
-
-        GameManager.Instance.players.Add(gameObject);
-
-        GetComponent<InventoryManager>().InitializeSlots();
-
-        GameManager.Instance.characters++;
-
-        //if (GameManager.Instance.characters >= 3)
-        //{
-        //    GameManager.Instance.maxCharactersInPlay = true;
-        //}
-        //else
-        //{
-        //    GameManager.Instance.characters++;
-        //}
     }
 
     ///// <summary>

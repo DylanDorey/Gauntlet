@@ -14,6 +14,10 @@ public class PlayerSpawnHandler : MonoBehaviour
     {
         switch (GameManager.Instance.characters)
         {
+            case 0:
+                GetComponent<PlayerInputManager>().playerPrefab = GameManager.Instance.playerPrefabs[0];
+                break;
+
             case 1:
                 GetComponent<PlayerInputManager>().playerPrefab = GameManager.Instance.playerPrefabs[1];
                 break;

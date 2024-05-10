@@ -14,7 +14,7 @@ public class Treasure : Item
 
     private void Start()
     {
-        InitializeItem(ItemType.Treasure, 0f, 100);
+        InitializeItem(ItemType.Treasure, 0, 100);
     }
 
     public override void OnCollisionEnter(Collision collision)

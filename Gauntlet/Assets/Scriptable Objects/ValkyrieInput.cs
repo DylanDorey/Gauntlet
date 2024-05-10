@@ -77,83 +77,6 @@ public partial class @ValkyrieInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""b7f04819-1f85-47eb-bd2c-8a1b269d4893"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""70aea1ce-3858-48dd-9354-3b338fcce845"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""75f9e4d7-bee1-4a74-9efb-9c14e18765e1"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""9f0517cf-d6a0-4f98-ac7b-bb7846f4387a"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""95d025b7-3122-4acc-b641-4bfb47e9d521"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5ccf817d-c250-4085-87ce-e52d163b69a2"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Melee"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1641fb5d-173e-4d03-aa87-bd09ae575498"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Use Potion"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""2D Vector"",
                     ""id"": ""fbcf5df7-b341-4280-a0c7-ed3c97aad3bf"",
                     ""path"": ""2DVector"",
@@ -245,17 +168,6 @@ public partial class @ValkyrieInput: IInputActionCollection2, IDisposable
         }
     ],
     ""controlSchemes"": [
-        {
-            ""name"": ""Controller"",
-            ""bindingGroup"": ""Controller"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Gamepad>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
-        },
         {
             ""name"": ""Keyboard"",
             ""bindingGroup"": ""Keyboard"",
@@ -402,15 +314,6 @@ public partial class @ValkyrieInput: IInputActionCollection2, IDisposable
         }
     }
     public ValkyrieActions @Valkyrie => new ValkyrieActions(this);
-    private int m_ControllerSchemeIndex = -1;
-    public InputControlScheme ControllerScheme
-    {
-        get
-        {
-            if (m_ControllerSchemeIndex == -1) m_ControllerSchemeIndex = asset.FindControlSchemeIndex("Controller");
-            return asset.controlSchemes[m_ControllerSchemeIndex];
-        }
-    }
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {

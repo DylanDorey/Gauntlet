@@ -14,7 +14,7 @@ public class Key : Item
 
     private void Start()
     {
-        InitializeItem(ItemType.Key, 0f, 100);
+        InitializeItem(ItemType.Key, 0, 100);
     }
 
     public override void OnCollisionEnter(Collision collision)

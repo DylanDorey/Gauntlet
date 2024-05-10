@@ -11,16 +11,16 @@ using UnityEngine;
 //various base player states
 public enum PlayerEvent
 {
-    OnSpawn,
+    //OnSpawn,
     OnDeath
 }
 
 public class PlayerData : MonoBehaviour
 {
-    public float playerHealth;
+    public int playerHealth;
     public int playerScore;
     public float playerMagic;
-    public float playerArmor;
+    public int playerArmor;
     public float playerSpeed;
 
     [Range(1f, 5f)]
@@ -32,12 +32,17 @@ public class PlayerData : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerEventBus.Subscribe(PlayerEvent.OnSpawn, StartHealthTick);
+        //PlayerEventBus.Subscribe(PlayerEvent.OnSpawn, StartHealthTick);
     }
 
     private void OnDisable()
     {
-        PlayerEventBus.Subscribe(PlayerEvent.OnSpawn, StopHealthTick);
+        //PlayerEventBus.Subscribe(PlayerEvent.OnSpawn, StopHealthTick);
+    }
+
+    private void Start()
+    {
+        StartHealthTick();
     }
 
     // Update is called once per frame
@@ -46,7 +51,7 @@ public class PlayerData : MonoBehaviour
         
     }
 
-    public void InitializePlayerData(float health, int score, float magic, float armor, float speed, bool isMelee)
+    public void InitializePlayerData(int health, int score, float magic, int armor, float speed, bool isMelee)
     {
         playerHealth = health;
         playerScore = score;
@@ -61,12 +66,10 @@ public class PlayerData : MonoBehaviour
     /// </summary>
     /// <param name="damage"> the incoming damage </param>
     /// <returns></returns>
-    public float TakeDamage(float damage)
+    public float TakeDamage(int damage)
     {
         //remove the damage value from the players health, then return the players new health
         playerHealth -= damage/playerArmor;
-
-        Mathf.Floor(playerHealth);
 
         PlayerController playerController = GetComponent<PlayerController>();
         switch (playerController.characterType)
@@ -96,7 +99,7 @@ public class PlayerData : MonoBehaviour
         while (true)
         {
             //remove 1 health
-            playerHealth -= 1f;
+            playerHealth -= 1;
 
             //if (playerHealth <= 0 && GameManager.Instance.isPlaying)
             //{

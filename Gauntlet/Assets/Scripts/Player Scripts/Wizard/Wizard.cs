@@ -29,7 +29,7 @@ public class Wizard : MonoBehaviour
 
         fireballSpawnPos = transform.GetChild(0).transform.GetChild(2);
 
-        GetComponent<PlayerData>().InitializePlayerData(700f, 0, 4f, 1f, 5f, false);
+        GetComponent<PlayerData>().InitializePlayerData(700, 0, 4f, 1, 5f, false);
         playerController.shootBehavior = GetComponent<ThrowFireball>();
 
         UIManager.Instance.wizard = GetComponent<PlayerData>();

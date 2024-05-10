@@ -9,7 +9,7 @@ public class Rock : MonoBehaviour
     private float rockSpeed = 7f;
 
     [Range(1f, 10f)]
-    public float rockDamage = 3f;
+    public int rockDamage = 3;
 
     public Vector3 moveDirection;
 

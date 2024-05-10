@@ -58,7 +58,7 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void StartGame()
     {
-        Instantiate(playerPrefabs[0], Vector3.zero, Quaternion.identity);
+        //Instantiate(playerPrefabs[0], Vector3.zero, Quaternion.identity);
 
         //publish the startGame game event
         GameEventBus.Publish(GameState.startGame);
@@ -85,7 +85,7 @@ public class GameManager : Singleton<GameManager>
         Application.Quit();
     }
 
-    public void PlayerJoined()
+    public void FirstPlayerJoined()
     {
         if (characters == 3)
         {

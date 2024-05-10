@@ -9,7 +9,7 @@ public class Food : Item
 
     private void Start()
     {
-        InitializeItem(ItemType.Food, 100f, 0);
+        InitializeItem(ItemType.Food, 100, 0);
     }
 
     public override void OnCollisionEnter(Collision collision)
