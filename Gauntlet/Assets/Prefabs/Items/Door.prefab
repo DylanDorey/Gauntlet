@@ -49,6 +49,7 @@ MonoBehaviour:
   itemType: 0
   healAmount: 0
   pointAmount: 0
+  openSound: {fileID: 8300000, guid: 17b3e0c98d8ec0e4cb28cb8ed4f7fc45, type: 3}
 --- !u!65 &4390738940177743085
 BoxCollider:
   m_ObjectHideFlags: 0

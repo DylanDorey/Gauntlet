@@ -18,6 +18,7 @@ public class Potion : Item, IItemBehavior
     public SphereCollider aoeCollider;
 
     public AudioClip usePotionSound;
+    public AudioClip pickupSound;
 
     private void Awake()
     {
@@ -34,6 +35,7 @@ public class Potion : Item, IItemBehavior
 
             if (other.transform.GetComponent<InventoryManager>().potionInventoryFull == false)
             {
+                AudioManager.Instance.AddToSoundQueue(pickupSound);
                 Destroy(gameObject);
             }
         }
@@ -69,11 +71,13 @@ public class Potion : Item, IItemBehavior
     {
         if (_playerData == null)
         {
-            Instantiate(aoeCollider, transform.position, Quaternion.identity);
+            Collider AOE = Instantiate(aoeCollider, transform.position, Quaternion.identity);
+            AOE.GetComponent<AOECollider>().scaleFactor = new Vector3(playerData.playerMagic, playerData.playerMagic, playerData.playerMagic);
         }
         else
         {
-            Instantiate(aoeCollider, playerData.transform.position, Quaternion.identity);
+            Collider AOE = Instantiate(aoeCollider, playerData.transform.position, Quaternion.identity);
+            AOE.GetComponent<AOECollider>().scaleFactor = new Vector3(playerData.playerMagic, playerData.playerMagic, playerData.playerMagic);
         }
 
         AudioManager.Instance.AddToSoundQueue(usePotionSound);

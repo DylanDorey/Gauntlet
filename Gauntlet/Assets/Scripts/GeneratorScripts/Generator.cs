@@ -21,6 +21,7 @@ public class Generator : MonoBehaviour
     public float spawnRate;
     public GeneratorType generatorType;
     public Transform[] spawnPoints;
+    public AudioClip deathSound;
     public bool hasSpawnedEnemy = false;
 
     public void OnCollisionEnter(Collision collision)
@@ -79,6 +80,7 @@ public class Generator : MonoBehaviour
 
     public void OnGeneratorDeath()
     {
+        AudioManager.Instance.AddToSoundQueue(deathSound);
         Destroy(gameObject);
     }
 }

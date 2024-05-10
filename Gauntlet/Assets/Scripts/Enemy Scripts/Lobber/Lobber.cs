@@ -13,6 +13,7 @@ public class Lobber : Enemy
     public GameObject projectilePrefab;
     public Transform throwPoint;
     public float throwDelay = 2f;
+    public AudioClip throwSound;
 
     private bool canThrow = true;
 
@@ -58,6 +59,7 @@ public class Lobber : Enemy
         // Create and throw the projectile
         GameObject projectile = Instantiate(projectilePrefab, throwPoint.position, Quaternion.identity);
         projectile.GetComponent<Rock>().moveDirection = transform.forward;
+        AudioManager.Instance.AddToSoundQueue(throwSound);
 
         canThrow = true;
     }

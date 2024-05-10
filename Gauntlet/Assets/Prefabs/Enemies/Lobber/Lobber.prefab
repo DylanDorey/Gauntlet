@@ -481,3 +481,4 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6580256175343902851, guid: 920df661f8b736c4c83e6b9058d220f1, type: 3}
   throwPoint: {fileID: 4986888097655171897}
   throwDelay: 2
+  throwSound: {fileID: 8300000, guid: 29c52eae46067be43bdc6985a2da8240, type: 3}

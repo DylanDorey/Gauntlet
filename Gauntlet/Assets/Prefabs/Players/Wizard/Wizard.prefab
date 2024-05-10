@@ -167,7 +167,7 @@ MonoBehaviour:
     m_ActionName: Player/Use Potion[/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Controller
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: Wizard
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &595454021214386491
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 0
-  character: 2
+  characterType: 0
   characterPrefabs:
   - {fileID: 9023392820244342524, guid: 136380eb539d7854785e2658247ed621, type: 3}
   - {fileID: 6342615081377474035, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
@@ -199,7 +199,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fb49f49073826bf40b92a7f58f684e36, type: 3}
   - {fileID: 8300000, guid: 745b2e55ac4c0bb4c846c97719b492dc, type: 3}
   valkyrieAudioClips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: f23fac68d05df34468a7354d78419619, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   wizardAudioClips:

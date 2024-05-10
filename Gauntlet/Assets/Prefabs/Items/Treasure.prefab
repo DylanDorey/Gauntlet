@@ -2089,6 +2089,7 @@ MonoBehaviour:
   itemType: 0
   healAmount: 0
   pointAmount: 100
+  pickupSound: {fileID: 8300000, guid: b36b4aaeab06bce4e969ac43e462ca3e, type: 3}
 --- !u!1 &8092581040170274004
 GameObject:
   m_ObjectHideFlags: 0
