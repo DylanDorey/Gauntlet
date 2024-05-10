@@ -293,7 +293,6 @@ public class PlayerController : MonoBehaviour
                 warriorInput.Enable();
                 GameManager.Instance.characters++;
                 GameManager.Instance.players.Add(gameObject);
-                GetComponent<InventoryManager>().InitializeSlots();
                 break;
 
             case CharacterType.Wizard:

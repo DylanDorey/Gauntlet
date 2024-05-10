@@ -10,8 +10,18 @@ public class ExitDoor : MonoBehaviour
     {
         if (collision.transform.GetComponent<PlayerController>())
         {
-            GameEventBus.Publish(GameState.levelOver);
-            AudioManager.Instance.AddToSoundQueue(levelChangeMusic);
+            StartCoroutine(NextLevelDelay());
         }
+    }
+
+    private IEnumerator NextLevelDelay()
+    {
+        for (int index = 0; index < 1; index++)
+        {
+            AudioManager.Instance.AddToSoundQueue(levelChangeMusic);
+            yield return new WaitForSeconds(2f);
+        }
+
+        GameEventBus.Publish(GameState.levelOver);
     }
 }

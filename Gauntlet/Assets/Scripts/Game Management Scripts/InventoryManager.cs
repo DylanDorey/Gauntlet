@@ -28,6 +28,16 @@ public class InventoryManager : MonoBehaviour
     public bool keyInventoryFull = false;
     public bool potionInventoryFull = false;
 
+    private void OnEnable()
+    {
+        GameEventBus.Subscribe(GameState.startGame, InitializeSlots);
+    }
+
+    private void OnDisable()
+    {
+        GameEventBus.Unsubscribe(GameState.startGame, InitializeSlots);
+    }
+
     private void Start()
     {
         //arrays for the item game objects and the items abilities/uses
