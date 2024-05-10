@@ -27,7 +27,7 @@ public class Wizard : MonoBehaviour
         GameObject wizard = Instantiate(wizardPrefab, transform.position, Quaternion.identity);
         wizard.transform.parent = playerController.gameObject.transform;
 
-        fireballSpawnPos = wizard.transform.GetChild(2);
+        fireballSpawnPos = transform.GetChild(0).transform.GetChild(2);
 
         GetComponent<PlayerData>().InitializePlayerData(700f, 0, 2f, 1f, 5f, false);
         playerController.shootBehavior = GetComponent<ThrowFireball>();

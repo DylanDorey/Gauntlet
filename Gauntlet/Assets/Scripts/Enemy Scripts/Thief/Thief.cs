@@ -12,21 +12,12 @@ public class Thief : Enemy
 
     private void Start()
     {
-        InitializeEnemy(500, 7f, 10, 10f, 10f);
+        InitializeEnemy(500, 8f, 10, 10f, 50f);
 
-        gameObject.AddComponent<Steal>();
         enemyBehavior = GetComponent<Steal>();
 
         //initialize the target pos to a random player
-        targetPos = GameObject.Find("Player").gameObject.transform.position;
-    }
-
-    private void Update()
-    {
-        if (!hasStolen)
-        {
-            FindRichestPlayer();
-        }
+        targetPos = GameObject.FindGameObjectWithTag("Player").gameObject.transform.position;
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -42,6 +33,11 @@ public class Thief : Enemy
             {
                 ApplyBehavior(enemyBehavior);
             }
+            else
+            {
+                transform.GetChild(0).gameObject.SetActive(false);
+                StartCoroutine(Flee());
+            }
         }
 
         if (enemyHealth <= 0)
@@ -49,32 +45,7 @@ public class Thief : Enemy
             if (collision.transform.GetComponent<Axe>() || collision.transform.GetComponent<Fireball>() || collision.transform.GetComponent<Sword>())
             {
                 UIManager.Instance.warrior.gameObject.GetComponent<PlayerData>().playerScore += PassPoints();
-            }
-        }
-    }
-
-    /// <summary>
-    /// Finds the richest player on the level
-    /// </summary>
-    private void FindRichestPlayer()
-    {
-        Collider newCollider = GetComponentInChildren<AttackRadius>().collide;
-        int collidedPoints;
-
-        if (newCollider != null)
-        {
-            if (newCollider.GetComponent<PlayerController>())
-            {
-                collidedPoints = newCollider.GetComponent<PlayerData>().playerScore;
-
-                if (collidedPoints > targetPointValue)
-                {
-                    targetPointValue = collidedPoints;
-
-                    targetPos = newCollider.transform.position;
-
-                    AudioManager.Instance.AddToSoundQueue(thiefTone);
-                }
+                OnDeath();
             }
         }
     }
@@ -93,6 +64,9 @@ public class Thief : Enemy
 
     public IEnumerator Flee()
     {
+        targetPos = GameObject.FindGameObjectWithTag("Exit").gameObject.transform.position;
+        AudioManager.Instance.AddToSoundQueue(thiefTone);
+
         for (int index = 0; index < 1; index++)
         {
             yield return new WaitForSeconds(5f);

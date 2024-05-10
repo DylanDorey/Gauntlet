@@ -203,7 +203,7 @@ public class InventoryManager : MonoBehaviour
     {
         characterPanels = GameObject.FindGameObjectWithTag("characterPanels");
 
-        switch (gameObject.GetComponent<PlayerController>().character)
+        switch (gameObject.GetComponent<PlayerController>().characterType)
         {
             case CharacterType.Warrior:
                 keySlots = characterPanels.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).gameObject;

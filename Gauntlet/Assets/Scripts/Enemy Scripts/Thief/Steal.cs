@@ -45,7 +45,7 @@ public class Steal : MonoBehaviour, IEnemyBehavior
 
             //once the thief has stolen something set the targetPos to the exit
             GetComponent<Thief>().hasStolen = true;
-            GetComponent<Thief>().targetPos = GameObject.FindGameObjectWithTag("Exit").transform.position;
+            StartCoroutine(GetComponent<Thief>().Flee());
         }
     }
 }

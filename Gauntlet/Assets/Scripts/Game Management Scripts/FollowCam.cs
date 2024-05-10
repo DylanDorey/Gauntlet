@@ -9,24 +9,42 @@ public class FollowCam : MonoBehaviour
     private float targetPosz;
     private Vector3 targetPos;
 
-    private void Start()
+    private void OnEnable()
     {
-        player = GameObject.FindFirstObjectByType<PlayerController>();
-        targetPosx = player.transform.position.x;
-        targetPosz = player.transform.position.z;
-
-        targetPos = new Vector3(targetPosx, transform.position.y, targetPosz);
+        GameEventBus.Subscribe(GameState.startGame, InitializeCam);
     }
+
+    private void OnDisable()
+    {
+        GameEventBus.Unsubscribe(GameState.startGame, InitializeCam);
+    }
+
     private void Update()
     {
-        targetPosx = player.transform.position.x + 4f;
-        targetPosz = player.transform.position.z - 4f;
+        if (GameManager.Instance.isPlaying)
+        {
+            targetPosx = player.transform.position.x + 4f;
+            targetPosz = player.transform.position.z - 4f;
 
-        targetPos = new Vector3(targetPosx, transform.position.y, targetPosz);
+            targetPos = new Vector3(targetPosx, transform.position.y, targetPosz);
+        }
     }
 
     private void FixedUpdate()
     {
-        transform.position = targetPos;
+        if (GameManager.Instance.isPlaying)
+        {
+            transform.position = targetPos;
+        }
+    }
+
+    private void InitializeCam()
+    {
+        player = GameObject.FindObjectOfType<PlayerController>();
+
+        targetPosx = player.transform.position.x + 4f;
+        targetPosz = player.transform.position.z - 4f;
+
+        targetPos = new Vector3(targetPosx, transform.position.y, targetPosz);
     }
 }

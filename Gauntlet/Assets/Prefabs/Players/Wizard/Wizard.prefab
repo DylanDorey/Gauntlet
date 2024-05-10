@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5704838608003067641
+--- !u!1 &1272539359866741395
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6468799589356366270}
-  - component: {fileID: 2034853367050925571}
-  - component: {fileID: 5113284045291721542}
-  - component: {fileID: 360493495834507169}
-  - component: {fileID: 6721800081124645443}
-  - component: {fileID: 7383470863863191601}
-  - component: {fileID: 4206240177406457453}
-  - component: {fileID: 161940843044210352}
-  - component: {fileID: 9139895148820190559}
-  - component: {fileID: 1574889165481953239}
+  - component: {fileID: 6774146314119406399}
+  - component: {fileID: 6042531925761989079}
+  - component: {fileID: 6420218213359001716}
+  - component: {fileID: 793802880474237333}
+  - component: {fileID: 595454021214386491}
+  - component: {fileID: 3214934987717103537}
+  - component: {fileID: 7879209653411101086}
+  - component: {fileID: 6326389840132743301}
+  - component: {fileID: 5956722414824488443}
   m_Layer: 0
-  m_Name: Valkyrie
+  m_Name: Wizard
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6468799589356366270
+--- !u!4 &6774146314119406399
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 1272539359866741395}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1929928405972927186}
+  - {fileID: 471187195049031346}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2034853367050925571
+--- !u!54 &6042531925761989079
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 1272539359866741395}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -68,13 +67,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!65 &5113284045291721542
+--- !u!65 &6420218213359001716
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 1272539359866741395}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -89,19 +88,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &360493495834507169
+--- !u!114 &793802880474237333
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 1272539359866741395}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 95b49d35c9045464786755f4a23697d6, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 5f50f6bef66a3cb429586645fd5a2bde, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -117,12 +116,12 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: e3a77a97-f724-43ff-b075-52a9c2139c0c
-    m_ActionName: Valkyrie/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+    m_ActionName: Player/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 595454021214386491}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnShoot
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -133,12 +132,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 4ca9540c-7948-41f2-8409-1ecbcbd241ae
-    m_ActionName: Valkyrie/Shoot[/XInputControllerWindows/rightTrigger,/Keyboard/space]
+    m_ActionName: Player/Shoot[/XInputControllerWindows/rightTrigger]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 595454021214386491}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnMelee
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -149,12 +148,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: cdaeee26-bef9-4437-9d5b-29111f9c3b80
-    m_ActionName: Valkyrie/Melee[/XInputControllerWindows/leftTrigger,/Keyboard/leftShift]
+    m_ActionName: Player/Melee[/XInputControllerWindows/leftTrigger]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 595454021214386491}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnPotionUse
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -165,26 +164,26 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 7b05c42e-d300-42a2-997f-afcff2942b8b
-    m_ActionName: Valkyrie/Use Potion[/XInputControllerWindows/rightShoulder,/Keyboard/g]
+    m_ActionName: Player/Use Potion[/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Valkyrie
+  m_DefaultControlScheme: Controller
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6721800081124645443
+--- !u!114 &595454021214386491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 1272539359866741395}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 352ecc4017086f44da90c0636ea766c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 0
-  characterType: 0
+  character: 2
   characterPrefabs:
   - {fileID: 9023392820244342524, guid: 136380eb539d7854785e2658247ed621, type: 3}
   - {fileID: 6342615081377474035, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
@@ -211,13 +210,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &7383470863863191601
+--- !u!114 &3214934987717103537
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 1272539359866741395}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a09522b62f58e1948a1f4e261f936a0d, type: 3}
@@ -232,13 +231,13 @@ MonoBehaviour:
   hasMelee: 0
   hasKey: 0
   hasPotion: 0
---- !u!114 &4206240177406457453
+--- !u!114 &7879209653411101086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 1272539359866741395}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3f50f02a3b05d0409ba7fb9dfe31f68, type: 3}
@@ -254,110 +253,93 @@ MonoBehaviour:
   itemsArray: []
   keyInventoryFull: 0
   potionInventoryFull: 0
---- !u!114 &161940843044210352
+--- !u!114 &6326389840132743301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 1272539359866741395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb8dc21573c910428e69f217e516422, type: 3}
+  m_Script: {fileID: 11500000, guid: e6f3ea88a722ecb48911093a6e0b6e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingDelay: 0
-  swingSpeed: 0
   throwDelay: 0
-  swingDamage: 0
-  meleeDistance: 0.2
-  hitPoint: {x: 0, y: 0, z: 0}
-  valkyriePrefab: {fileID: 6342615081377474035, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
-  swordPrefab: {fileID: 1744112362532714893, guid: fc30d22dd58b8fc48bfdbe2e44f0f6b4, type: 3}
-  swordSpawnpos: {fileID: 0}
---- !u!114 &9139895148820190559
+  wizardPrefab: {fileID: 7197700089058974574, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
+  fireballPrefab: {fileID: 656569471141158888, guid: ae7a70d0375f7384f8339e4aefb25685, type: 3}
+  fireballSpawnPos: {fileID: 0}
+--- !u!114 &5956722414824488443
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 1272539359866741395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6eec630d018fc1141a84f94c909edf81, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c3fee9d9826e9e4a9b14a762f6e0247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1574889165481953239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fdc119373b3a61498c339c1c19db7ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &4796403220179716850
+--- !u!1001 &2226907353542621124
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6468799589356366270}
+    m_TransformParent: {fileID: 6774146314119406399}
     m_Modifications:
-    - target: {fileID: 6342615081377474035, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
-      propertyPath: m_Name
-      value: Valkyrie
-      objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 1760465663698190710, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 1760465663698190710, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 1760465663698190710, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 1760465663698190710, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 1760465663698190710, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 1760465663698190710, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 1760465663698190710, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 1760465663698190710, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 1760465663698190710, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 1760465663698190710, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7197700089058974574, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
+      propertyPath: m_Name
+      value: WizardPrefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
---- !u!4 &1929928405972927186 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
+--- !u!4 &471187195049031346 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
-  m_PrefabInstance: {fileID: 4796403220179716850}
+  m_CorrespondingSourceObject: {fileID: 1760465663698190710, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
+  m_PrefabInstance: {fileID: 2226907353542621124}
   m_PrefabAsset: {fileID: 0}

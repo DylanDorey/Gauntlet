@@ -39,10 +39,10 @@ public class Valkyrie : MonoBehaviour
         valkyriePrefab = playerController.characterPrefabs[1];
         swordPrefab = playerController.projectilePrefabs[1];
 
-        GameObject valkyrie = Instantiate(valkyriePrefab, transform.position, Quaternion.identity);
-        valkyrie.transform.parent = playerController.gameObject.transform;
+        //GameObject valkyrie = Instantiate(valkyriePrefab, transform.position, Quaternion.identity);
+        //valkyrie.transform.parent = playerController.gameObject.transform;
 
-        swordSpawnpos = valkyrie.transform.GetChild(0);
+        swordSpawnpos = transform.GetChild(0).transform.GetChild(0);
 
         GetComponent<PlayerData>().InitializePlayerData(700f, 0, 1f, 3f, 8f, true);
         playerController.shootBehavior = GetComponent<throwSword>();

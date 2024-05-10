@@ -69,7 +69,7 @@ public class PlayerData : MonoBehaviour
         Mathf.Floor(playerHealth);
 
         PlayerController playerController = GetComponent<PlayerController>();
-        switch (playerController.character)
+        switch (playerController.characterType)
         {
             case CharacterType.Warrior:
                 AudioManager.Instance.AddToSoundQueue(playerController.warriorAudioClips[2]);
@@ -98,10 +98,11 @@ public class PlayerData : MonoBehaviour
             //remove 1 health
             playerHealth -= 1f;
 
-            if(playerHealth <= 0)
-            {
-                GameEventBus.Publish(GameState.gameOver);
-            }
+            //if (playerHealth <= 0 && GameManager.Instance.isPlaying)
+            //{
+            //    GameEventBus.Publish(GameState.gameOver);
+            //    GameManager.Instance.isPlaying = false;
+            //}
 
             yield return new WaitForSeconds(healthTickRate);
         }

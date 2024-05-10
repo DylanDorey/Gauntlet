@@ -40,10 +40,11 @@ public class Warrior : MonoBehaviour
         warriorPrefab = playerController.characterPrefabs[0];
         axePrefab = playerController.projectilePrefabs[0];
 
-        GameObject warrior = Instantiate(warriorPrefab, transform.position, Quaternion.identity);
-        warrior.transform.parent = playerController.gameObject.transform;
+        //GameObject warrior = Instantiate(warriorPrefab, transform.position, Quaternion.identity);
+        //warrior.transform.parent = playerController.gameObject.transform;
 
-        axeSpawnPos = warrior.transform.GetChild(2);
+        //axeSpawnPos = warrior.transform.GetChild(2);
+        axeSpawnPos = transform.GetChild(0).transform.GetChild(2);
 
         GetComponent<PlayerData>().InitializePlayerData(700f, 0, 1f, 1f, 8f, true);
         playerController.shootBehavior = GetComponent<ThrowAxe>();

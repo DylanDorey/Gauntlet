@@ -21,9 +21,12 @@ public enum GameState
 public class GameManager : Singleton<GameManager>
 {
     public bool maxCharactersInPlay = false;
-    public int characters;
+    public int characters = 0;
     public List<GameObject> players;
     public bool isPlaying;
+
+    private Vector3 masterPlayerPos;
+    public GameObject[] playerPrefabs;
 
     private void Start()
     {
@@ -55,10 +58,12 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void StartGame()
     {
+        Instantiate(playerPrefabs[0], Vector3.zero, Quaternion.identity);
+
         //publish the startGame game event
         GameEventBus.Publish(GameState.startGame);
         isPlaying = true;
-        
+        transform.GetChild(0).gameObject.SetActive(true);
     }
 
     /// <summary>
@@ -66,6 +71,7 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void ReturnToMenu()
     {
+        transform.GetChild(0).gameObject.SetActive(false);
         //publish the menu game event
         GameEventBus.Publish(GameState.mainMenu);
     }
@@ -81,7 +87,7 @@ public class GameManager : Singleton<GameManager>
 
     public void PlayerJoined()
     {
-        if(characters >= 3)
+        if (characters == 3)
         {
             maxCharactersInPlay = true;
         }
@@ -89,13 +95,22 @@ public class GameManager : Singleton<GameManager>
         {
             characters++;
         }
+        //if (!maxCharactersInPlay)
+        //{
+        //    masterPlayerPos = GameObject.FindObjectOfType<PlayerController>().transform.position;
+
+        //    Instantiate(playerPrefab, masterPlayerPos + new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)), Quaternion.identity);
+
+        //    characters++;
+        //}
     }
 
-    public void PlayerLeave()
-    {
-        if (characters != 0)
-        {
-            characters--;
-        }
-    }
+    //public void PlayerLeave()
+    //{
+    //    if (characters != 0)
+    //    {
+    //        Destroy(players[characters]);
+    //        characters--;
+    //    }
+    //}
 }

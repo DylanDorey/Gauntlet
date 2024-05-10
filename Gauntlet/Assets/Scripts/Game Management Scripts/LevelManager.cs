@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelManager : Singleton<LevelManager>
 {
     public GameObject thiefItem;
+    public GameObject thiefPrefab;
     public GameObject[] levelPrefabs;
     private GameObject level;
     public List<Vector3> playerSpawns;
@@ -69,6 +70,11 @@ public class LevelManager : Singleton<LevelManager>
         //set thief item spawn
         thiefItemSpawn = levelPrefabs[levelToSpawnIndex].transform.GetChild(1).position;
 
+        if(currentLevel > 1)
+        {
+            Invoke("SpawnThief", Random.Range(15f, 45f));
+        }
+
         //increase the level spawn index
         levelToSpawnIndex++;
     }
@@ -94,6 +100,11 @@ public class LevelManager : Singleton<LevelManager>
         Instantiate(thiefItem, thiefItemSpawn, Quaternion.identity);
 
         thiefItem = null;
+    }
+
+    private void SpawnThief()
+    {
+        Instantiate(thiefPrefab, thiefItemSpawn, Quaternion.identity);
     }
 
     public void ResetLevelManager()

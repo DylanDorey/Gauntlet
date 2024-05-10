@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5704838608003067641
+--- !u!1 &3008530524690894524
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6468799589356366270}
-  - component: {fileID: 2034853367050925571}
-  - component: {fileID: 5113284045291721542}
-  - component: {fileID: 360493495834507169}
-  - component: {fileID: 6721800081124645443}
-  - component: {fileID: 7383470863863191601}
-  - component: {fileID: 4206240177406457453}
-  - component: {fileID: 161940843044210352}
-  - component: {fileID: 9139895148820190559}
-  - component: {fileID: 1574889165481953239}
+  - component: {fileID: 7173583829071069567}
+  - component: {fileID: 1205328935578200002}
+  - component: {fileID: 7792113262995316280}
+  - component: {fileID: 3678068953259691245}
+  - component: {fileID: 4545309529523709163}
+  - component: {fileID: 3969234315600537407}
+  - component: {fileID: 2149346166665412510}
+  - component: {fileID: 8111587974808369083}
+  - component: {fileID: 519648488000203388}
+  - component: {fileID: 1050457680866390647}
   m_Layer: 0
-  m_Name: Valkyrie
+  m_Name: Warrior
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6468799589356366270
+--- !u!4 &7173583829071069567
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 3008530524690894524}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1929928405972927186}
+  - {fileID: 1722200063585332232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2034853367050925571
+--- !u!54 &1205328935578200002
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 3008530524690894524}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -68,13 +68,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!65 &5113284045291721542
+--- !u!65 &7792113262995316280
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 3008530524690894524}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -89,19 +89,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &360493495834507169
+--- !u!114 &3678068953259691245
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 3008530524690894524}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 95b49d35c9045464786755f4a23697d6, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 96bf777d90573014885e3f984af0217b, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -117,12 +117,12 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: e3a77a97-f724-43ff-b075-52a9c2139c0c
-    m_ActionName: Valkyrie/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+    m_ActionName: Player/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4545309529523709163}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnShoot
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -133,12 +133,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 4ca9540c-7948-41f2-8409-1ecbcbd241ae
-    m_ActionName: Valkyrie/Shoot[/XInputControllerWindows/rightTrigger,/Keyboard/space]
+    m_ActionName: Player/Shoot[/XInputControllerWindows/rightTrigger]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4545309529523709163}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnMelee
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -149,12 +149,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: cdaeee26-bef9-4437-9d5b-29111f9c3b80
-    m_ActionName: Valkyrie/Melee[/XInputControllerWindows/leftTrigger,/Keyboard/leftShift]
+    m_ActionName: Player/Melee[/XInputControllerWindows/leftTrigger]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4545309529523709163}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnPotionUse
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -165,19 +165,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 7b05c42e-d300-42a2-997f-afcff2942b8b
-    m_ActionName: Valkyrie/Use Potion[/XInputControllerWindows/rightShoulder,/Keyboard/g]
+    m_ActionName: Player/Use Potion[/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Valkyrie
+  m_DefaultControlScheme: Controller
+  m_DefaultActionMap: Warrior
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6721800081124645443
+--- !u!114 &4545309529523709163
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 3008530524690894524}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 352ecc4017086f44da90c0636ea766c7, type: 3}
@@ -211,13 +211,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &7383470863863191601
+--- !u!114 &3969234315600537407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 3008530524690894524}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a09522b62f58e1948a1f4e261f936a0d, type: 3}
@@ -232,13 +232,13 @@ MonoBehaviour:
   hasMelee: 0
   hasKey: 0
   hasPotion: 0
---- !u!114 &4206240177406457453
+--- !u!114 &2149346166665412510
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 3008530524690894524}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3f50f02a3b05d0409ba7fb9dfe31f68, type: 3}
@@ -254,110 +254,112 @@ MonoBehaviour:
   itemsArray: []
   keyInventoryFull: 0
   potionInventoryFull: 0
---- !u!114 &161940843044210352
+--- !u!114 &8111587974808369083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 3008530524690894524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb8dc21573c910428e69f217e516422, type: 3}
+  m_Script: {fileID: 11500000, guid: f866592f6c3d796419dd374472e81fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingDelay: 0
-  swingSpeed: 0
+  meleeDelay: 0
   throwDelay: 0
-  swingDamage: 0
+  meleeDamage: 0
   meleeDistance: 0.2
-  hitPoint: {x: 0, y: 0, z: 0}
-  valkyriePrefab: {fileID: 6342615081377474035, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
-  swordPrefab: {fileID: 1744112362532714893, guid: fc30d22dd58b8fc48bfdbe2e44f0f6b4, type: 3}
-  swordSpawnpos: {fileID: 0}
---- !u!114 &9139895148820190559
+  rayDirection: {x: 0, y: 0, z: 0}
+  warriorPrefab: {fileID: 9023392820244342524, guid: 136380eb539d7854785e2658247ed621, type: 3}
+  axePrefab: {fileID: 4870490442639679435, guid: e12352666ff85fb4f9649f0adb47a6ae, type: 3}
+  axeSpawnPos: {fileID: 0}
+  axeThrowSound: {fileID: 8300000, guid: 37cd485fec5618d46bb6254e2490d524, type: 3}
+  meleeSound: {fileID: 0}
+  hurtSound: {fileID: 0}
+--- !u!114 &519648488000203388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 3008530524690894524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6eec630d018fc1141a84f94c909edf81, type: 3}
+  m_Script: {fileID: 11500000, guid: a37175bc148729c4292f2b6e012e83d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1574889165481953239
+--- !u!114 &1050457680866390647
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704838608003067641}
+  m_GameObject: {fileID: 3008530524690894524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fdc119373b3a61498c339c1c19db7ff, type: 3}
+  m_Script: {fileID: 11500000, guid: a6c865836b836c64fa35e03cea2b121d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &4796403220179716850
+--- !u!1001 &5513268671267693860
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6468799589356366270}
+    m_TransformParent: {fileID: 7173583829071069567}
     m_Modifications:
-    - target: {fileID: 6342615081377474035, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
-      propertyPath: m_Name
-      value: Valkyrie
-      objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 6585788159149984044, guid: 136380eb539d7854785e2658247ed621, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 6585788159149984044, guid: 136380eb539d7854785e2658247ed621, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 6585788159149984044, guid: 136380eb539d7854785e2658247ed621, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 6585788159149984044, guid: 136380eb539d7854785e2658247ed621, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 6585788159149984044, guid: 136380eb539d7854785e2658247ed621, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 6585788159149984044, guid: 136380eb539d7854785e2658247ed621, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 6585788159149984044, guid: 136380eb539d7854785e2658247ed621, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 6585788159149984044, guid: 136380eb539d7854785e2658247ed621, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 6585788159149984044, guid: 136380eb539d7854785e2658247ed621, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - target: {fileID: 6585788159149984044, guid: 136380eb539d7854785e2658247ed621, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9023392820244342524, guid: 136380eb539d7854785e2658247ed621, type: 3}
+      propertyPath: m_Name
+      value: WarriorPrefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
---- !u!4 &1929928405972927186 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 136380eb539d7854785e2658247ed621, type: 3}
+--- !u!4 &1722200063585332232 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
-  m_PrefabInstance: {fileID: 4796403220179716850}
+  m_CorrespondingSourceObject: {fileID: 6585788159149984044, guid: 136380eb539d7854785e2658247ed621, type: 3}
+  m_PrefabInstance: {fileID: 5513268671267693860}
   m_PrefabAsset: {fileID: 0}
