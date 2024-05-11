@@ -200,8 +200,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 745b2e55ac4c0bb4c846c97719b492dc, type: 3}
   valkyrieAudioClips:
   - {fileID: 8300000, guid: f23fac68d05df34468a7354d78419619, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: d8ee3064fdc24fe45b93b4698df9935e, type: 3}
   wizardAudioClips:
   - {fileID: 0}
   - {fileID: 0}
