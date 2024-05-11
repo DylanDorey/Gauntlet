@@ -32,6 +32,10 @@ public class Valkyrie : MonoBehaviour
     public GameObject swordPrefab;
     public Transform swordSpawnpos;
 
+    public AudioClip throwSwordSound;
+    public AudioClip valkyrieMeleeSound;
+    public AudioClip valkyrieHurt;
+
     public void Start()
     {
         PlayerController playerController = GetComponent<PlayerController>();
@@ -39,14 +43,15 @@ public class Valkyrie : MonoBehaviour
         valkyriePrefab = playerController.characterPrefabs[1];
         swordPrefab = playerController.projectilePrefabs[1];
 
-        //GameObject valkyrie = Instantiate(valkyriePrefab, transform.position, Quaternion.identity);
-        //valkyrie.transform.parent = playerController.gameObject.transform;
-
         swordSpawnpos = transform.GetChild(0).transform.GetChild(0);
 
         GetComponent<PlayerData>().InitializePlayerData(700, 0, 2f, 3, 8f, true);
         playerController.shootBehavior = GetComponent<throwSword>();
         playerController.meleeBehavior = GetComponent<swordMelee>();
+
+        throwSwordSound = playerController.valkyrieAudioClips[0];
+        valkyrieMeleeSound = playerController.valkyrieAudioClips[1];
+        valkyrieHurt = playerController.valkyrieAudioClips[2];
 
         UIManager.Instance.valkyrie = GetComponent<PlayerData>();
     }

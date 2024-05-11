@@ -78,8 +78,10 @@ public class PlayerData : MonoBehaviour
                 AudioManager.Instance.AddToSoundQueue(playerController.warriorAudioClips[2]);
                 break;
             case CharacterType.Valkyrie:
+                AudioManager.Instance.AddToSoundQueue(playerController.valkyrieAudioClips[2]);
                 break;
             case CharacterType.Wizard:
+                AudioManager.Instance.AddToSoundQueue(playerController.wizardAudioClips[1]);
                 break;
             case CharacterType.Elf:
                 break;
