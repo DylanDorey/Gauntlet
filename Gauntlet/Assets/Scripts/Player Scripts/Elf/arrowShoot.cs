@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class arrowShoot : MonoBehaviour, IShootBehavior
+public class arrowShoot : MonoBehaviour //IShootBehavior
 {
+    /*
     public void ShootBehavior(PlayerController player)
     {
         if (!hasShot)
@@ -11,6 +12,6 @@ public class arrowShoot : MonoBehaviour, IShootBehavior
             StartCoroutine(Shoot(player));
         }
     }
-
+    */
 
 }

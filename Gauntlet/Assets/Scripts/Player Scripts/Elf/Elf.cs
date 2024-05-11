@@ -32,8 +32,8 @@ public class Elf : MonoBehaviour
 
         //arrowPrefab = elf.transform.GetChild(index);
 
-        GetComponent<PlayerData>().InitializePlayerData(700f, 0, 1f, 1f, 8f, true);
-        playerController.shootBehavior = GetComponent<arrowShoot>();
+        GetComponent<PlayerData>().InitializePlayerData(700, 0, 1f, 1, 8f, true);
+        //playerController.shootBehavior = GetComponent<arrowShoot>();
 
         arrowShootSound = playerController.warriorAudioClips[0];
         hurtSound = playerController.warriorAudioClips[2];
