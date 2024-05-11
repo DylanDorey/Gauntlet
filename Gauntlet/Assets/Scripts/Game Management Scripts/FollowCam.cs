@@ -4,47 +4,45 @@ using UnityEngine;
 
 public class FollowCam : MonoBehaviour
 {
-    private PlayerController player;
+    public PlayerController player;
     private float targetPosx;
     private float targetPosz;
     private Vector3 targetPos;
 
-    private void OnEnable()
+    private void Start()
     {
-        GameEventBus.Subscribe(GameState.startGame, InitializeCam);
-    }
-
-    private void OnDisable()
-    {
-        GameEventBus.Unsubscribe(GameState.startGame, InitializeCam);
+        //transform.position = new Vector3(0f, 10f, 0f);
     }
 
     private void Update()
     {
-        if (GameManager.Instance.isPlaying)
+        if (GameManager.Instance.isPlaying && player != null)
         {
             targetPosx = player.transform.position.x + 4f;
             targetPosz = player.transform.position.z - 4f;
 
-            targetPos = new Vector3(targetPosx, transform.position.y, targetPosz);
+            targetPos = new Vector3(targetPosx, 10f, targetPosz);
         }
     }
 
     private void FixedUpdate()
     {
-        if (GameManager.Instance.isPlaying)
+        if (GameManager.Instance.isPlaying && player != null)
         {
             transform.position = targetPos;
         }
     }
 
-    private void InitializeCam()
+    public void InitializeCam()
     {
-        player = GameObject.FindObjectOfType<PlayerController>();
+        if (GameManager.Instance.isPlaying)
+        {
+            player = GameObject.FindObjectOfType<PlayerController>();
 
-        targetPosx = player.transform.position.x + 4f;
-        targetPosz = player.transform.position.z - 4f;
+            targetPosx = player.transform.position.x + 4f;
+            targetPosz = player.transform.position.z - 4f;
 
-        targetPos = new Vector3(targetPosx, transform.position.y, targetPosz);
+            targetPos = new Vector3(targetPosx, 10f, targetPosz);
+        }
     }
 }

@@ -6,7 +6,7 @@ using TMPro;
 
 public class UIManager : Singleton<UIManager>
 {
-    public GameObject menuScreen, gameScreen, gameOverScreen;
+    public GameObject menuScreen, gameScreen, gameOverScreen, centerText;
 
     public TextMeshProUGUI warriorHealthText, valkyrieHealthText, wizardHealthText, elfHealthText, warriorScoreText, valkyrieScoreText, wizardScoreText, elfScoreText, levelText;
 
@@ -43,6 +43,9 @@ public class UIManager : Singleton<UIManager>
     {
         //disable the playing screen and game over screen, but enable the menu screen
         SetDisplayScreen(true, false, false);
+
+        //disable the cursor
+        Cursor.visible = false;
     }
 
     /// <summary>
@@ -53,8 +56,7 @@ public class UIManager : Singleton<UIManager>
         //disable the menu and game over screen, but enable the playing screen
         SetDisplayScreen(false, true, false);
 
-        //disable the cursor
-        Cursor.visible = false;
+        StartCoroutine(PressStartToJoinText());
     }
 
     /// <summary>
@@ -62,9 +64,7 @@ public class UIManager : Singleton<UIManager>
     /// </summary>
     private void EnableGameOverUI()
     {
-        //enable the cursor 
         //disable the menu and playing screen, but enable the game over screen
-        Cursor.visible = true;
         SetDisplayScreen(false, false, true);
     }
 
@@ -103,5 +103,23 @@ public class UIManager : Singleton<UIManager>
             wizardHealthText.text = wizard.playerHealth.ToString();
             wizardScoreText.text = wizard.playerScore.ToString();
         }
+
+        if (elf != null)
+        {
+            elfHealthText.text = elf.playerHealth.ToString();
+            elfScoreText.text = elf.playerScore.ToString();
+        }
+    }
+
+    private IEnumerator PressStartToJoinText()
+    {
+        for (int index = 0; index < 1; index++)
+        {
+            centerText.SetActive(true);
+
+            yield return new WaitForSeconds(4f);
+        }
+
+        centerText.SetActive(false);
     }
 }

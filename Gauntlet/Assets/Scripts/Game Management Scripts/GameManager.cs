@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /*
  * Author: [Dorey, Dylan]
@@ -14,43 +15,21 @@ public enum GameState
     mainMenu,
     startGame,
     levelOver,
-    gameOver,
-    returnToMenu
+    gameOver
 }
 
 public class GameManager : Singleton<GameManager>
 {
-    public bool maxCharactersInPlay = false;
     public int characters = 0;
     public List<GameObject> players;
     public bool isPlaying;
 
-    private Vector3 masterPlayerPos;
     public GameObject[] playerPrefabs;
 
     private void Start()
     {
         //start the game in the main menu by publishing the menu game event
         GameEventBus.Publish(GameState.mainMenu);
-        //GameEventBus.Publish(GameState.startGame);
-    }
-
-    private void OnEnable()
-    {
-        
-    }
-
-    private void OnDisable()
-    {
-        
-    }
-
-    /// <summary>
-    /// This will intialize all game elements for Gauntlet
-    /// </summary>
-    private void InitializeGame()
-    {
-
     }
 
     /// <summary>
@@ -58,12 +37,9 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void StartGame()
     {
-        //Instantiate(playerPrefabs[0], Vector3.zero, Quaternion.identity);
-
         //publish the startGame game event
         GameEventBus.Publish(GameState.startGame);
         isPlaying = true;
-        transform.GetChild(0).gameObject.SetActive(true);
     }
 
     /// <summary>
@@ -71,7 +47,6 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void ReturnToMenu()
     {
-        transform.GetChild(0).gameObject.SetActive(false);
         //publish the menu game event
         GameEventBus.Publish(GameState.mainMenu);
     }
@@ -84,33 +59,4 @@ public class GameManager : Singleton<GameManager>
         //quit the application
         Application.Quit();
     }
-
-    public void FirstPlayerJoined()
-    {
-        if (characters == 3)
-        {
-            maxCharactersInPlay = true;
-        }
-        else
-        {
-            characters++;
-        }
-        //if (!maxCharactersInPlay)
-        //{
-        //    masterPlayerPos = GameObject.FindObjectOfType<PlayerController>().transform.position;
-
-        //    Instantiate(playerPrefab, masterPlayerPos + new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)), Quaternion.identity);
-
-        //    characters++;
-        //}
-    }
-
-    //public void PlayerLeave()
-    //{
-    //    if (characters != 0)
-    //    {
-    //        Destroy(players[characters]);
-    //        characters--;
-    //    }
-    //}
 }
