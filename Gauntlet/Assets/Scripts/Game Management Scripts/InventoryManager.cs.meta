@@ -6,9 +6,10 @@ MonoImporter:
   defaultReferences:
   - characterPanels: {instanceID: 0}
   - keySlots: {instanceID: 0}
+  - potionSlots: {instanceID: 0}
   - keyPrefab: {fileID: 120186224271754500, guid: ed15f84cac843d24ebc3dad87e676453, type: 3}
-  - bluePotionPrefab: {instanceID: 0}
-  - orangePotionPrefab: {instanceID: 0}
+  - bluePotionPrefab: {fileID: 8107321821172193495, guid: 2ba8d7d6e8818974491b7564291b60bc, type: 3}
+  - orangePotionPrefab: {fileID: 3024838364592346506, guid: 5cea44166d28cc54fa379a121c2218d5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

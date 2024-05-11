@@ -35,6 +35,8 @@ public class ThrowFireball : MonoBehaviour, IShootBehavior
 
             fireball.GetComponent<Fireball>().moveDirection = transform.GetChild(0).transform.forward;
 
+            AudioManager.Instance.AddToSoundQueue(wizard.throwFireballSound);
+
             yield return new WaitForSeconds(wizard.throwDelay);
         }
 

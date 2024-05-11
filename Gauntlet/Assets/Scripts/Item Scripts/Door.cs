@@ -10,10 +10,12 @@ using UnityEngine;
 
 public class Door : Item
 {
+    public AudioClip openSound;
+
     private void Start()
     {
         //initialize the door item
-        InitializeItem(ItemType.Door, 0f, 0);
+        InitializeItem(ItemType.Door, 0, 0);
     }
 
     public override void OnCollisionEnter(Collision collision)
@@ -39,6 +41,7 @@ public class Door : Item
         {
             //remove the key from the player's inventory, and open the door
             collision.gameObject.GetComponent<InventoryManager>().RemoveKeyOnUse();
+            AudioManager.Instance.AddToSoundQueue(openSound);
             gameObject.SetActive(false);
         }
     }

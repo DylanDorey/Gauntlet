@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /*
  * Author: [Dorey, Dylan]
@@ -14,40 +15,21 @@ public enum GameState
     mainMenu,
     startGame,
     levelOver,
-    gameOver,
-    returnToMenu
+    gameOver
 }
 
 public class GameManager : Singleton<GameManager>
 {
-    public bool maxCharactersInPlay = false;
-    public int characters;
+    public int characters = 0;
     public List<GameObject> players;
     public bool isPlaying;
+
+    public GameObject[] playerPrefabs;
 
     private void Start()
     {
         //start the game in the main menu by publishing the menu game event
         GameEventBus.Publish(GameState.mainMenu);
-        //GameEventBus.Publish(GameState.startGame);
-    }
-
-    private void OnEnable()
-    {
-        
-    }
-
-    private void OnDisable()
-    {
-        
-    }
-
-    /// <summary>
-    /// This will intialize all game elements for Gauntlet
-    /// </summary>
-    private void InitializeGame()
-    {
-
     }
 
     /// <summary>
@@ -58,7 +40,6 @@ public class GameManager : Singleton<GameManager>
         //publish the startGame game event
         GameEventBus.Publish(GameState.startGame);
         isPlaying = true;
-        
     }
 
     /// <summary>
@@ -77,25 +58,5 @@ public class GameManager : Singleton<GameManager>
     {
         //quit the application
         Application.Quit();
-    }
-
-    public void PlayerJoined()
-    {
-        if(characters <= 3)
-        {
-            maxCharactersInPlay = true;
-        }
-        else
-        {
-            characters++;
-        }
-    }
-
-    public void PlayerLeave()
-    {
-        if (characters != 0)
-        {
-            characters--;
-        }
     }
 }

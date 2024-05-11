@@ -22,10 +22,10 @@ public class Item : MonoBehaviour
 {
     //feference to itemType enum, the items heal amount, and the amount of points the item is worth
     public ItemType itemType;
-    public float healAmount;
+    public int healAmount;
     public int pointAmount;
 
-    public void InitializeItem(ItemType type, float heal, int points)
+    public void InitializeItem(ItemType type, int heal, int points)
     {
         itemType = type;
         healAmount = heal;

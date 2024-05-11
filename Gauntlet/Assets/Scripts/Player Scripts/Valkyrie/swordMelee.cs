@@ -16,14 +16,22 @@ public class swordMelee : MonoBehaviour, IMeleeBehavior
 
     public IEnumerator Swing(PlayerController player)
     {
+        Valkyrie valkyrie = player.gameObject.GetComponent<Valkyrie>();
+
         for (int index = 0; index < 1; index++)
         {
-            if (Physics.Raycast(player.transform.position, player.gameObject.GetComponent<Valkyrie>().hitPoint, out player.gameObject.GetComponent<Valkyrie>().hit, player.gameObject.GetComponent<Valkyrie>().meleeDistance))
+            if (Physics.Raycast(player.transform.position, valkyrie.hitPoint, out valkyrie.hit, valkyrie.meleeDistance))
             {
                 hasAttacked = true;
-                Debug.DrawRay(player.transform.position, player.gameObject.GetComponent<Valkyrie>().hitPoint, Color.red);
+                Debug.DrawRay(player.transform.position, valkyrie.hitPoint, Color.red);
 
-                yield return new WaitForSeconds(player.gameObject.GetComponent<Valkyrie>().swingDelay);
+                if (valkyrie.hit.collider.transform.GetComponent<Enemy>())
+                {
+                   valkyrie.hit.collider.gameObject.GetComponent<Enemy>().TakeDamage(valkyrie.swingDamage);
+                   AudioManager.Instance.AddToSoundQueue(valkyrie.valkyrieMeleeSound);
+                }
+
+                yield return new WaitForSeconds(valkyrie.swingDelay);
             }
 
             hasAttacked = false;

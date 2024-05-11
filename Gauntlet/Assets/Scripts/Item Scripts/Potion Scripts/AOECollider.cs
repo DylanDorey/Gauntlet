@@ -9,6 +9,8 @@ using UnityEngine;
  */
 public class AOECollider : MonoBehaviour
 {
+    public Vector3 scaleFactor;
+
     private void Start()
     {
         StartCoroutine(IncreaseSize());
@@ -24,7 +26,6 @@ public class AOECollider : MonoBehaviour
 
     private IEnumerator IncreaseSize()
     {
-        Vector3 scaleFactor = new Vector3(3f, 3f, 3f);
         transform.localScale = scaleFactor;
 
         for (int index = 0; index < 4; index++)

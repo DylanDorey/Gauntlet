@@ -244,6 +244,7 @@ MonoBehaviour:
   - {fileID: 3025803966915249406}
   - {fileID: 7959691044829785236}
   - {fileID: 6017328383209074313}
+  deathSound: {fileID: 8300000, guid: 526b4c923c6d25e4386bfb41f80f804c, type: 3}
   hasSpawnedEnemy: 0
   level1Prefab: {fileID: 6102730756907121135, guid: 4cea42e0481bf554292723afa6c7b5fd, type: 3}
   level2Prefab: {fileID: 7551010823899133943, guid: ba47c402ae0e09248abb9260f244b812, type: 3}

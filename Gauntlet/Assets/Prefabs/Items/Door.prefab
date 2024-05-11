@@ -49,6 +49,7 @@ MonoBehaviour:
   itemType: 0
   healAmount: 0
   pointAmount: 0
+  openSound: {fileID: 8300000, guid: 17b3e0c98d8ec0e4cb28cb8ed4f7fc45, type: 3}
 --- !u!65 &4390738940177743085
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -68,8 +69,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.75, y: 1.75, z: 0.25}
-  m_Center: {x: 0, y: 0.9, z: 0}
+  m_Size: {x: 3, y: 3, z: 0.3}
+  m_Center: {x: 0, y: 0.87, z: 0}
 --- !u!1 &6037876582484078523
 GameObject:
   m_ObjectHideFlags: 0
