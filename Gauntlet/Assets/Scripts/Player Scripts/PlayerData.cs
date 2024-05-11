@@ -8,13 +8,6 @@ using UnityEngine;
  * [Stores all player data related to number values, such as stats]
  */
 
-//various base player states
-public enum PlayerEvent
-{
-    //OnSpawn,
-    OnDeath
-}
-
 public class PlayerData : MonoBehaviour
 {
     public int playerHealth;
@@ -103,11 +96,17 @@ public class PlayerData : MonoBehaviour
             //remove 1 health
             playerHealth -= 1;
 
-            //if (playerHealth <= 0 && GameManager.Instance.isPlaying)
-            //{
-            //    GameEventBus.Publish(GameState.gameOver);
-            //    GameManager.Instance.isPlaying = false;
-            //}
+            if (playerHealth <= 0 && GameManager.Instance.isPlaying)
+            {
+                //if(GameManager.Instance.characters == 0)
+                //{
+                //    GameEventBus.Publish(GameState.gameOver);
+                //}
+                //else
+                //{
+                //    Destroy(gameObject);
+                //}
+            }
 
             yield return new WaitForSeconds(healthTickRate);
         }

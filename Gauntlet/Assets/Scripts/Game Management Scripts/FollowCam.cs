@@ -4,83 +4,41 @@ using UnityEngine;
 
 public class FollowCam : MonoBehaviour
 {
-    private PlayerController player;
+    public PlayerController player;
     private float targetPosx;
     private float targetPosz;
     private Vector3 targetPos;
 
-    private float minCameraSize = 8f;
-    private float maxCameraSize = 12f;
-
-    private void OnEnable()
-    {
-        GameEventBus.Subscribe(GameState.startGame, InitializeCam);
-    }
-
-    private void OnDisable()
-    {
-        GameEventBus.Unsubscribe(GameState.startGame, InitializeCam);
-    }
-
     private void Update()
     {
-        if (GameManager.Instance.isPlaying)
+        if (GameManager.Instance.isPlaying && player != null)
         {
             targetPosx = player.transform.position.x + 4f;
             targetPosz = player.transform.position.z - 4f;
 
             targetPos = new Vector3(targetPosx, transform.position.y, targetPosz);
 
-            //CheckScreenBounds();
+            targetPos = new Vector3(targetPosx, 10f, targetPosz);
         }
     }
 
     private void FixedUpdate()
     {
-        if (GameManager.Instance.isPlaying)
+        if (GameManager.Instance.isPlaying && player != null)
         {
             transform.position = targetPos;
         }
     }
 
-    private void InitializeCam()
+    public void InitializeCam()
     {
-        player = GameObject.FindObjectOfType<PlayerController>();
-
-        targetPosx = player.transform.position.x + 4f;
-        targetPosz = player.transform.position.z - 4f;
-
-        targetPos = new Vector3(targetPosx, 10f, targetPosz);
-    }
-
-    private void CheckScreenBounds()
-    {
-        for (int index = 0; index < GameManager.Instance.players.Count; index++)
+        if (GameManager.Instance.isPlaying)
         {
-            if (GameManager.Instance.players[index].gameObject.transform.position.x > targetPos.x + Camera.main.orthographicSize || GameManager.Instance.players[index].gameObject.transform.position.x < targetPos.x + Camera.main.orthographicSize)
-            {
-                Camera.main.orthographicSize += 0.1f;
+            player = GameObject.FindObjectOfType<PlayerController>();
 
-                if (Camera.main.orthographicSize > maxCameraSize)
-                {
-                    Camera.main.orthographicSize = maxCameraSize;
-                }
-            }
-
-            if (GameManager.Instance.players[index].gameObject.transform.position.z > targetPos.z + Camera.main.orthographicSize || GameManager.Instance.players[index].gameObject.transform.position.z < targetPos.z + Camera.main.orthographicSize)
-            {
-                Camera.main.orthographicSize += 0.1f;
-
-                if (Camera.main.orthographicSize > maxCameraSize)
-                {
-                    Camera.main.orthographicSize = maxCameraSize;
-                }
-            }
+            targetPosx = player.transform.position.x + 4f;
+            targetPosz = player.transform.position.z - 4f;
+            targetPos = new Vector3(targetPosx, 10f, targetPosz);
         }
-
-        //if (Camera.main.orthographicSize < minCameraSize)
-        //{
-        //    Camera.main.orthographicSize = minCameraSize;
-        //}
     }
 }

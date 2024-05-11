@@ -260,32 +260,6 @@ public class PlayerController : MonoBehaviour
                 break;
         }
 
-        //switch (character)
-        //{
-        //    case CharacterType.Warrior:
-        //        gameObject.AddComponent<Warrior>();
-        //        gameObject.AddComponent<ThrowAxe>();
-        //        gameObject.AddComponent<WarriorMelee>();
-        //        break;
-
-        //    case CharacterType.Wizard:
-        //        gameObject.AddComponent<Wizard>();
-        //        gameObject.AddComponent<ThrowFireball>();
-        //        break;
-
-        //    case CharacterType.Valkyrie:
-        //        gameObject.AddComponent<Valkyrie>();
-        //        gameObject.AddComponent<throwSword>();
-        //        gameObject.AddComponent<swordMelee>();
-        //        break;
-
-        //    //case CharacterType.Elf:
-        //    //    gameObject.AddComponent<Elf>();
-        //    //    gameObject.AddComponent<ShootArrow>();
-        //    //    gameObject.AddComponent<ElfMelee>();
-        //    //    break;
-        //}
-
         switch (characterType)
         {
             case CharacterType.Warrior:
@@ -293,6 +267,8 @@ public class PlayerController : MonoBehaviour
                 warriorInput.Enable();
                 GameManager.Instance.characters++;
                 GameManager.Instance.players.Add(gameObject);
+                GetComponent<InventoryManager>().InitializeSlots();
+                Camera.main.GetComponent<FollowCam>().player = this;
                 break;
 
             case CharacterType.Wizard:
@@ -320,14 +296,6 @@ public class PlayerController : MonoBehaviour
                 //    break;
         }
     }
-
-    ///// <summary>
-    ///// Spawns in the player controller prefab at its spawn location
-    ///// </summary>
-    //public void StartPlayerController()
-    //{
-    //    InitializePlayerController();
-    //}
 
     //apply a melee behavior
     public void ApplyMeleeBehavior(IMeleeBehavior behavior)
