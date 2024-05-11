@@ -287,13 +287,13 @@ public class PlayerController : MonoBehaviour
                 GetComponent<InventoryManager>().InitializeSlots();
                 break;
 
-                //case CharacterType.Elf:
-                //elfInput = new ElfInput();
-                //elfInput.Enable();
-                //GameManager.Instance.characters++;
-                //GameManager.Instance.players.Add(gameObject);
-                //GetComponent<InventoryManager>().InitializeSlots();
-                //    break;
+                case CharacterType.Elf:
+                elfInput = new ElfInput();
+                elfInput.Enable();
+                GameManager.Instance.characters++;
+                GameManager.Instance.players.Add(gameObject);
+                GetComponent<InventoryManager>().InitializeSlots();
+                break;
         }
     }
 
