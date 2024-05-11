@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class WarriorMelee : MonoBehaviour, IMeleeBehavior
 {
-    private bool hasMeleed = false;
+    public bool hasMeleed = false;
 
     public void MeleeBehavior(PlayerController player)
     {
@@ -34,9 +34,9 @@ public class WarriorMelee : MonoBehaviour, IMeleeBehavior
                 hasMeleed = true;
                 Debug.DrawRay(player.transform.position, warrior.rayDirection, Color.red);
 
-                if (warrior.hit.collider.gameObject.GetComponent<Enemy>())
+                if (warrior.hit.collider.transform.GetComponent<Enemy>())
                 {
-                    warrior.hit.collider.gameObject.GetComponent<Enemy>().enemyHealth -= warrior.meleeDamage;
+                    warrior.hit.collider.gameObject.GetComponent<Enemy>().TakeDamage(warrior.meleeDamage);
                     AudioManager.Instance.AddToSoundQueue(warrior.meleeSound);
                 }
 

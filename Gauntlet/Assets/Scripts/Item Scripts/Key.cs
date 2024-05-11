@@ -10,9 +10,11 @@ using UnityEngine;
 
 public class Key : Item
 {
+    public AudioClip pickupSound;
+
     private void Start()
     {
-        InitializeItem(ItemType.Key, 0f, 100);
+        InitializeItem(ItemType.Key, 0, 100);
     }
 
     public override void OnCollisionEnter(Collision collision)
@@ -23,6 +25,7 @@ public class Key : Item
 
         if (collision.transform.GetComponent<InventoryManager>().keyInventoryFull == false)
         {
+            AudioManager.Instance.AddToSoundQueue(pickupSound);
             Destroy(gameObject);
         }
     }

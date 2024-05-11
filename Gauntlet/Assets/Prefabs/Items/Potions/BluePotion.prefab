@@ -353,3 +353,4 @@ MonoBehaviour:
   _playerData: {fileID: 0}
   aoeCollider: {fileID: 6620006236947780080, guid: ad34ed6cc19a80a40b0feaaff663541d, type: 3}
   usePotionSound: {fileID: 8300000, guid: 23baaf571bb58384a8a539f41d90c7aa, type: 3}
+  pickupSound: {fileID: 8300000, guid: 2996aaf7700a95a4698ec7c5e72f19d8, type: 3}

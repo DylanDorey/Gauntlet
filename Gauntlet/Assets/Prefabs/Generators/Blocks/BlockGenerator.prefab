@@ -333,6 +333,7 @@ MonoBehaviour:
   - {fileID: 6066287708208927576}
   - {fileID: 2375553104941971939}
   - {fileID: 708918911112519238}
+  deathSound: {fileID: 8300000, guid: 526b4c923c6d25e4386bfb41f80f804c, type: 3}
   hasSpawnedEnemy: 0
   level1Prefab: {fileID: 3331629295177667984, guid: 831f59d7eae9f514eae60ad42529c0d1, type: 3}
   level2Prefab: {fileID: 5147519730790986837, guid: 17a74f0977773f74c93446d7dc183b88, type: 3}
@@ -340,6 +341,7 @@ MonoBehaviour:
   enemiesToSpawn:
   - {fileID: 517144782441949899, guid: 80e247a245181bb4499f75cb95fe7b80, type: 3}
   - {fileID: 4650451841492275985, guid: e4a619e16d5883b4a9c91d68735c3768, type: 3}
+  - {fileID: 8988278498849153993, guid: 641e9874dcede564594e43aaafc9d2ba, type: 3}
 --- !u!1 &7895629144891230674
 GameObject:
   m_ObjectHideFlags: 0

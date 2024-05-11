@@ -20,53 +20,103 @@ public enum CharacterType
 public class PlayerController : MonoBehaviour
 {
     //reference to various scriptable objects, character inputs
-    public PlayerInput playerInput;
+    public WarriorInput warriorInput;
+    public ValkyrieInput valkyrieInput;
+    public WizardInput wizardInput;
+    public ElfInput elfInput;
+
+    public int playerIndex = 0;
+
+    //the type of character the player is
+    public CharacterType characterType;
+    public IMeleeBehavior meleeBehavior;
+    public IShootBehavior shootBehavior;
 
     //the various character prefabs
     public GameObject[] characterPrefabs = new GameObject[4];
-
     //the various projectile prefabs
     public GameObject[] projectilePrefabs = new GameObject[4];
-
-    public CharacterType character;
-
-    public IMeleeBehavior meleeBehavior;
-    public IShootBehavior shootBehavior;
 
     public AudioClip[] warriorAudioClips;
     public AudioClip[] valkyrieAudioClips;
     public AudioClip[] wizardAudioClips;
     public AudioClip[] elfAudioClips;
 
+
     private void OnEnable()
     {
-        PlayerEventBus.Subscribe(PlayerEvent.OnSpawn, InitializePlayerController);
+        //PlayerEventBus.Subscribe(PlayerEvent.OnSpawn, InitializePlayerController);
+        GameEventBus.Subscribe(GameState.startGame, ResetPositionOnStart);
     }
 
     private void OnDisable()
     {
-        PlayerEventBus.Unsubscribe(PlayerEvent.OnSpawn, InitializePlayerController);
+        //PlayerEventBus.Unsubscribe(PlayerEvent.OnSpawn, InitializePlayerController);
+        GameEventBus.Unsubscribe(GameState.startGame, ResetPositionOnStart);
     }
 
     public void Start()
     {
-        PlayerEventBus.Publish(PlayerEvent.OnSpawn);
+        InitializePlayerController();
+        //PlayerEventBus.Publish(PlayerEvent.OnSpawn);
     }
 
     private void FixedUpdate()
     {
         if (GameManager.Instance.isPlaying)
         {
-            Vector2 moveVecY = playerInput.Player.Move.ReadValue<Vector2>();
-            Vector2 moveVecX = playerInput.Player.Move.ReadValue<Vector2>();
-            transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
-            SetRotation(moveVecX, moveVecY);
-        }
-    }
+            if (characterType == CharacterType.Warrior)
+            {
+                Vector2 warriorVecY = warriorInput.Warrior.Move.ReadValue<Vector2>();
+                Vector2 warriorVecX = warriorInput.Warrior.Move.ReadValue<Vector2>();
+                transform.Translate(new Vector3(warriorVecX.x, 0f, warriorVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+                SetRotation(warriorVecX, warriorVecY);
+            }
+            else if(characterType == CharacterType.Wizard)
+            {
+                Vector2 wizardVecY = wizardInput.Wizard.Move.ReadValue<Vector2>();
+                Vector2 wizardVecX = wizardInput.Wizard.Move.ReadValue<Vector2>();
+                transform.Translate(new Vector3(wizardVecX.x, 0f, wizardVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+                SetRotation(wizardVecX, wizardVecY);
+            }
+            else if (characterType == CharacterType.Valkyrie)
+            {
+                Vector2 valkyrieVecY = valkyrieInput.Valkyrie.Move.ReadValue<Vector2>();
+                Vector2 valkyrieVecX = valkyrieInput.Valkyrie.Move.ReadValue<Vector2>();
+                transform.Translate(new Vector3(valkyrieVecX.x, 0f, valkyrieVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+                SetRotation(valkyrieVecX, valkyrieVecY);
+            }
+            //switch (characterType)
+            //{
+            //    case CharacterType.Warrior:
+            //        Vector2 warriorVecY = warriorInput.Warrior.Move.ReadValue<Vector2>();
+            //        Vector2 warriorVecX = warriorInput.Warrior.Move.ReadValue<Vector2>();
+            //        transform.Translate(new Vector3(warriorVecX.x, 0f, warriorVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+            //        SetRotation(warriorVecX, warriorVecY);
+            //        break;
 
-    public virtual void OnCollisionEnter(Collision collision)
-    {
-        
+            //    case CharacterType.Valkyrie:
+            //        Vector2 wizardVecY = wizardInput.Wizard.Move.ReadValue<Vector2>();
+            //        Vector2 wizardVecX = wizardInput.Wizard.Move.ReadValue<Vector2>();
+            //        transform.Translate(new Vector3(wizardVecX.x, 0f, wizardVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+            //        SetRotation(wizardVecX, wizardVecY);
+            //        break;
+
+            //    case CharacterType.Wizard:
+            //        Vector2 valkyrieVecY = valkyrieInput.Valkyrie.Move.ReadValue<Vector2>();
+            //        Vector2 valkyrieVecX = valkyrieInput.Valkyrie.Move.ReadValue<Vector2>();
+            //        transform.Translate(new Vector3(valkyrieVecX.x, 0f, valkyrieVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+            //        SetRotation(valkyrieVecX, valkyrieVecY);
+            //        break;
+
+            //    case CharacterType.Elf:
+            //        //Vector2 elfVecY = elfInput.Elf.Move.ReadValue<Vector2>();
+            //        //Vector2 elfVecX = elfInput.Elf.Move.ReadValue<Vector2>();
+            //        //transform.Translate(new Vector3(elfVecX.x, 0f, elfVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+            //        //SetRotation(elfVecX, elfVecY);
+            //        break;
+            //}
+        }
     }
 
     /// <summary>
@@ -177,86 +227,75 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void ResetPositionOnStart()
+    {
+        transform.position = Vector3.zero;
+    }
 
     /// <summary>
     /// initializes the player controller at the start of the game
     /// </summary>
     public void InitializePlayerController()
     {
-        switch(GameManager.Instance.characters)
+        switch (GameManager.Instance.characters)
         {
             case 0:
-                character = CharacterType.Warrior;
+                characterType = CharacterType.Warrior;
+                playerIndex = 0;
                 break;
 
             case 1:
-                character = CharacterType.Valkyrie;
+                characterType = CharacterType.Valkyrie;
+                playerIndex = 1;
                 break;
 
             case 2:
-                character = CharacterType.Wizard;
+                characterType = CharacterType.Wizard;
+                playerIndex = 2;
                 break;
 
             case 3:
-                character = CharacterType.Elf;
+                characterType = CharacterType.Elf;
+                playerIndex = 3;
                 break;
-
         }
 
-        switch (character)
+        switch (characterType)
         {
             case CharacterType.Warrior:
-                gameObject.AddComponent<Warrior>();
-                gameObject.AddComponent<ThrowAxe>();
-                gameObject.AddComponent<WarriorMelee>();
+                warriorInput = new WarriorInput();
+                warriorInput.Enable();
+                GameManager.Instance.characters++;
+                GameManager.Instance.players.Add(gameObject);
+                GetComponent<InventoryManager>().InitializeSlots();
+                Camera.main.GetComponent<FollowCam>().player = this;
                 break;
 
             case CharacterType.Wizard:
-                gameObject.AddComponent<Wizard>();
-                gameObject.AddComponent<ThrowFireball>();
+                wizardInput = new WizardInput();
+                wizardInput.Enable();
+                GameManager.Instance.characters++;
+                GameManager.Instance.players.Add(gameObject);
+                GetComponent<InventoryManager>().InitializeSlots();
                 break;
 
             case CharacterType.Valkyrie:
-                gameObject.AddComponent<Valkyrie>();
-                gameObject.AddComponent<throwSword>();
-                gameObject.AddComponent<swordMelee>();
+                valkyrieInput = new ValkyrieInput();
+                valkyrieInput.Enable();
+                GameManager.Instance.characters++;
+                GameManager.Instance.players.Add(gameObject);
+                GetComponent<InventoryManager>().InitializeSlots();
                 break;
-            //case CharacterType.Elf:
-            //    gameObject.AddComponent<Elf>();
-            //    gameObject.AddComponent<ShootArrow>();
-            //    gameObject.AddComponent<ElfMelee>();
-            //    break;
+
+                //case CharacterType.Elf:
+                //elfInput = new ElfInput();
+                //elfInput.Enable();
+                //GameManager.Instance.characters++;
+                //GameManager.Instance.players.Add(gameObject);
+                //GetComponent<InventoryManager>().InitializeSlots();
+                //    break;
         }
-
-        GetComponent<InventoryManager>().InitializeSlots();
-
-        GameManager.Instance.players.Add(this.gameObject);
-
-        //reference for the PlayerInput scriptable object
-        playerInput = new PlayerInput(); //constructor
-        //turn player on
-        playerInput.Enable();
-
-        //characterToAdd++;
-
-        //if (characterToAdd == 3)
-        //{
-        //    GameManager.Instance.maxCharactersInPlay = true;
-        //    characterToAdd = 0;
-        //}
-        //else
-        //{
-        //    characterToAdd++;
-        //}
     }
-
-    ///// <summary>
-    ///// Spawns in the player controller prefab at its spawn location
-    ///// </summary>
-    //public void StartPlayerController()
-    //{
-    //    InitializePlayerController();
-    //}
 
     //apply a melee behavior
     public void ApplyMeleeBehavior(IMeleeBehavior behavior)

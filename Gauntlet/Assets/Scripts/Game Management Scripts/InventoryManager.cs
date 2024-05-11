@@ -15,7 +15,6 @@ public class InventoryManager : MonoBehaviour
     public bool inventoryFull = false;
 
     //inventory slot references
-    public GameObject characterPanels;
     public GameObject keySlots;
     public GameObject potionSlots;
 
@@ -27,6 +26,16 @@ public class InventoryManager : MonoBehaviour
 
     public bool keyInventoryFull = false;
     public bool potionInventoryFull = false;
+
+    private void OnEnable()
+    {
+        GameEventBus.Subscribe(GameState.startGame, InitializeSlots);
+    }
+
+    private void OnDisable()
+    {
+        GameEventBus.Unsubscribe(GameState.startGame, InitializeSlots);
+    }
 
     private void Start()
     {
@@ -201,25 +210,27 @@ public class InventoryManager : MonoBehaviour
     /// </summary>
     public void InitializeSlots()
     {
-        characterPanels = GameObject.FindGameObjectWithTag("characterPanels");
-
-        switch (gameObject.GetComponent<PlayerController>().character)
+        switch (gameObject.GetComponent<PlayerController>().characterType)
         {
             case CharacterType.Warrior:
-                keySlots = characterPanels.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).gameObject;
-                potionSlots = characterPanels.transform.GetChild(0).transform.GetChild(0).transform.GetChild(1).gameObject;
+                GameObject warriorPanel = GameObject.Find("WarriorInventoryPanel");
+                keySlots = warriorPanel.transform.GetChild(0).gameObject;
+                potionSlots = warriorPanel.transform.GetChild(1).gameObject;
                 break;
             case CharacterType.Valkyrie:
-                keySlots = characterPanels.transform.GetChild(1).transform.GetChild(0).transform.GetChild(0).gameObject;
-                potionSlots = characterPanels.transform.GetChild(1).transform.GetChild(0).transform.GetChild(1).gameObject;
+                GameObject valkyriePanel = GameObject.Find("ValkyrieInventoryPanel");
+                keySlots = valkyriePanel.transform.GetChild(0).gameObject;
+                potionSlots = valkyriePanel.transform.GetChild(1).gameObject;
                 break;
             case CharacterType.Wizard:
-                keySlots = characterPanels.transform.GetChild(2).transform.GetChild(0).transform.GetChild(0).gameObject;
-                potionSlots = characterPanels.transform.GetChild(2).transform.GetChild(0).transform.GetChild(1).gameObject;
+                GameObject wizardPanel = GameObject.Find("WizardInventoryPanel");
+                keySlots = wizardPanel.transform.GetChild(0).gameObject;
+                potionSlots = wizardPanel.transform.GetChild(1).gameObject;
                 break;
             case CharacterType.Elf:
-                keySlots = characterPanels.transform.GetChild(3).transform.GetChild(0).transform.GetChild(0).gameObject;
-                potionSlots = characterPanels.transform.GetChild(3).transform.GetChild(0).transform.GetChild(1).gameObject;
+                GameObject elfPanel = GameObject.Find("ElfInventoryPanel");
+                keySlots = elfPanel.transform.GetChild(0).gameObject;
+                potionSlots = elfPanel.transform.GetChild(1).gameObject;
                 break;
         }
     }

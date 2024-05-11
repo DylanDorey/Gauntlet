@@ -10,9 +10,11 @@ using UnityEngine;
 
 public class Treasure : Item
 {
+    public AudioClip pickupSound;
+
     private void Start()
     {
-        InitializeItem(ItemType.Treasure, 0f, 100);
+        InitializeItem(ItemType.Treasure, 0, 100);
     }
 
     public override void OnCollisionEnter(Collision collision)
@@ -21,6 +23,7 @@ public class Treasure : Item
 
         if (collision.gameObject.GetComponent<PlayerData>())
         {
+            AudioManager.Instance.AddToSoundQueue(pickupSound);
             gameObject.SetActive(false);
         }
     }

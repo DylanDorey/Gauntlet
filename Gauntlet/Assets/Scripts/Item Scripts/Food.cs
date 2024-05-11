@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Food : Item
 {
+    public AudioClip pickupSound;
+    public AudioClip destroySound;
+
     private void Start()
     {
-        InitializeItem(ItemType.Food, 100f, 0);
+        InitializeItem(ItemType.Food, 100, 0);
     }
 
     public override void OnCollisionEnter(Collision collision)
@@ -15,7 +18,14 @@ public class Food : Item
 
         if (collision.gameObject.GetComponent<PlayerData>())
         {
-            gameObject.SetActive(false);
+            AudioManager.Instance.AddToSoundQueue(pickupSound);
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Projectile"))
+        {
+            AudioManager.Instance.AddToSoundQueue(destroySound);
+            Destroy(gameObject);
         }
     }
 }

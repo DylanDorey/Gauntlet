@@ -26,6 +26,8 @@ public class throwSword : MonoBehaviour, IShootBehavior
 
             sword.GetComponent<Sword>().moveDirection = transform.GetChild(0).transform.forward;
 
+            AudioManager.Instance.AddToSoundQueue(valkyrie.throwSwordSound);
+
             yield return new WaitForSeconds(valkyrie.throwDelay);
         }
         hasFired = false;
