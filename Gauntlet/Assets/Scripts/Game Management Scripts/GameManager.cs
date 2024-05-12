@@ -45,11 +45,11 @@ public class GameManager : Singleton<GameManager>
     /// <summary>
     /// This will send the user back to the main menu
     /// </summary>
-    public void ReturnToMenu()
-    {
-        //publish the menu game event
-        GameEventBus.Publish(GameState.mainMenu);
-    }
+    //public void ReturnToMenu()
+    //{
+    //    //publish the menu game event
+    //    GameEventBus.Publish(GameState.mainMenu);
+    //}
 
     /// <summary>
     /// This will allow the user to close/quit Gauntlet

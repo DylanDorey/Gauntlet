@@ -117,7 +117,7 @@ public class UIManager : Singleton<UIManager>
         {
             centerText.SetActive(true);
 
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(3f);
         }
 
         centerText.SetActive(false);
