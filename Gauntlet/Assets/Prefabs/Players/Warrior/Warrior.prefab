@@ -245,7 +245,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryFull: 0
-  characterPanels: {fileID: 0}
   keySlots: {fileID: 0}
   potionSlots: {fileID: 0}
   keyPrefab: {fileID: 120186224271754500, guid: ed15f84cac843d24ebc3dad87e676453, type: 3}
@@ -274,7 +273,7 @@ MonoBehaviour:
   warriorPrefab: {fileID: 9023392820244342524, guid: 136380eb539d7854785e2658247ed621, type: 3}
   axePrefab: {fileID: 4870490442639679435, guid: e12352666ff85fb4f9649f0adb47a6ae, type: 3}
   axeSpawnPos: {fileID: 0}
-  axeThrowSound: {fileID: 8300000, guid: 37cd485fec5618d46bb6254e2490d524, type: 3}
+  axeThrowSound: {fileID: 0}
   meleeSound: {fileID: 0}
   hurtSound: {fileID: 0}
 --- !u!114 &519648488000203388
@@ -301,6 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c865836b836c64fa35e03cea2b121d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasMeleed: 0
 --- !u!1001 &5513268671267693860
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -25,10 +25,6 @@ public class PlayerSpawnHandler : MonoBehaviour
             case 2:
                 GetComponent<PlayerInputManager>().playerPrefab = GameManager.Instance.playerPrefabs[2];
                 break;
-
-            //case 3:
-            //    GetComponent<PlayerInputManager>().playerPrefab = playerPrefabs[2];
-            //    break;
         }
     }
 }

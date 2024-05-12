@@ -30,7 +30,7 @@ public partial class @ValkyrieInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Move"",
                     ""type"": ""Value"",
-                    ""id"": ""e3a77a97-f724-43ff-b075-52a9c2139c0c"",
+                    ""id"": ""70a77c76-381f-453f-9e7b-a03930930a5d"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -39,7 +39,7 @@ public partial class @ValkyrieInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Shoot"",
                     ""type"": ""Button"",
-                    ""id"": ""4ca9540c-7948-41f2-8409-1ecbcbd241ae"",
+                    ""id"": ""d50b1a38-a369-4cc8-94d6-c10d9fc4f567"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -48,7 +48,7 @@ public partial class @ValkyrieInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Melee"",
                     ""type"": ""Button"",
-                    ""id"": ""cdaeee26-bef9-4437-9d5b-29111f9c3b80"",
+                    ""id"": ""52e046c2-8586-4851-b0a0-527efeff8b9e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -57,7 +57,7 @@ public partial class @ValkyrieInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Use Potion"",
                     ""type"": ""Button"",
-                    ""id"": ""7b05c42e-d300-42a2-997f-afcff2942b8b"",
+                    ""id"": ""2de304f1-65ae-4c4b-8295-769e29c44a3a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -67,18 +67,7 @@ public partial class @ValkyrieInput: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": ""2D Vector"",
-                    ""id"": ""964de7b0-aa8a-48b9-a5d9-13025239e8cf"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""fbcf5df7-b341-4280-a0c7-ed3c97aad3bf"",
+                    ""id"": ""8825d0d8-481b-455d-8333-c2c55b496146"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -89,77 +78,88 @@ public partial class @ValkyrieInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""3e4cde38-e3c8-4258-8d28-0d6855877eb1"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""id"": ""90fa7c2d-f1ae-4787-ba83-bc46bd125611"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""91a67303-8090-4b0e-808a-f7085e5647d8"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""id"": ""de782d44-a29f-43f4-ae6f-610be0f48c06"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""94c7c329-052b-4d15-8b8b-d3d8baed5c4a"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""id"": ""b7e12054-a31a-43e1-9a72-304250b88170"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""8f4e76b2-976b-4701-8f91-1bc1e55f8b0e"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""id"": ""83e10808-5cb2-4688-a6e5-90fb6b2b87c8"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""c5aa3893-6c72-45fc-a943-cd6ef5fd900d"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""name"": ""2D Vector"",
+                    ""id"": ""539d50b2-efec-4537-9dc7-eb2b8e32ed54"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""70bf067e-0a55-4264-b60b-c93e4f4f5d12"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a1a34212-663d-458b-b508-aa3c33ff96bd"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""id"": ""5d07cf21-aee8-4010-a462-d2f3b480e70c"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Melee"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c2c0d26e-ac17-4200-b197-90fb059227ba"",
-                    ""path"": ""<Keyboard>/g"",
+                    ""id"": ""901131d7-2393-4954-ad60-2f1d3c93de66"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": """",
                     ""action"": ""Use Potion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -169,11 +169,11 @@ public partial class @ValkyrieInput: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""Keyboard"",
-            ""bindingGroup"": ""Keyboard"",
+            ""name"": ""Controller"",
+            ""bindingGroup"": ""Controller"",
             ""devices"": [
                 {
-                    ""devicePath"": ""<Keyboard>"",
+                    ""devicePath"": ""<Gamepad>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -314,13 +314,13 @@ public partial class @ValkyrieInput: IInputActionCollection2, IDisposable
         }
     }
     public ValkyrieActions @Valkyrie => new ValkyrieActions(this);
-    private int m_KeyboardSchemeIndex = -1;
-    public InputControlScheme KeyboardScheme
+    private int m_ControllerSchemeIndex = -1;
+    public InputControlScheme ControllerScheme
     {
         get
         {
-            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
-            return asset.controlSchemes[m_KeyboardSchemeIndex];
+            if (m_ControllerSchemeIndex == -1) m_ControllerSchemeIndex = asset.FindControlSchemeIndex("Controller");
+            return asset.controlSchemes[m_ControllerSchemeIndex];
         }
     }
     public interface IValkyrieActions

@@ -256,3 +256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5a9806e61e6d8428ad56947c20d04e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowSpeed: 5
+  arrowDamage: 5
+  moveDirection: {x: 0, y: 0, z: 0}

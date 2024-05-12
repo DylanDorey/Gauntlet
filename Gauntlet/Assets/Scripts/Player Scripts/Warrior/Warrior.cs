@@ -37,10 +37,10 @@ public class Warrior : MonoBehaviour
     {
         PlayerController playerController = GetComponent<PlayerController>();
 
-        warriorPrefab = playerController.characterPrefabs[0];
-        axePrefab = playerController.projectilePrefabs[0];
+        //warriorPrefab = playerController.characterPrefabs[0];
+        //axePrefab = playerController.projectilePrefabs[0];
 
-        //axeSpawnPos = warrior.transform.GetChild(2);
+        ////axeSpawnPos = warrior.transform.GetChild(2);
         axeSpawnPos = transform.GetChild(0).transform.GetChild(2);
 
         GetComponent<PlayerData>().InitializePlayerData(700, 0, 1f, 1, 8f, true);

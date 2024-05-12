@@ -166,7 +166,7 @@ MonoBehaviour:
     m_ActionId: 7b05c42e-d300-42a2-997f-afcff2942b8b
     m_ActionName: Player/Use Potion[/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Controller
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Wizard
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -243,7 +243,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryFull: 0
-  characterPanels: {fileID: 0}
   keySlots: {fileID: 0}
   potionSlots: {fileID: 0}
   keyPrefab: {fileID: 120186224271754500, guid: ed15f84cac843d24ebc3dad87e676453, type: 3}
@@ -268,6 +267,8 @@ MonoBehaviour:
   wizardPrefab: {fileID: 7197700089058974574, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
   fireballPrefab: {fileID: 656569471141158888, guid: ae7a70d0375f7384f8339e4aefb25685, type: 3}
   fireballSpawnPos: {fileID: 0}
+  throwFireballSound: {fileID: 0}
+  wizardHurt: {fileID: 0}
 --- !u!114 &5956722414824488443
 MonoBehaviour:
   m_ObjectHideFlags: 0

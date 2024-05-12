@@ -24,13 +24,10 @@ public class Elf : MonoBehaviour
     {
         PlayerController playerController = GetComponent<PlayerController>();
 
-        elfPrefab = playerController.characterPrefabs[0];
-        arrowPrefab = playerController.projectilePrefabs[0];
+        elfPrefab = playerController.characterPrefabs[3];
+        arrowPrefab = playerController.projectilePrefabs[3];
 
-        GameObject elf = Instantiate(elfPrefab, transform.position, Quaternion.identity);
-        elf.transform.parent = playerController.gameObject.transform;
-
-        arrowPrefab = elf.transform.GetChild(index);
+        arrowSpawnPoint = transform.GetChild(0).transform.GetChild(2);
 
         GetComponent<PlayerData>().InitializePlayerData(700, 0, 1f, 1, 8f, true);
         playerController.shootBehavior = GetComponent<arrowShoot>();
