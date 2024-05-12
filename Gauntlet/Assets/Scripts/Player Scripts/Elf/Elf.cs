@@ -29,7 +29,7 @@ public class Elf : MonoBehaviour
 
         arrowSpawnPoint = transform.GetChild(0).transform.GetChild(2);
 
-        GetComponent<PlayerData>().InitializePlayerData(700, 0, 1f, 1, 5f, true);
+        GetComponent<PlayerData>().InitializePlayerData(700, 0, 1f, 1, 10f, true);
         playerController.shootBehavior = GetComponent<arrowShoot>();
 
         arrowShootSound = playerController.warriorAudioClips[0];

@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1de47e5d99d4ee45ad1b2d51f295b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axeSpeed: 8
+  axeSpeed: 10
   axeDamage: 5
   moveDirection: {x: 0, y: 0, z: 0}
 --- !u!54 &-1391239837383726565

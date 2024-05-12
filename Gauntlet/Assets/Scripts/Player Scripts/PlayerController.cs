@@ -45,7 +45,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip[] wizardAudioClips;
     public AudioClip[] elfAudioClips;
 
-    private bool moving = false;
+    private Vector2 moveValueX;
+    private Vector2 moveValueY;
 
     private void OnEnable()
     {
@@ -64,17 +65,20 @@ public class PlayerController : MonoBehaviour
         InitializePlayerController();
     }
 
+    private void FixedUpdate()
+    {
+        transform.Translate(new Vector3(moveValueX.x, 0f, moveValueY.y) * (Time.deltaTime * playerData.playerSpeed));
+    }
+
     /// <summary>
     /// Allows the player to move around
     /// </summary>
     /// <param name="context"> the context in which the button was pressed </param>
     public void OnMove(InputAction.CallbackContext context)
     {
-        //On move is only going to fire when called with W or S
-        Vector2 moveVecY = context.ReadValue<Vector2>();
-        Vector2 moveVecX = context.ReadValue<Vector2>();
-        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (playerData.playerSpeed * Time.deltaTime));
-        SetRotation(moveVecX, moveVecY);
+        moveValueX = context.ReadValue<Vector2>();
+        moveValueY = context.ReadValue<Vector2>();
+        SetRotation(moveValueX, moveValueY);
     }
 
     public void OnMelee(InputAction.CallbackContext context)

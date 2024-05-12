@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class Axe : MonoBehaviour
 {
-    [Range(1f, 10f)]
+    [Range(1f, 15f)]
     [SerializeField]
     private float axeSpeed;
 
