@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class Ghost : Enemy
 {
-    private void Start()
+    public override void Start()
     {
+        base.Start();
+
         InitializeEnemy(20, 2.5f, 10, 5, 10f);
 
         gameObject.AddComponent<Kamikaze>();

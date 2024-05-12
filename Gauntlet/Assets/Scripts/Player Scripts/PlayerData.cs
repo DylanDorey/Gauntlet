@@ -85,12 +85,15 @@ public class PlayerData : MonoBehaviour
 
         if(playerHealth <= 0)
         {
-            if(playerController.playerIndex == 0)
+            if(GameManager.Instance.players.Count > 1)
             {
-                GameEventBus.Publish(GameState.gameOver);
+                GameManager.Instance.players.Remove(gameObject);
+                Destroy(gameObject);
             }
             else
             {
+                GameManager.Instance.players.Remove(gameObject);
+                GameEventBus.Publish(GameState.gameOver);
                 Destroy(gameObject);
             }
         }

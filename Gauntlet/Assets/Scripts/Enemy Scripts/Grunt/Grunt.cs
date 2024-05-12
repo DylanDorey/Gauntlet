@@ -10,8 +10,10 @@ public class Grunt : Enemy
     public RaycastHit hit;
     public bool hasMeleed = false;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
+
         InitializeEnemy(10, 2f, 5, 5, 10f);
 
         gameObject.AddComponent<GruntMelee>();

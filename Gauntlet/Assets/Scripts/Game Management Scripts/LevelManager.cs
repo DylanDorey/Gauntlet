@@ -9,6 +9,7 @@ public class LevelManager : Singleton<LevelManager>
     public GameObject[] levelPrefabs;
     private GameObject level;
     public List<Vector3> playerSpawns;
+    public List<GameObject> activeEnemies;
     public Vector3 thiefItemSpawn;
     private Vector3 levelSpawnPoint = Vector3.zero;
 
@@ -50,6 +51,8 @@ public class LevelManager : Singleton<LevelManager>
     /// </summary>
     public void InitializeLevel()
     {
+        ClearLevel();
+
         currentLevel++;
 
         if(level != null)
@@ -92,7 +95,13 @@ public class LevelManager : Singleton<LevelManager>
 
     public void ClearLevel()
     {
+        foreach (GameObject enemy in activeEnemies)
+        {
+            activeEnemies.Remove(enemy);
+            Destroy(enemy);
+        }
 
+        activeEnemies.Clear();
     }
 
     private void SpawnThiefItem()

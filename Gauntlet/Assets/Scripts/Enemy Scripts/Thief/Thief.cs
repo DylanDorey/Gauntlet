@@ -10,8 +10,10 @@ public class Thief : Enemy
     public bool hasStolen = false;
     public bool hasDied = false;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
+
         InitializeEnemy(500, 8f, 10, 10f, 50f);
 
         enemyBehavior = GetComponent<Steal>();

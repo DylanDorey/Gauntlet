@@ -36,6 +36,11 @@ public class Fireball : MonoBehaviour
             collision.gameObject.GetComponent<Enemy>().TakeDamage(fireballDamage);
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Move()

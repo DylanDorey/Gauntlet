@@ -8,8 +8,10 @@ public class Sorcerer : Enemy
     private bool inMeleeDistance = false;
     private float meleeDelay = 3f;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
+
         InitializeEnemy(10, 3f, 5, 5, 10f);
 
         gameObject.AddComponent<SorcererBlink>();

@@ -17,8 +17,10 @@ public class Lobber : Enemy
 
     private bool canThrow = true;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
+
         InitializeEnemy(20, 3f, 0, 10f, 10f);
     }
 

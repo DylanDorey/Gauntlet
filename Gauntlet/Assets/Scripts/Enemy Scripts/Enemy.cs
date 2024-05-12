@@ -22,6 +22,11 @@ public class Enemy : MonoBehaviour
     public Vector3 targetPos;
     public IEnemyBehavior enemyBehavior;
 
+    public virtual void Start()
+    {
+        LevelManager.Instance.activeEnemies.Add(gameObject);
+    }
+
     private void FixedUpdate()
     {
         if (isAggro)
