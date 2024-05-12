@@ -30,7 +30,7 @@ public partial class @WizardInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Move"",
                     ""type"": ""Value"",
-                    ""id"": ""e3a77a97-f724-43ff-b075-52a9c2139c0c"",
+                    ""id"": ""7ad43ac4-58bf-4eb8-86ab-f40365f84a77"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -39,7 +39,7 @@ public partial class @WizardInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Shoot"",
                     ""type"": ""Button"",
-                    ""id"": ""4ca9540c-7948-41f2-8409-1ecbcbd241ae"",
+                    ""id"": ""cd6f876d-81cd-4236-b851-854941f8e775"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -48,7 +48,7 @@ public partial class @WizardInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Melee"",
                     ""type"": ""Button"",
-                    ""id"": ""cdaeee26-bef9-4437-9d5b-29111f9c3b80"",
+                    ""id"": ""2fe22fe3-cbc4-44ec-ba14-3620e7cd339f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -57,7 +57,7 @@ public partial class @WizardInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Use Potion"",
                     ""type"": ""Button"",
-                    ""id"": ""7b05c42e-d300-42a2-997f-afcff2942b8b"",
+                    ""id"": ""9827f1a8-e9bc-44d6-a311-0264be224365"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -67,7 +67,7 @@ public partial class @WizardInput: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": ""2D Vector"",
-                    ""id"": ""964de7b0-aa8a-48b9-a5d9-13025239e8cf"",
+                    ""id"": ""3e757a63-b0dc-4638-81a2-0b69e7d11ef4"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -78,84 +78,51 @@ public partial class @WizardInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""b7f04819-1f85-47eb-bd2c-8a1b269d4893"",
+                    ""id"": ""0012b0e1-b1cb-46d7-8136-b49f07b8e582"",
                     ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Controller"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""70aea1ce-3858-48dd-9354-3b338fcce845"",
+                    ""id"": ""ccb45eed-5391-40c2-8689-5554371f652f"",
                     ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Controller"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""75f9e4d7-bee1-4a74-9efb-9c14e18765e1"",
+                    ""id"": ""84a0c141-386d-4525-90c3-e5a206b7d8f6"",
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Controller"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""9f0517cf-d6a0-4f98-ac7b-bb7846f4387a"",
+                    ""id"": ""684af94a-0fc1-4c31-9559-e322aa44a5d6"",
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Controller"",
+                    ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""95d025b7-3122-4acc-b641-4bfb47e9d521"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5ccf817d-c250-4085-87ce-e52d163b69a2"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Melee"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1641fb5d-173e-4d03-aa87-bd09ae575498"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Use Potion"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""2D Vector"",
-                    ""id"": ""fbcf5df7-b341-4280-a0c7-ed3c97aad3bf"",
+                    ""id"": ""4ce29c6c-53f2-4ab8-8943-beb4ba97d68d"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -163,23 +130,44 @@ public partial class @WizardInput: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c8cb24b8-3a98-44ab-8a0f-1054a584800f"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51cebeb2-30de-473f-b95d-02f07507576c"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Melee"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""94c28876-2096-4870-b415-f6b230d56b86"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Use Potion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": [
-        {
-            ""name"": ""Controller"",
-            ""bindingGroup"": ""Controller"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Gamepad>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
-        }
-    ]
+    ""controlSchemes"": []
 }");
         // Wizard
         m_Wizard = asset.FindActionMap("Wizard", throwIfNotFound: true);
@@ -314,15 +302,6 @@ public partial class @WizardInput: IInputActionCollection2, IDisposable
         }
     }
     public WizardActions @Wizard => new WizardActions(this);
-    private int m_ControllerSchemeIndex = -1;
-    public InputControlScheme ControllerScheme
-    {
-        get
-        {
-            if (m_ControllerSchemeIndex == -1) m_ControllerSchemeIndex = asset.FindControlSchemeIndex("Controller");
-            return asset.controlSchemes[m_ControllerSchemeIndex];
-        }
-    }
     public interface IWizardActions
     {
         void OnMove(InputAction.CallbackContext context);

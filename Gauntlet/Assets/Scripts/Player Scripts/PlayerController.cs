@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 
 /*
  * Author: [Dorey, Dylan]
@@ -25,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public WizardInput wizardInput;
     public ElfInput elfInput;
 
+    private PlayerData playerData;
+
     public int playerIndex = 0;
 
     //the type of character the player is
@@ -42,6 +45,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip[] wizardAudioClips;
     public AudioClip[] elfAudioClips;
 
+    private bool moving = false;
 
     private void OnEnable()
     {
@@ -58,65 +62,6 @@ public class PlayerController : MonoBehaviour
     public void Start()
     {
         InitializePlayerController();
-        //PlayerEventBus.Publish(PlayerEvent.OnSpawn);
-    }
-
-    private void FixedUpdate()
-    {
-        if (GameManager.Instance.isPlaying)
-        {
-            if (characterType == CharacterType.Warrior)
-            {
-                Vector2 warriorVecY = warriorInput.Warrior.Move.ReadValue<Vector2>();
-                Vector2 warriorVecX = warriorInput.Warrior.Move.ReadValue<Vector2>();
-                transform.Translate(new Vector3(warriorVecX.x, 0f, warriorVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
-                SetRotation(warriorVecX, warriorVecY);
-            }
-            else if(characterType == CharacterType.Wizard)
-            {
-                Vector2 wizardVecY = wizardInput.Wizard.Move.ReadValue<Vector2>();
-                Vector2 wizardVecX = wizardInput.Wizard.Move.ReadValue<Vector2>();
-                transform.Translate(new Vector3(wizardVecX.x, 0f, wizardVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
-                SetRotation(wizardVecX, wizardVecY);
-            }
-            else if (characterType == CharacterType.Valkyrie)
-            {
-                Vector2 valkyrieVecY = valkyrieInput.Valkyrie.Move.ReadValue<Vector2>();
-                Vector2 valkyrieVecX = valkyrieInput.Valkyrie.Move.ReadValue<Vector2>();
-                transform.Translate(new Vector3(valkyrieVecX.x, 0f, valkyrieVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
-                SetRotation(valkyrieVecX, valkyrieVecY);
-            }
-            //switch (characterType)
-            //{
-            //    case CharacterType.Warrior:
-            //        Vector2 warriorVecY = warriorInput.Warrior.Move.ReadValue<Vector2>();
-            //        Vector2 warriorVecX = warriorInput.Warrior.Move.ReadValue<Vector2>();
-            //        transform.Translate(new Vector3(warriorVecX.x, 0f, warriorVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
-            //        SetRotation(warriorVecX, warriorVecY);
-            //        break;
-
-            //    case CharacterType.Valkyrie:
-            //        Vector2 wizardVecY = wizardInput.Wizard.Move.ReadValue<Vector2>();
-            //        Vector2 wizardVecX = wizardInput.Wizard.Move.ReadValue<Vector2>();
-            //        transform.Translate(new Vector3(wizardVecX.x, 0f, wizardVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
-            //        SetRotation(wizardVecX, wizardVecY);
-            //        break;
-
-            //    case CharacterType.Wizard:
-            //        Vector2 valkyrieVecY = valkyrieInput.Valkyrie.Move.ReadValue<Vector2>();
-            //        Vector2 valkyrieVecX = valkyrieInput.Valkyrie.Move.ReadValue<Vector2>();
-            //        transform.Translate(new Vector3(valkyrieVecX.x, 0f, valkyrieVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
-            //        SetRotation(valkyrieVecX, valkyrieVecY);
-            //        break;
-
-            //    case CharacterType.Elf:
-            //        //Vector2 elfVecY = elfInput.Elf.Move.ReadValue<Vector2>();
-            //        //Vector2 elfVecX = elfInput.Elf.Move.ReadValue<Vector2>();
-            //        //transform.Translate(new Vector3(elfVecX.x, 0f, elfVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
-            //        //SetRotation(elfVecX, elfVecY);
-            //        break;
-            //}
-        }
     }
 
     /// <summary>
@@ -128,7 +73,8 @@ public class PlayerController : MonoBehaviour
         //On move is only going to fire when called with W or S
         Vector2 moveVecY = context.ReadValue<Vector2>();
         Vector2 moveVecX = context.ReadValue<Vector2>();
-        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (playerData.playerSpeed * Time.deltaTime));
+        SetRotation(moveVecX, moveVecY);
     }
 
     public void OnMelee(InputAction.CallbackContext context)
@@ -154,9 +100,9 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            if (GetComponent<PlayerData>().hasPotion)
+            if (playerData.hasPotion)
             {
-                GetComponent<InventoryManager>().potionSlots.transform.GetChild(0).GetComponent<PotionSlot>().itemBehavior.Behavior(GetComponent<PlayerData>());
+                GetComponent<InventoryManager>().potionSlots.transform.GetChild(0).GetComponent<PotionSlot>().itemBehavior.Behavior(playerData);
                 GetComponent<InventoryManager>().RemovePotionOnUse();
             }
         }
@@ -263,6 +209,7 @@ public class PlayerController : MonoBehaviour
         switch (characterType)
         {
             case CharacterType.Warrior:
+                playerData = GetComponent<PlayerData>();
                 warriorInput = new WarriorInput();
                 warriorInput.Enable();
                 GameManager.Instance.characters++;
@@ -272,6 +219,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case CharacterType.Wizard:
+                playerData = GetComponent<PlayerData>();
                 wizardInput = new WizardInput();
                 wizardInput.Enable();
                 GameManager.Instance.characters++;
@@ -280,6 +228,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case CharacterType.Valkyrie:
+                playerData = GetComponent<PlayerData>();
                 valkyrieInput = new ValkyrieInput();
                 valkyrieInput.Enable();
                 GameManager.Instance.characters++;
@@ -288,6 +237,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
                 case CharacterType.Elf:
+                playerData = GetComponent<PlayerData>();
                 elfInput = new ElfInput();
                 elfInput.Enable();
                 GameManager.Instance.characters++;

@@ -20,13 +20,13 @@ public class Grunt : Enemy
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.GetComponent<PlayerController>())
-        {
-            if (!hasMeleed)
-            {
-                ApplyBehavior(enemyBehavior);
-            }
-        }
+        //if (collision.transform.GetComponent<PlayerController>())
+        //{
+        //    if (!hasMeleed)
+        //    {
+        //        ApplyBehavior(enemyBehavior);
+        //    }
+        //}
 
         if (enemyHealth <= 0)
         {

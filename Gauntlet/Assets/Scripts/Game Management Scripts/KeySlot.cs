@@ -25,11 +25,11 @@ public class KeySlot : MonoBehaviour
         {
             if (hasKey == true)
             {
-                GetComponent<Image>().enabled = true;
+                GetComponent<Image>().sprite = keyImage;
             }
             else
             {
-                GetComponent<Image>().enabled = false;
+                GetComponent<Image>().sprite = null;
             }
 
             yield return new WaitForSeconds(0.1f);

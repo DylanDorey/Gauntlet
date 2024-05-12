@@ -34,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 3008530524690894524}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -63,7 +63,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -87,8 +87,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.35, z: 0}
 --- !u!114 &3678068953259691245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,9 +115,21 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e3a77a97-f724-43ff-b075-52a9c2139c0c
-    m_ActionName: Player/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
+      m_Calls:
+      - m_Target: {fileID: 4545309529523709163}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d29f514e-25ce-4155-a155-8388089e91c2
+    m_ActionName: Warrior/Move[/XInputControllerWindows1/leftStick/up,/XInputControllerWindows/leftStick/up,/XInputControllerWindows1/leftStick/down,/XInputControllerWindows/leftStick/down,/XInputControllerWindows1/leftStick/left,/XInputControllerWindows/leftStick/left,/XInputControllerWindows1/leftStick/right,/XInputControllerWindows/leftStick/right]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4545309529523709163}
@@ -132,8 +144,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 4ca9540c-7948-41f2-8409-1ecbcbd241ae
-    m_ActionName: Player/Shoot[/XInputControllerWindows/rightTrigger]
+    m_ActionId: 3f1ebd62-e4a7-4059-bdb6-c4c4932385ef
+    m_ActionName: Warrior/Shoot[/XInputControllerWindows1/rightTrigger,/XInputControllerWindows/rightTrigger]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4545309529523709163}
@@ -148,8 +160,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: cdaeee26-bef9-4437-9d5b-29111f9c3b80
-    m_ActionName: Player/Melee[/XInputControllerWindows/leftTrigger]
+    m_ActionId: 6bc0e845-9a3d-4711-b82b-3d41b531fd12
+    m_ActionName: Warrior/Melee[/XInputControllerWindows1/leftTrigger,/XInputControllerWindows/leftTrigger]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4545309529523709163}
@@ -164,8 +176,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 7b05c42e-d300-42a2-997f-afcff2942b8b
-    m_ActionName: Player/Use Potion[/XInputControllerWindows/rightShoulder]
+    m_ActionId: 7200aa3b-bc5e-4e62-9986-f2b26402f825
+    m_ActionName: Warrior/Use Potion[/XInputControllerWindows1/rightShoulder,/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Warrior
@@ -315,7 +327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6585788159149984044, guid: 136380eb539d7854785e2658247ed621, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6585788159149984044, guid: 136380eb539d7854785e2658247ed621, type: 3}
       propertyPath: m_LocalPosition.z

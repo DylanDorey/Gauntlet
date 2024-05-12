@@ -8,7 +8,7 @@
                 {
                     "name": "Move",
                     "type": "Value",
-                    "id": "e3a77a97-f724-43ff-b075-52a9c2139c0c",
+                    "id": "d29f514e-25ce-4155-a155-8388089e91c2",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -17,7 +17,7 @@
                 {
                     "name": "Shoot",
                     "type": "Button",
-                    "id": "4ca9540c-7948-41f2-8409-1ecbcbd241ae",
+                    "id": "3f1ebd62-e4a7-4059-bdb6-c4c4932385ef",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -26,7 +26,7 @@
                 {
                     "name": "Melee",
                     "type": "Button",
-                    "id": "cdaeee26-bef9-4437-9d5b-29111f9c3b80",
+                    "id": "6bc0e845-9a3d-4711-b82b-3d41b531fd12",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -35,7 +35,7 @@
                 {
                     "name": "Use Potion",
                     "type": "Button",
-                    "id": "7b05c42e-d300-42a2-997f-afcff2942b8b",
+                    "id": "7200aa3b-bc5e-4e62-9986-f2b26402f825",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -45,7 +45,7 @@
             "bindings": [
                 {
                     "name": "2D Vector",
-                    "id": "964de7b0-aa8a-48b9-a5d9-13025239e8cf",
+                    "id": "ec4c8a1d-5a3b-4cb8-9451-c45f4cf116a4",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -56,84 +56,51 @@
                 },
                 {
                     "name": "up",
-                    "id": "b7f04819-1f85-47eb-bd2c-8a1b269d4893",
+                    "id": "a19f17fc-01ea-4086-ae52-86696cd74f08",
                     "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
-                    "id": "70aea1ce-3858-48dd-9354-3b338fcce845",
+                    "id": "a0b572a9-c2b5-4930-a76b-37655bc7c2cf",
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "75f9e4d7-bee1-4a74-9efb-9c14e18765e1",
+                    "id": "5bdfeaea-9be9-4e6b-a074-c688813a62af",
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "9f0517cf-d6a0-4f98-ac7b-bb7846f4387a",
+                    "id": "d52cbf9b-6a78-444f-92ec-28c7229304f8",
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "95d025b7-3122-4acc-b641-4bfb47e9d521",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5ccf817d-c250-4085-87ce-e52d163b69a2",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Melee",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1641fb5d-173e-4d03-aa87-bd09ae575498",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Use Potion",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "2D Vector",
-                    "id": "fbcf5df7-b341-4280-a0c7-ed3c97aad3bf",
+                    "id": "6d1d83bf-b669-43c8-953c-ae30ed5cfee9",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -141,21 +108,42 @@
                     "action": "Move",
                     "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8143cd42-dfef-4c43-9834-f632501a258d",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7f010d5b-4608-416d-989c-827ce8962c10",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Melee",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "46db2379-6b09-4952-8a0c-f8463dc73c61",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use Potion",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": [
-        {
-            "name": "Controller",
-            "bindingGroup": "Controller",
-            "devices": [
-                {
-                    "devicePath": "<Gamepad>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        }
-    ]
+    "controlSchemes": []
 }

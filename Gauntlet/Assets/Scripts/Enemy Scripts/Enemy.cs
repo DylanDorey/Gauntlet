@@ -43,6 +43,12 @@ public class Enemy : MonoBehaviour
     {
         enemyPoints = points;
         enemySpeed = speed;
+
+        if(enemyLevel == 0)
+        {
+            enemyLevel = 1;
+        }
+
         enemyDamage = damage * enemyLevel;
         enemyHealth = health * enemyLevel;
         enemyRadius = radius;

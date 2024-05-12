@@ -34,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 5704838608003067641}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -63,7 +63,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -87,8 +87,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.52, z: 0}
 --- !u!114 &360493495834507169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,14 +115,10 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e3a77a97-f724-43ff-b075-52a9c2139c0c
-    m_ActionName: Valkyrie/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6721800081124645443}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -132,13 +128,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 4ca9540c-7948-41f2-8409-1ecbcbd241ae
-    m_ActionName: Valkyrie/Shoot[/XInputControllerWindows/rightTrigger,/Keyboard/space]
+    m_ActionId: 70a77c76-381f-453f-9e7b-a03930930a5d
+    m_ActionName: Valkyrie/Move[/XInputControllerWindows1/leftStick/up,/XInputControllerWindows/leftStick/up,/XInputControllerWindows1/leftStick/down,/XInputControllerWindows/leftStick/down,/XInputControllerWindows1/leftStick/left,/XInputControllerWindows/leftStick/left,/XInputControllerWindows1/leftStick/right,/XInputControllerWindows/leftStick/right]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6721800081124645443}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnShoot
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -148,13 +144,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: cdaeee26-bef9-4437-9d5b-29111f9c3b80
-    m_ActionName: Valkyrie/Melee[/XInputControllerWindows/leftTrigger,/Keyboard/leftShift]
+    m_ActionId: d50b1a38-a369-4cc8-94d6-c10d9fc4f567
+    m_ActionName: Valkyrie/Shoot[/XInputControllerWindows1/rightTrigger,/XInputControllerWindows/rightTrigger]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6721800081124645443}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OnMelee
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -164,10 +160,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 7b05c42e-d300-42a2-997f-afcff2942b8b
-    m_ActionName: Valkyrie/Use Potion[/XInputControllerWindows/rightShoulder,/Keyboard/g]
+    m_ActionId: 52e046c2-8586-4851-b0a0-527efeff8b9e
+    m_ActionName: Valkyrie/Melee[/XInputControllerWindows1/leftTrigger,/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6721800081124645443}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPotionUse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2de304f1-65ae-4c4b-8295-769e29c44a3a
+    m_ActionName: Valkyrie/Use Potion[/XInputControllerWindows1/rightShoulder,/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Keyboard
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Valkyrie
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -184,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 0
-  characterType: 0
+  characterType: 1
   characterPrefabs:
   - {fileID: 9023392820244342524, guid: 136380eb539d7854785e2658247ed621, type: 3}
   - {fileID: 6342615081377474035, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
@@ -245,7 +257,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryFull: 0
-  characterPanels: {fileID: 0}
   keySlots: {fileID: 0}
   potionSlots: {fileID: 0}
   keyPrefab: {fileID: 120186224271754500, guid: ed15f84cac843d24ebc3dad87e676453, type: 3}
@@ -275,6 +286,9 @@ MonoBehaviour:
   valkyriePrefab: {fileID: 6342615081377474035, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
   swordPrefab: {fileID: 1744112362532714893, guid: fc30d22dd58b8fc48bfdbe2e44f0f6b4, type: 3}
   swordSpawnpos: {fileID: 0}
+  throwSwordSound: {fileID: 0}
+  valkyrieMeleeSound: {fileID: 0}
+  valkyrieHurt: {fileID: 0}
 --- !u!114 &9139895148820190559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 6365913905460004896, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -351,7 +365,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4680910344875211142, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
+    - {fileID: 9184559998649757304, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

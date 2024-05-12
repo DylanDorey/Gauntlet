@@ -9840,7 +9840,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2060840353}
-  - component: {fileID: 2060840354}
+  - component: {fileID: 2060840356}
   - component: {fileID: 2060840355}
   m_Layer: 0
   m_Name: PlayerInputManager
@@ -9864,7 +9864,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 683074182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2060840354
+--- !u!114 &2060840355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060840352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de9cb2d97a1b834185a7c5022fde53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2060840356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9883,9 +9895,9 @@ MonoBehaviour:
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 683074183}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlayerJoined
+      - m_Target: {fileID: 2060840355}
+        m_TargetAssemblyTypeName: PlayerSpawnHandler, Assembly-CSharp
+        m_MethodName: OnPlayerJoined
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9916,14 +9928,6 @@ MonoBehaviour:
         m_Groups: 
         m_Action: Join
         m_Flags: 0
-      - m_Name: 
-        m_Id: 56c41791-1388-421a-908e-eb24ef4cac7b
-        m_Path: <Keyboard>/backquote
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Join
-        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_PlayerPrefab: {fileID: 0}
@@ -9936,18 +9940,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &2060840355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060840352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7de9cb2d97a1b834185a7c5022fde53b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2103005887
 GameObject:
   m_ObjectHideFlags: 0

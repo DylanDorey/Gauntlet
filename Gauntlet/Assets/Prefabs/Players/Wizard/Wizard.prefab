@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 1272539359866741395}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -62,7 +62,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -86,8 +86,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &793802880474237333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,8 +115,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: e3a77a97-f724-43ff-b075-52a9c2139c0c
-    m_ActionName: Player/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
+    m_ActionId: 7ad43ac4-58bf-4eb8-86ab-f40365f84a77
+    m_ActionName: Wizard/Move[/XInputControllerWindows1/leftStick/up,/XInputControllerWindows/leftStick/up,/XInputControllerWindows1/leftStick/down,/XInputControllerWindows/leftStick/down,/XInputControllerWindows1/leftStick/left,/XInputControllerWindows/leftStick/left,/XInputControllerWindows1/leftStick/right,/XInputControllerWindows/leftStick/right]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 595454021214386491}
@@ -131,8 +131,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 4ca9540c-7948-41f2-8409-1ecbcbd241ae
-    m_ActionName: Player/Shoot[/XInputControllerWindows/rightTrigger]
+    m_ActionId: cd6f876d-81cd-4236-b851-854941f8e775
+    m_ActionName: Wizard/Shoot[/XInputControllerWindows1/rightTrigger,/XInputControllerWindows/rightTrigger]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 595454021214386491}
@@ -147,8 +147,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: cdaeee26-bef9-4437-9d5b-29111f9c3b80
-    m_ActionName: Player/Melee[/XInputControllerWindows/leftTrigger]
+    m_ActionId: 2fe22fe3-cbc4-44ec-ba14-3620e7cd339f
+    m_ActionName: Wizard/Melee[/XInputControllerWindows1/leftTrigger,/XInputControllerWindows/leftTrigger]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 595454021214386491}
@@ -163,8 +163,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 7b05c42e-d300-42a2-997f-afcff2942b8b
-    m_ActionName: Player/Use Potion[/XInputControllerWindows/rightShoulder]
+    m_ActionId: 9827f1a8-e9bc-44d6-a311-0264be224365
+    m_ActionName: Wizard/Use Potion[/XInputControllerWindows1/rightShoulder,/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Wizard
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 0
-  characterType: 0
+  characterType: 2
   characterPrefabs:
   - {fileID: 9023392820244342524, guid: 136380eb539d7854785e2658247ed621, type: 3}
   - {fileID: 6342615081377474035, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
@@ -295,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1760465663698190710, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1760465663698190710, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
       propertyPath: m_LocalPosition.z
