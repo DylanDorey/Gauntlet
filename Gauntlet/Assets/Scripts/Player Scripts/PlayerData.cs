@@ -65,6 +65,7 @@ public class PlayerData : MonoBehaviour
         playerHealth -= damage/playerArmor;
 
         PlayerController playerController = GetComponent<PlayerController>();
+
         switch (playerController.characterType)
         {
             case CharacterType.Warrior:
@@ -80,6 +81,18 @@ public class PlayerData : MonoBehaviour
                 break;
             default:
                 break;
+        }
+
+        if(playerHealth <= 0)
+        {
+            if(playerController.playerIndex == 0)
+            {
+                GameEventBus.Publish(GameState.gameOver);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         return playerHealth;

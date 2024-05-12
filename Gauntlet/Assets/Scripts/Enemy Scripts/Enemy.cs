@@ -28,6 +28,11 @@ public class Enemy : MonoBehaviour
         {
             Move();
         }
+
+        if (transform.position.y < 0.1f|| transform.position.y > 0.3f)
+        {
+            transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
+        }
     }
 
     /// <summary>

@@ -68,6 +68,11 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         transform.Translate(new Vector3(moveValueX.x, 0f, moveValueY.y) * (Time.deltaTime * playerData.playerSpeed));
+
+        if(transform.position.y < 0 || transform.position.y > 0.3f)
+        {
+            transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
+        }
     }
 
     /// <summary>
