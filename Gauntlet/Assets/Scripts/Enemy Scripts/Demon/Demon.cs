@@ -37,11 +37,12 @@ public class Demon : Enemy
         {
             FindNearestPlayer();
             Move();
+            if (canShoot)
+            {
+                StartCoroutine(fireballDelay());
+            }
         }
-        if (canShoot)
-        {
-            StartCoroutine(fireballDelay());
-        }
+
     }
     public void OnCollisionEnter(Collision collision)
     {
