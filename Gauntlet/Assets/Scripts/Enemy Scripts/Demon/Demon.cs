@@ -8,11 +8,17 @@ using UnityEngine;
  */
 public class Demon : Enemy
 {
+    public GameObject fireballPrefab;
+    public Transform shootingPoint;
+    public float shootDelay = 2f;
     private readonly float meleeDistance = 3f;
     public float meleeDelay = 2f;
     private Vector3 rayDirection;
     public RaycastHit hit;
     public bool hasMeleed;
+    public AudioClip shootSound;
+    public AudioClip meleeSound;
+    public bool canShoot;
 
     public override void Start()
     {
@@ -22,10 +28,21 @@ public class Demon : Enemy
         gameObject.AddComponent<GruntMelee>();
         enemyBehavior = GetComponent<GruntMelee>();
 
-        gameObject.AddComponent<demonShoot>();
-        //enemyBehavior = GetComponent<demonShoot>();
+        gameObject.AddComponent<Demon>();
     }
 
+    private void FixedUpdate()
+    {
+        if (isAggro)
+        {
+            FindNearestPlayer();
+            Move();
+        }
+        if (canShoot)
+        {
+            StartCoroutine(fireballDelay());
+        }
+    }
     public void OnCollisionEnter(Collision collision)
     {
         if (enemyHealth <= 0)
@@ -53,4 +70,45 @@ public class Demon : Enemy
             hasMeleed = false;
         }
     }
+    void FindNearestPlayer()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        float minDistance = Mathf.Infinity;
+        GameObject nearestPlayer = null;
+
+        foreach (GameObject player in players)
+        {
+            float distance = Vector3.Distance(transform.position, player.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearestPlayer = player;
+            }
+        }
+
+        if (nearestPlayer != null && minDistance <= enemyRadius)
+        {
+            targetPos = nearestPlayer.transform.position;
+        }
+        else
+        {
+            targetPos = Vector3.zero;
+        }
+    }
+
+    IEnumerator fireballDelay()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(shootDelay);
+
+        Vector3 directionToPlayer = (targetPos - shootingPoint.position).normalized;
+
+        // Create and throw the projectile
+        GameObject projectile = Instantiate(fireballPrefab, shootingPoint.position, Quaternion.identity);
+        projectile.GetComponent<Rock>().moveDirection = transform.forward;
+        AudioManager.Instance.AddToSoundQueue(shootSound);
+
+        canShoot = true;
+    }
+
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4434020382458226221}
   m_Layer: 0
   m_Name: Demon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,6 +39,7 @@ Transform:
   - {fileID: 310465472924874691}
   - {fileID: 7160341430273335306}
   - {fileID: 8957967599142004429}
+  - {fileID: 8921190334318824238}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7391522437581563624
@@ -132,6 +133,14 @@ MonoBehaviour:
   enemySpeed: 0
   enemyRadius: 0
   targetPos: {x: 0, y: 0, z: 0}
+  fireballPrefab: {fileID: 1822723242907827470, guid: 7e630acef4adefa409bfbd76530e7306, type: 3}
+  shootingPoint: {fileID: 8921190334318824238}
+  shootDelay: 2
+  meleeDelay: 2
+  hasMeleed: 0
+  shootSound: {fileID: 8300000, guid: 37cd485fec5618d46bb6254e2490d524, type: 3}
+  meleeSound: {fileID: 8300000, guid: 7b252944575912d41b8d36ed43604aa5, type: 3}
+  canShoot: 0
 --- !u!195 &4434020382458226221
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -285,7 +294,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -387,6 +396,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &5482936700913723870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8921190334318824238}
+  m_Layer: 0
+  m_Name: shootingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8921190334318824238
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5482936700913723870}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.612, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8639222788572883218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6966753818357466262
 GameObject:
   m_ObjectHideFlags: 0
