@@ -4,33 +4,49 @@ using UnityEngine;
 
 public class Death : Enemy
 {
-    private Transform playerTransform;
+    public int[] deathPoints = { 1000, 2000, 1000, 4000, 2000, 6000, 8000 };
+    private int hitCounter = 0;
 
-    void Start()
+    private int currentHealth;
+    private void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        InitializeEnemy(100, 5f, 20, 100f, 2f);
-
-        gameObject.AddComponent<Kamikaze>();
-        enemyBehavior = GetComponent<Kamikaze>();
+        currentHealth = Mathf.RoundToInt(enemyHealth);
+        InitializeEnemy(1000, 3f, 5, 100, 10f);
+        ApplyBehavior(enemyBehavior);
     }
 
-    public override void Move()
-    {
-        TurnTowardsPlayer();
-    }
 
-    private void TurnTowardsPlayer()
+    private void OnCollisionEnter(Collision collision)
     {
-        if (playerTransform != null)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            targetPos = playerTransform.position;
-            transform.LookAt(targetPos);
+            ApplyBehavior(enemyBehavior);
+        }
+
+
+    }
+    public void takeDamage(float amount)
+    {
+        enemyHealth -= amount;
+
+        if (enemyHealth <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 
-    public override void OnDeath()
+    public void HitByShot()
     {
-        Destroy(gameObject); // Destroy the enemy object
+        int points = deathPoints[hitCounter];
+        //GameManager.Instance.AddPoints(points);
+        takeDamage(1);
     }
+
+    public void UsePotion()
+    {
+        hitCounter = 0;
+
+        Destroy(gameObject);
+    }
+
 }
