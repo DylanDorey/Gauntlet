@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    [Range(1f, 10f)]
+    [Range(1f, 15f)]
     [SerializeField]
     private float swordSpeed;
 
@@ -14,6 +14,20 @@ public class Sword : MonoBehaviour
     private float rotateSpeed = 10f;
 
     public Vector3 moveDirection;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(swordDamage);
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {

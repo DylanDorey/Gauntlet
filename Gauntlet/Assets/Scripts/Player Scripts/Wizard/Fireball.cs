@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    [Range(1f, 10f)]
+    [Range(1f, 15f)]
     [SerializeField]
     private float fireballSpeed;
 
@@ -33,7 +33,12 @@ public class Fireball : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            //collision.gameObject.GetComponent<Enemy>().TakeDamage(fireballDamage);
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(fireballDamage);
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
             Destroy(gameObject);
         }
     }

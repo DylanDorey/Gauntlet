@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /*
  * Author: [Dorey, Dylan]
@@ -12,45 +13,23 @@ using UnityEngine;
 public enum GameState
 {
     mainMenu,
-    startGame
-    //add more game states
+    startGame,
+    levelOver,
+    gameOver
 }
 
 public class GameManager : Singleton<GameManager>
 {
-    public bool maxCharactersInPlay = false;
-    public int characters;
+    public int characters = 0;
+    public List<GameObject> players;
+    public bool isPlaying;
 
-    public override void Awake()
-    {
-        //initialize singleton
-        base.Awake();
-
-
-    }
+    public GameObject[] playerPrefabs;
 
     private void Start()
     {
         //start the game in the main menu by publishing the menu game event
         GameEventBus.Publish(GameState.mainMenu);
-    }
-
-    private void OnEnable()
-    {
-        
-    }
-
-    private void OnDisable()
-    {
-        
-    }
-
-    /// <summary>
-    /// This will intialize all game elements for Gauntlet
-    /// </summary>
-    private void InitializeGame()
-    {
-
     }
 
     /// <summary>
@@ -60,16 +39,17 @@ public class GameManager : Singleton<GameManager>
     {
         //publish the startGame game event
         GameEventBus.Publish(GameState.startGame);
+        isPlaying = true;
     }
 
     /// <summary>
     /// This will send the user back to the main menu
     /// </summary>
-    public void ReturnToMenu()
-    {
-        //publish the menu game event
-        GameEventBus.Publish(GameState.mainMenu);
-    }
+    //public void ReturnToMenu()
+    //{
+    //    //publish the menu game event
+    //    GameEventBus.Publish(GameState.mainMenu);
+    //}
 
     /// <summary>
     /// This will allow the user to close/quit Gauntlet
@@ -78,25 +58,5 @@ public class GameManager : Singleton<GameManager>
     {
         //quit the application
         Application.Quit();
-    }
-
-    public void PlayerJoined()
-    {
-        if(characters <= 3)
-        {
-            maxCharactersInPlay = true;
-        }
-        else
-        {
-            characters++;
-        }
-    }
-
-    public void PlayerLeave()
-    {
-        if (characters != 0)
-        {
-            characters--;
-        }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 
 /*
  * Author: [Dorey, Dylan]
@@ -20,45 +21,58 @@ public enum CharacterType
 public class PlayerController : MonoBehaviour
 {
     //reference to various scriptable objects, character inputs
-    public PlayerInput playerInput;
+    public WarriorInput warriorInput;
+    public ValkyrieInput valkyrieInput;
+    public WizardInput wizardInput;
+    public ElfInput elfInput;
 
-    //the various character prefabs
-    public GameObject[] characterPrefabs = new GameObject[4];
+    private PlayerData playerData;
 
-    //the various projectile prefabs
-    public GameObject[] projectilePrefabs = new GameObject[4];
+    public int playerIndex = 0;
 
-    public CharacterType character;
-
+    //the type of character the player is
+    public CharacterType characterType;
     public IMeleeBehavior meleeBehavior;
     public IShootBehavior shootBehavior;
 
+    //the various character prefabs
+    public GameObject[] characterPrefabs = new GameObject[4];
+    //the various projectile prefabs
+    public GameObject[] projectilePrefabs = new GameObject[4];
+
+    public AudioClip[] warriorAudioClips;
+    public AudioClip[] valkyrieAudioClips;
+    public AudioClip[] wizardAudioClips;
+    public AudioClip[] elfAudioClips;
+
+    private Vector2 moveValueX;
+    private Vector2 moveValueY;
+
     private void OnEnable()
     {
-        PlayerEventBus.Subscribe(PlayerEvent.OnSpawn, InitializePlayerController);
+        //PlayerEventBus.Subscribe(PlayerEvent.OnSpawn, InitializePlayerController);
+        GameEventBus.Subscribe(GameState.startGame, ResetPositionOnStart);
     }
 
     private void OnDisable()
     {
-        PlayerEventBus.Unsubscribe(PlayerEvent.OnSpawn, InitializePlayerController);
+        //PlayerEventBus.Unsubscribe(PlayerEvent.OnSpawn, InitializePlayerController);
+        GameEventBus.Unsubscribe(GameState.startGame, ResetPositionOnStart);
     }
 
     public void Start()
     {
-        PlayerEventBus.Publish(PlayerEvent.OnSpawn);
+        InitializePlayerController();
     }
 
     private void FixedUpdate()
     {
-        Vector2 moveVecY = playerInput.Player.Move.ReadValue<Vector2>();
-        Vector2 moveVecX = playerInput.Player.Move.ReadValue<Vector2>();
-        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
-        SetRotation(moveVecX, moveVecY);
-    }
+        transform.Translate(new Vector3(moveValueX.x, 0f, moveValueY.y) * (Time.deltaTime * playerData.playerSpeed));
 
-    public virtual void OnCollisionEnter(Collision collision)
-    {
-        
+        if(transform.position.y < 0 || transform.position.y > 0.3f)
+        {
+            transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
+        }
     }
 
     /// <summary>
@@ -67,10 +81,9 @@ public class PlayerController : MonoBehaviour
     /// <param name="context"> the context in which the button was pressed </param>
     public void OnMove(InputAction.CallbackContext context)
     {
-        //On move is only going to fire when called with W or S
-        Vector2 moveVecY = context.ReadValue<Vector2>();
-        Vector2 moveVecX = context.ReadValue<Vector2>();
-        transform.Translate(new Vector3(moveVecX.x, 0f, moveVecY.y) * (GetComponent<PlayerData>().playerSpeed * Time.deltaTime));
+        moveValueX = context.ReadValue<Vector2>();
+        moveValueY = context.ReadValue<Vector2>();
+        SetRotation(moveValueX, moveValueY);
     }
 
     public void OnMelee(InputAction.CallbackContext context)
@@ -89,6 +102,18 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             ApplyShootBehavior(shootBehavior);
+        }
+    }
+
+    public void OnPotionUse(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (playerData.hasPotion)
+            {
+                GetComponent<InventoryManager>().potionSlots.transform.GetChild(0).GetComponent<PotionSlot>().itemBehavior.Behavior(playerData);
+                GetComponent<InventoryManager>().RemovePotionOnUse();
+            }
         }
     }
 
@@ -157,84 +182,79 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void ResetPositionOnStart()
+    {
+        transform.position = Vector3.zero;
+    }
 
     /// <summary>
     /// initializes the player controller at the start of the game
     /// </summary>
     public void InitializePlayerController()
     {
-        switch(GameManager.Instance.characters)
+        switch (GameManager.Instance.characters)
         {
             case 0:
-                character = CharacterType.Warrior;
+                characterType = CharacterType.Warrior;
+                playerIndex = 0;
                 break;
 
             case 1:
-                character = CharacterType.Valkyrie;
+                characterType = CharacterType.Valkyrie;
+                playerIndex = 1;
                 break;
 
             case 2:
-                character = CharacterType.Wizard;
+                characterType = CharacterType.Wizard;
+                playerIndex = 2;
                 break;
 
             case 3:
-                character = CharacterType.Elf;
+                characterType = CharacterType.Elf;
+                playerIndex = 3;
                 break;
-
         }
 
-        switch (character)
+        switch (characterType)
         {
             case CharacterType.Warrior:
-                gameObject.AddComponent<Warrior>();
-                gameObject.AddComponent<ThrowAxe>();
-                gameObject.AddComponent<WarriorMelee>();
+                playerData = GetComponent<PlayerData>();
+                warriorInput = new WarriorInput();
+                warriorInput.Enable();
+                GameManager.Instance.characters++;
+                GameManager.Instance.players.Add(gameObject);
+                GetComponent<InventoryManager>().InitializeSlots();
+                Camera.main.GetComponent<FollowCam>().player = this;
                 break;
 
             case CharacterType.Wizard:
-                gameObject.AddComponent<Wizard>();
-                gameObject.AddComponent<ThrowFireball>();
+                playerData = GetComponent<PlayerData>();
+                wizardInput = new WizardInput();
+                wizardInput.Enable();
+                GameManager.Instance.characters++;
+                GameManager.Instance.players.Add(gameObject);
+                GetComponent<InventoryManager>().InitializeSlots();
                 break;
 
             case CharacterType.Valkyrie:
-                gameObject.AddComponent<Valkyrie>();
-                gameObject.AddComponent<throwSword>();
-                gameObject.AddComponent<swordMelee>();
+                playerData = GetComponent<PlayerData>();
+                valkyrieInput = new ValkyrieInput();
+                valkyrieInput.Enable();
+                GameManager.Instance.characters++;
+                GameManager.Instance.players.Add(gameObject);
+                GetComponent<InventoryManager>().InitializeSlots();
                 break;
-            //case CharacterType.Elf:
-            //    gameObject.AddComponent<Elf>();
-            //    gameObject.AddComponent<ShootArrow>();
-            //    gameObject.AddComponent<ElfMelee>();
-            //    break;
+
+                case CharacterType.Elf:
+                playerData = GetComponent<PlayerData>();
+                elfInput = new ElfInput();
+                elfInput.Enable();
+                GameManager.Instance.characters++;
+                GameManager.Instance.players.Add(gameObject);
+                GetComponent<InventoryManager>().InitializeSlots();
+                break;
         }
-
-        GetComponent<InventoryManager>().InitializeSlots();
-
-        //reference for the PlayerInput scriptable object
-        playerInput = new PlayerInput(); //constructor
-        //turn player on
-        playerInput.Enable();
-
-        //characterToAdd++;
-
-        //if (characterToAdd == 3)
-        //{
-        //    GameManager.Instance.maxCharactersInPlay = true;
-        //    characterToAdd = 0;
-        //}
-        //else
-        //{
-        //    characterToAdd++;
-        //}
     }
-
-    ///// <summary>
-    ///// Spawns in the player controller prefab at its spawn location
-    ///// </summary>
-    //public void StartPlayerController()
-    //{
-    //    InitializePlayerController();
-    //}
 
     //apply a melee behavior
     public void ApplyMeleeBehavior(IMeleeBehavior behavior)

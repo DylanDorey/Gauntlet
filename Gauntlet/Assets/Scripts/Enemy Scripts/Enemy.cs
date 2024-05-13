@@ -22,9 +22,9 @@ public class Enemy : MonoBehaviour
     public Vector3 targetPos;
     public IEnemyBehavior enemyBehavior;
 
-    public virtual void OnCollisionEnter(Collision collision)
+    public virtual void Start()
     {
-        
+        LevelManager.Instance.activeEnemies.Add(gameObject);
     }
 
     private void FixedUpdate()
@@ -32,6 +32,11 @@ public class Enemy : MonoBehaviour
         if (isAggro)
         {
             Move();
+        }
+
+        if (transform.position.y < 0.1f|| transform.position.y > 0.3f)
+        {
+            transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
         }
     }
 
@@ -48,11 +53,20 @@ public class Enemy : MonoBehaviour
     {
         enemyPoints = points;
         enemySpeed = speed;
-        enemyDamage = damage;
-        enemyHealth = health;
+
+        if(enemyLevel == 0)
+        {
+            enemyLevel = 1;
+        }
+
+        enemyDamage = damage * enemyLevel;
+        enemyHealth = health * enemyLevel;
         enemyRadius = radius;
 
-        transform.GetComponentInChildren<SphereCollider>().radius = enemyRadius;
+        if (!transform.GetComponent<Thief>())
+        {
+            transform.GetComponentInChildren<SphereCollider>().radius = enemyRadius;
+        }
     }
 
     public virtual void Move()
@@ -68,12 +82,20 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        enemyHealth -= amount;
+        if (transform != GetComponent<Death>())
+        {
+            enemyHealth -= amount;
+        }
+
+        if (enemyHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public virtual void OnDeath()
     {
-        
+        Destroy(gameObject);
     }
 
     public void ApplyBehavior(IEnemyBehavior behavior)

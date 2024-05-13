@@ -4,8 +4,12 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - warriorPrefab: {fileID: 9023392820244342524, guid: 136380eb539d7854785e2658247ed621, type: 3}
   - axePrefab: {fileID: 4870490442639679435, guid: e12352666ff85fb4f9649f0adb47a6ae, type: 3}
   - axeSpawnPos: {instanceID: 0}
+  - axeThrowSound: {fileID: 8300000, guid: 37cd485fec5618d46bb6254e2490d524, type: 3}
+  - meleeSound: {instanceID: 0}
+  - hurtSound: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

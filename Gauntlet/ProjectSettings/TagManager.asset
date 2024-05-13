@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - characterPanels
+  - Exit
+  - Enemy
+  - Projectile
+  - Wall
   layers:
   - Default
   - TransparentFX

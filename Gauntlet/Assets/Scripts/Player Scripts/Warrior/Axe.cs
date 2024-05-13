@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class Axe : MonoBehaviour
 {
-    [Range(1f, 10f)]
+    [Range(1f, 15f)]
     [SerializeField]
     private float axeSpeed;
 
@@ -36,7 +36,7 @@ public class Axe : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            //collision.gameObject.GetComponent<Enemy>().TakeDamage(axeDamage);
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(axeDamage);
             Destroy(gameObject);
         }
 

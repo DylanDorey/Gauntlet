@@ -8,9 +8,11 @@ public class Sorcerer : Enemy
     private bool inMeleeDistance = false;
     private float meleeDelay = 3f;
 
-    private void Start()
+    public override void Start()
     {
-        InitializeEnemy(10, 3f, 5, 5, 4f);
+        base.Start();
+
+        InitializeEnemy(10, 3f, 5, 5, 10f);
 
         gameObject.AddComponent<SorcererBlink>();
         enemyBehavior = GetComponent<SorcererBlink>();
@@ -18,16 +20,22 @@ public class Sorcerer : Enemy
         ApplyBehavior(enemyBehavior);
     }
 
-    public override void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
-        base.OnCollisionEnter(collision);
-
         if (collision.transform.GetComponent<PlayerController>())
         {
             if (!hasMeleed)
             {
                 inMeleeDistance = true;
                 StartCoroutine(Melee(collision));
+            }
+        }
+
+        if (enemyHealth <= 0)
+        {
+            if (collision.transform.GetComponent<Axe>() || collision.transform.GetComponent<Fireball>() || collision.transform.GetComponent<Sword>())
+            {
+                UIManager.Instance.warrior.gameObject.GetComponent<PlayerData>().playerScore += PassPoints();
             }
         }
     }
@@ -43,7 +51,7 @@ public class Sorcerer : Enemy
         { 
             hasMeleed = true;
 
-            collision.gameObject.GetComponent<PlayerData>().playerHealth -= enemyDamage;
+            collision.gameObject.GetComponent<PlayerData>().TakeDamage(enemyDamage);
 
             yield return new WaitForSeconds(meleeDelay);
         }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6223138439669218836
+--- !u!1 &5019086022570532758
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,27 +8,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9084007981388812381}
-  - component: {fileID: 9054128360775649083}
-  - component: {fileID: 1095053287415032874}
-  - component: {fileID: 8565779082088183822}
-  - component: {fileID: 626317612336829388}
-  - component: {fileID: 5164162895434177593}
-  - component: {fileID: -4570665724565477930}
+  - component: {fileID: 6816383982269356383}
+  - component: {fileID: 399457284804626944}
+  - component: {fileID: 2374325177288716363}
+  - component: {fileID: 1808997732355930163}
+  - component: {fileID: 6820546183079152682}
+  - component: {fileID: 3427113882795812425}
+  - component: {fileID: 5840053629703944898}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9084007981388812381
+--- !u!4 &6816383982269356383
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6223138439669218836}
+  m_GameObject: {fileID: 5019086022570532758}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -37,13 +37,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &9054128360775649083
+--- !u!54 &399457284804626944
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6223138439669218836}
+  m_GameObject: {fileID: 5019086022570532758}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -64,13 +64,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!65 &1095053287415032874
+--- !u!65 &2374325177288716363
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6223138439669218836}
+  m_GameObject: {fileID: 5019086022570532758}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -85,13 +85,13 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8565779082088183822
+--- !u!114 &1808997732355930163
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6223138439669218836}
+  m_GameObject: {fileID: 5019086022570532758}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
@@ -112,49 +112,123 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 3c0ca541-5b07-4fb1-acc3-803fa5966711
-    m_ActionName: Player/Move
+    m_ActionId: e3a77a97-f724-43ff-b075-52a9c2139c0c
+    m_ActionName: Player/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6820546183079152682}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4ca9540c-7948-41f2-8409-1ecbcbd241ae
+    m_ActionName: Player/Shoot[/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6820546183079152682}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnMelee
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cdaeee26-bef9-4437-9d5b-29111f9c3b80
+    m_ActionName: Player/Melee[/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6820546183079152682}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPotionUse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7b05c42e-d300-42a2-997f-afcff2942b8b
+    m_ActionName: Player/Use Potion[/XInputControllerWindows/rightShoulder]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 1c66b641-f3ff-46cf-8279-fcb384401eed
-    m_ActionName: Player/LookUp
+    m_ActionId: b2a23aa5-824c-4ca9-aee6-fcf55e64226e
+    m_ActionName: Valkyrie/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 4fe36f5f-4304-45df-ae76-556488a3f19f
-    m_ActionName: Player/LookDown
+    m_ActionId: 6c4ea622-9dea-4718-9fd8-d928989403fc
+    m_ActionName: Valkyrie/Shoot[/XInputControllerWindows/rightTrigger,/Keyboard/space]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 0a5fcf57-c2ff-4b07-a046-4398bfb460c8
-    m_ActionName: Player/LookLeft
+    m_ActionId: 5f60466b-1a22-4a6e-a2a0-a4776479ff73
+    m_ActionName: Valkyrie/Melee[/XInputControllerWindows/leftTrigger,/Keyboard/leftShift]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: eb5daf45-d6d0-40b7-b2a6-5ac74ac18eca
-    m_ActionName: Player/LookRight
+    m_ActionId: 988e2524-34ea-4954-9419-e71eb93ac5ff
+    m_ActionName: Valkyrie/Use Potion[/XInputControllerWindows/rightShoulder,/Keyboard/g]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 02ebbd22-cc8a-4918-bf22-826d03c10799
-    m_ActionName: Player/Shoot
+    m_ActionId: ebe94225-13f2-41a5-a147-c844eab35931
+    m_ActionName: Wizard/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 795ac558-bd25-4402-b673-99d73e7e1501
-    m_ActionName: Player/Melee
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+    m_ActionId: c5acba8d-bf17-4727-b3eb-62106707b105
+    m_ActionName: Wizard/Shoot[/XInputControllerWindows/rightTrigger,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dd57cb4b-188a-43ec-949c-945132901c54
+    m_ActionName: Wizard/Melee[/XInputControllerWindows/leftTrigger,/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7e819278-5896-41ba-8bc0-e43694195f24
+    m_ActionName: Wizard/Use Potion[/XInputControllerWindows/rightShoulder,/Keyboard/g]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1fa6b001-4ea6-4891-8706-0a5f15cb9a4f
+    m_ActionName: Elf/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bfbb1d8f-f716-4f2b-b51c-9ee0ba18c13a
+    m_ActionName: Elf/Shoot[/XInputControllerWindows/rightTrigger,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c8bc5a7d-744f-4ba8-9bea-d0c4b9a50418
+    m_ActionName: Elf/Melee[/XInputControllerWindows/leftTrigger,/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2fc1f14b-a725-4ad0-9930-64ea1bb6e1ff
+    m_ActionName: Elf/Use Potion[/XInputControllerWindows/rightShoulder,/Keyboard/g]
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Controller
+  m_DefaultActionMap: Warrior
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &626317612336829388
+--- !u!114 &6820546183079152682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6223138439669218836}
+  m_GameObject: {fileID: 5019086022570532758}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 352ecc4017086f44da90c0636ea766c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: 0
+  character: 0
   characterPrefabs:
   - {fileID: 9023392820244342524, guid: 136380eb539d7854785e2658247ed621, type: 3}
   - {fileID: 6342615081377474035, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
@@ -165,14 +239,29 @@ MonoBehaviour:
   - {fileID: 1744112362532714893, guid: fc30d22dd58b8fc48bfdbe2e44f0f6b4, type: 3}
   - {fileID: 656569471141158888, guid: ae7a70d0375f7384f8339e4aefb25685, type: 3}
   - {fileID: 5665019585703974377, guid: 4e6f15f7f64fb4d43aacd8576f29a95d, type: 3}
-  character: 0
---- !u!114 &5164162895434177593
+  warriorAudioClips:
+  - {fileID: 8300000, guid: 37cd485fec5618d46bb6254e2490d524, type: 3}
+  - {fileID: 8300000, guid: fb49f49073826bf40b92a7f58f684e36, type: 3}
+  - {fileID: 8300000, guid: 745b2e55ac4c0bb4c846c97719b492dc, type: 3}
+  valkyrieAudioClips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  wizardAudioClips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  elfAudioClips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &3427113882795812425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6223138439669218836}
+  m_GameObject: {fileID: 5019086022570532758}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a09522b62f58e1948a1f4e261f936a0d, type: 3}
@@ -183,16 +272,17 @@ MonoBehaviour:
   playerMagic: 0
   playerArmor: 0
   playerSpeed: 0
-  healthTickRate: 0
+  healthTickRate: 1
   hasMelee: 0
   hasKey: 0
---- !u!114 &-4570665724565477930
+  hasPotion: 0
+--- !u!114 &5840053629703944898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6223138439669218836}
+  m_GameObject: {fileID: 5019086022570532758}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3f50f02a3b05d0409ba7fb9dfe31f68, type: 3}
@@ -201,7 +291,10 @@ MonoBehaviour:
   inventoryFull: 0
   characterPanels: {fileID: 0}
   keySlots: {fileID: 0}
+  potionSlots: {fileID: 0}
   keyPrefab: {fileID: 120186224271754500, guid: ed15f84cac843d24ebc3dad87e676453, type: 3}
-  bluePotionPrefab: {fileID: 0}
-  orangePotionPrefab: {fileID: 0}
+  bluePotionPrefab: {fileID: 8107321821172193495, guid: 2ba8d7d6e8818974491b7564291b60bc, type: 3}
+  orangePotionPrefab: {fileID: 3024838364592346506, guid: 5cea44166d28cc54fa379a121c2218d5, type: 3}
   itemsArray: []
+  keyInventoryFull: 0
+  potionInventoryFull: 0

@@ -17,10 +17,11 @@ public class AudioManager : Singleton<AudioManager>
     {
         //initialize a new list of audio clips
         audioList = new List<AudioClip>();
+
+        //StartCoroutine(PlaySounds());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //if the audio list has more than 0 elements
         if (audioList.Count > 0)
@@ -50,16 +51,35 @@ public class AudioManager : Singleton<AudioManager>
     private void PlaySound()
     {
         //for each audio clip in the audio list
-        foreach (AudioClip sound in audioList)
+        for (int index = 0; index < audioList.Count; index++)
         {
             //set the audio sources clip to the next audio clip in the audio list
-            GetComponent<AudioSource>().clip = sound;
+            GetComponent<AudioSource>().clip = audioList[index];
 
             //play the audio clip
             GetComponent<AudioSource>().Play();
 
             //remove the audio clip from the audio list
-            audioList.Remove(sound);
+            audioList.Remove(audioList[index]);
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator PlaySounds()
+    {
+        while (true)
+        {
+            //if the audio list has more than 0 elements
+            if (audioList.Count > 0)
+            {
+                //play the sounds in it
+                PlaySound();
+            }
+
+            yield return new WaitForSeconds(0.2f);
         }
     }
 }

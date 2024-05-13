@@ -17,17 +17,24 @@ public class Wizard : MonoBehaviour
     public GameObject fireballPrefab;
     public Transform fireballSpawnPos;
 
+    public AudioClip throwFireballSound;
+    public AudioClip wizardHurt;
+
     public void Start()
     {
-        wizardPrefab = GetComponent<PlayerController>().characterPrefabs[2];
-        fireballPrefab = GetComponent<PlayerController>().projectilePrefabs[2];
+        PlayerController playerController = GetComponent<PlayerController>();
 
-        GameObject wizard = Instantiate(wizardPrefab, transform.position, Quaternion.identity);
-        wizard.transform.parent = GetComponent<PlayerController>().gameObject.transform;
+        wizardPrefab = playerController.characterPrefabs[2];
+        fireballPrefab = playerController.projectilePrefabs[2];
 
-        fireballSpawnPos = wizard.transform.GetChild(2);
+        fireballSpawnPos = transform.GetChild(0).transform.GetChild(2);
 
-        GetComponent<PlayerData>().InitializePlayerData(700f, 0, 2f, 0f, 3f, false);
-        GetComponent<PlayerController>().shootBehavior = GetComponent<ThrowFireball>();
+        GetComponent<PlayerData>().InitializePlayerData(700, 0, 4f, 1, 5f, false);
+        playerController.shootBehavior = GetComponent<ThrowFireball>();
+
+        throwFireballSound = playerController.wizardAudioClips[0];
+        wizardHurt = playerController.wizardAudioClips[1];
+
+        UIManager.Instance.wizard = GetComponent<PlayerData>();
     }
 }

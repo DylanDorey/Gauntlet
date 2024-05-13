@@ -8,44 +8,79 @@ using UnityEngine;
  * [Base class for generators]
  */
 
+public enum GeneratorType
+{
+    Bones,
+    Block
+}
+
 public class Generator : MonoBehaviour
 {
     public int generatorLevel;
-    public float generatorHealth;
+    public int generatorHitpoints;
     public float spawnRate;
-    public List<Transform> spawnPoints;
+    public GeneratorType generatorType;
+    public Transform[] spawnPoints;
+    public AudioClip deathSound;
+    public bool hasSpawnedEnemy = false;
 
-    public virtual void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
-        
+        AcceptDamage(collision);
     }
 
-    public void InitializeGenerator(int level, float health, float rate)
+    public void InitializeGenerator(int level, int hitpoints, float rate, GeneratorType type)
     {
         generatorLevel = level;
-        generatorHealth = health;
+        generatorHitpoints = hitpoints * level;
         spawnRate = rate;
+        generatorType = type;
     }
 
-    public void SpawnEnemy(GameObject enemy, Vector3 location)
+    public void AcceptDamage(Collision collision)
     {
-        //store a random position from the spawnPoints list into an index
-        int randomSpawnPointIndex = Random.Range(0, spawnPoints.Count);
+        VerifyDamage(collision);
 
-        //set location equal to that random position index
-        location = spawnPoints[randomSpawnPointIndex].position;
-
-
+        if (generatorHitpoints <= 0)
+        {
+            OnGeneratorDeath();
+        }
     }
 
-    public void AcceptDamage(float amount)
+    private void VerifyDamage(Collision collision)
     {
-        //Check if what hit the generator was a valid object to deal damage
+        if (generatorType == GeneratorType.Bones)
+        {
+            if (collision.gameObject.CompareTag("Projectile"))
+            {
+                //If it was, remove health
+                generatorHitpoints--;
+                generatorLevel--;
+                spawnRate++;
+            }
+        }
+        else if (generatorType == GeneratorType.Block)
+        {
+            if (collision.gameObject.CompareTag("Projectile"))
+            {
+                generatorHitpoints--;
+                generatorLevel--;
+                spawnRate++;
 
-        //If it was, remove health
-        generatorHealth -= amount;
+                //if (collision.transform.GetComponent<Rock>() || collision.transform.GetComponent<FireBall>())
+                //{
+                //    if (generatorHitpoints <= 1)
+                //    {
+                //        generatorHitpoints = 1;
+                //    }
+                //}
+            }
+        }
+    }
 
-
-        //Decrease spawnRate based upon health value
+    public void OnGeneratorDeath()
+    {
+        AudioManager.Instance.AddToSoundQueue(deathSound);
+        Destroy(gameObject);
     }
 }

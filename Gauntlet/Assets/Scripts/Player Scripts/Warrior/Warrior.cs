@@ -20,7 +20,7 @@ public class Warrior : MonoBehaviour
     public int meleeDamage;
 
     [Range(1f, 10f)]
-    public float meleeDistance = 0.2f;
+    public float meleeDistance = 1f;
 
     public RaycastHit hit;
     public Vector3 rayDirection;
@@ -29,19 +29,29 @@ public class Warrior : MonoBehaviour
     public GameObject axePrefab;
     public Transform axeSpawnPos;
 
+    public AudioClip axeThrowSound;
+    public AudioClip meleeSound;
+    public AudioClip hurtSound;
+
     public void Start()
     {
-        warriorPrefab = GetComponent<PlayerController>().characterPrefabs[0];
-        axePrefab = GetComponent<PlayerController>().projectilePrefabs[0];
+        PlayerController playerController = GetComponent<PlayerController>();
 
-        GameObject warrior = Instantiate(warriorPrefab, transform.position, Quaternion.identity);
-        warrior.transform.parent = GetComponent<PlayerController>().gameObject.transform;
+        //warriorPrefab = playerController.characterPrefabs[0];
+        //axePrefab = playerController.projectilePrefabs[0];
 
-        axeSpawnPos = warrior.transform.GetChild(2);
+        ////axeSpawnPos = warrior.transform.GetChild(2);
+        axeSpawnPos = transform.GetChild(0).transform.GetChild(2);
 
-        GetComponent<PlayerData>().InitializePlayerData(700f, 0, 0f, 0f, 5f, true);
-        GetComponent<PlayerController>().shootBehavior = GetComponent<ThrowAxe>();
-        GetComponent<PlayerController>().meleeBehavior = GetComponent<WarriorMelee>();
+        GetComponent<PlayerData>().InitializePlayerData(700, 0, 1f, 1, 7f, true);
+        playerController.shootBehavior = GetComponent<ThrowAxe>();
+        playerController.meleeBehavior = GetComponent<WarriorMelee>();
+
+        axeThrowSound = playerController.warriorAudioClips[0];
+        meleeSound = playerController.warriorAudioClips[1];
+        hurtSound = playerController.warriorAudioClips[2];
+
+        UIManager.Instance.warrior = GetComponent<PlayerData>();
     }
 
     private void Update()

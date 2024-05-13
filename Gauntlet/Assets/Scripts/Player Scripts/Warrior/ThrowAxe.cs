@@ -25,15 +25,19 @@ public class ThrowAxe : MonoBehaviour, IShootBehavior
     /// </summary>
     public IEnumerator Throw(PlayerController player)
     {
+        Warrior warrior = player.gameObject.GetComponent<Warrior>();
+
         for (int index = 0; index < 1; index++)
         {
             hasShot = true;
 
-            GameObject axe = Instantiate(player.gameObject.GetComponent<Warrior>().axePrefab, player.gameObject.GetComponent<Warrior>().axeSpawnPos.position, player.gameObject.GetComponent<Warrior>().axePrefab.transform.rotation);
+            GameObject axe = Instantiate(warrior.axePrefab, warrior.axeSpawnPos.position, warrior.axePrefab.transform.rotation);
 
             axe.GetComponent<Axe>().moveDirection = transform.GetChild(0).transform.forward;
 
-            yield return new WaitForSeconds(player.gameObject.GetComponent<Warrior>().throwDelay);
+            AudioManager.Instance.AddToSoundQueue(warrior.axeThrowSound);
+
+            yield return new WaitForSeconds(warrior.throwDelay);
         }
 
         hasShot = false;
