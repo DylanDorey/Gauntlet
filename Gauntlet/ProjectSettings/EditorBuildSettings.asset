@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Gauntlet.unity
+    guid: bb1cd2ae1f379784f8c497256140327e
   m_configObjects: {}
