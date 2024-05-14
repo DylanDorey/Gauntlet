@@ -37,6 +37,7 @@ public class AOECollider : MonoBehaviour
                 {
                     //add Deaths current score worth to the player's score
                     usedBy.playerScore += other.gameObject.GetComponent<Death>().enemyPoints;
+                    other.gameObject.GetComponent<Death>().OnDeath();
                 }
             }
             else
