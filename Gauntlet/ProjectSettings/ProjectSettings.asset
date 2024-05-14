@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: CAGD380
+  companyName: CAGD380_Group8
   productName: GauntletClone_Group8
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -660,11 +660,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: e7a27cdc-c155-493e-be32-cc50c955c40f
+  cloudProjectId: 4ed911a3-04d4-423e-8e7a-ee58e3123ddb
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Gauntlet
-  organizationId: idiazjr
+  projectName: GauntletClone_Group8
+  organizationId: ddorey
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
