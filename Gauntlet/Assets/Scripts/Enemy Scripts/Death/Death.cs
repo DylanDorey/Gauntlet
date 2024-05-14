@@ -7,12 +7,16 @@ public class Death : Enemy
     public int[] deathPoints = { 1000, 2000, 1000, 4000, 2000, 6000, 8000 };
     private int hitCounter = 0;
 
-    private int currentHealth;
+    public bool hasSapped;
+
+    public AudioClip deathSpawnSound;
+    public AudioClip deathSapSound;
+
     public override void Start()
     {
-        currentHealth = Mathf.RoundToInt(enemyHealth);
         InitializeEnemy(1000, 3f, 5, 100f, 30f);
-        ApplyBehavior(enemyBehavior);
+        gameObject.AddComponent<Sap>();
+        enemyBehavior = GetComponent<Sap>();
         targetPos = GameObject.FindAnyObjectByType<PlayerController>().transform.position;
     }
 
@@ -21,7 +25,10 @@ public class Death : Enemy
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            ApplyBehavior(enemyBehavior);
+            if (!hasSapped)
+            {
+                ApplyBehavior(enemyBehavior);
+            }
         }
     }
 
@@ -38,5 +45,4 @@ public class Death : Enemy
 
         OnDeath();
     }
-
 }

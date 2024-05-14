@@ -19,7 +19,7 @@ public class GruntMelee : MonoBehaviour, IEnemyBehavior
 
         for (int index = 0; index < 1; index++)
         {
-            enemy.GetComponent<PlayerData>().TakeDamage(grunt.enemyDamage);
+            grunt.playerCollision.gameObject.GetComponent<PlayerData>().TakeDamage(grunt.enemyDamage);
             yield return new WaitForSeconds(grunt.meleeDelay);
         }
 

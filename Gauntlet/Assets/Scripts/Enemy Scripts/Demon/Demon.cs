@@ -16,6 +16,7 @@ public class Demon : Enemy
     public AudioClip shootSound;
     public AudioClip meleeSound;
     public bool canShoot;
+    public Collision playerCollision;
 
     public override void Start()
     {
@@ -34,7 +35,7 @@ public class Demon : Enemy
             Move();
             if (canShoot)
             {
-                StartCoroutine(fireballDelay());
+                StartCoroutine(FireballDelay());
             }
         }
 
@@ -53,6 +54,7 @@ public class Demon : Enemy
         {
             if (!hasMeleed)
             {
+                playerCollision = collision;
                 ApplyBehavior(enemyBehavior);
             }
         }
@@ -84,7 +86,7 @@ public class Demon : Enemy
         }
     }
 
-    IEnumerator fireballDelay()
+    IEnumerator FireballDelay()
     {
         canShoot = false;
         yield return new WaitForSeconds(shootDelay);

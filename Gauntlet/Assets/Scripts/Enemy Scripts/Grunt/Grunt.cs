@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Grunt : Enemy
 {
-    private readonly float meleeDistance = 3f;
     public float meleeDelay = 2f;
-    private Vector3 rayDirection;
-    public RaycastHit hit;
     public bool hasMeleed = false;
+    public Collision playerCollision;
 
     public override void Start()
     {
@@ -26,6 +24,7 @@ public class Grunt : Enemy
         {
             if (!hasMeleed)
             {
+                playerCollision = collision;
                 ApplyBehavior(enemyBehavior);
             }
         }
@@ -37,22 +36,5 @@ public class Grunt : Enemy
                 UIManager.Instance.warrior.gameObject.GetComponent<PlayerData>().playerScore += PassPoints();
             }
         }
-    }
-
-    private void Update()
-    {
-        //rayDirection = transform.forward;
-
-        //if (Physics.Raycast(transform.position, rayDirection, out hit, meleeDistance))
-        //{
-        //    if (hit.transform.GetComponent<PlayerController>() && !hasMeleed)
-        //    {
-        //        ApplyBehavior(enemyBehavior);
-        //    }
-        //}
-        //else
-        //{
-        //    hasMeleed = false;
-        //}
     }
 }

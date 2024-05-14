@@ -19,7 +19,7 @@ public class DemonMelee : MonoBehaviour, IEnemyBehavior
 
         for (int index = 0; index < 1; index++)
         {
-            enemy.GetComponent<PlayerData>().TakeDamage(demon.enemyDamage);
+            demon.playerCollision.gameObject.GetComponent<PlayerData>().TakeDamage(demon.enemyDamage);
             yield return new WaitForSeconds(demon.meleeDelay);
         }
 

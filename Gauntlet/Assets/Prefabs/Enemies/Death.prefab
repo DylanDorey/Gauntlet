@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 2913547672479319475}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -236,6 +236,9 @@ MonoBehaviour:
   enemyRadius: 0
   targetPos: {x: 0, y: 0, z: 0}
   deathPoints: e8030000d0070000e8030000a00f0000d007000070170000401f0000
+  hasSapped: 0
+  deathSpawnSound: {fileID: 8300000, guid: 668d7c534dd8aed46a07bb85c69280b8, type: 3}
+  deathSapSound: {fileID: 8300000, guid: ade8bd08d4ac9264197ecb3202650a6f, type: 3}
 --- !u!1 &3364492593843990527
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,6 +19,7 @@ public class ExitDoor : MonoBehaviour
         for (int index = 0; index < 1; index++)
         {
             AudioManager.Instance.AddToSoundQueue(levelChangeMusic);
+
             yield return new WaitForSeconds(2f);
         }
 

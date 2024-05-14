@@ -15,10 +15,10 @@ public class Steal : MonoBehaviour, IEnemyBehavior
 
     public void Behavior(Enemy enemy)
     {
-        InitiateSteal(enemy);
+        InitiateSteal();
     }
 
-    public void InitiateSteal(Enemy enemy)
+    public void InitiateSteal()
     {
         if (playerInventory != null)
         {
