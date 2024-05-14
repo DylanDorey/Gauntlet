@@ -4,12 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/*
+ * Author: [Dorey, Dylan]
+ * Last Updated: [4/25/2024]
+ * [Manages all UI that is displayed on screen]
+ */
 public class UIManager : Singleton<UIManager>
 {
+    //different UI screens
     public GameObject menuScreen, gameScreen, gameOverScreen, centerText;
 
+    //Various text properties on screen
     public TextMeshProUGUI warriorHealthText, valkyrieHealthText, wizardHealthText, elfHealthText, warriorScoreText, valkyrieScoreText, wizardScoreText, elfScoreText, levelText;
 
+    //references to characters stats
     public PlayerData warrior;
     public PlayerData valkyrie;
     public PlayerData wizard;
@@ -31,9 +39,8 @@ public class UIManager : Singleton<UIManager>
 
     private void Update()
     {
+        //updates the players stat values
         UpdatePlayerStats();
-
-        //levelText.text = LevelManager.Instance.currentLevel;
     }
 
     /// <summary>
@@ -86,40 +93,54 @@ public class UIManager : Singleton<UIManager>
     /// </summary>
     private void UpdatePlayerStats()
     {
+        //if there is a warrior player
         if (warrior != null)
         {
+            //set the warrior's health text and score text
             warriorHealthText.text = warrior.playerHealth.ToString();
             warriorScoreText.text = warrior.playerScore.ToString();
         }
 
+        //if there is a valkyrie player
         if (valkyrie != null)
         {
+            //set the valkyries health text and score text
             valkyrieHealthText.text = valkyrie.playerHealth.ToString();
             valkyrieScoreText.text = valkyrie.playerScore.ToString();
         }
 
+        //if there is a wizard player
         if (wizard != null)
         {
+            //set the wizard's health text and score text
             wizardHealthText.text = wizard.playerHealth.ToString();
             wizardScoreText.text = wizard.playerScore.ToString();
         }
 
+        //if there is an elf player
         if (elf != null)
         {
+            //set the elf's health text and score text
             elfHealthText.text = elf.playerHealth.ToString();
             elfScoreText.text = elf.playerScore.ToString();
         }
     }
 
+    /// <summary>
+    /// Text that appears at the start of the game to tell the player how to join in
+    /// </summary>
+    /// <returns> text duration </returns>
     private IEnumerator PressStartToJoinText()
     {
         for (int index = 0; index < 1; index++)
         {
+            //set the text to active for 3 seconds
             centerText.SetActive(true);
 
             yield return new WaitForSeconds(3f);
         }
 
+        //turn the text off
         centerText.SetActive(false);
     }
 }

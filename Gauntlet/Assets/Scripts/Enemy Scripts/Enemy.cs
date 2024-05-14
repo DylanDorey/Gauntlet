@@ -4,7 +4,7 @@ using UnityEngine;
 
 /*
  * Author: [Dorey, Dylan]
- * Last Updated: [4/18/2024]
+ * Last Updated: [4/13/2024]
  * [Base Enemy class]
  */
 
@@ -24,16 +24,19 @@ public class Enemy : MonoBehaviour
 
     public virtual void Start()
     {
+        //add the enemy to the active enemies list
         LevelManager.Instance.activeEnemies.Add(gameObject);
     }
 
     private void FixedUpdate()
     {
+        //if is aggro move to the target pos
         if (isAggro)
         {
             Move();
         }
 
+        //if the enemy is above or below the map, reset to proper height
         if (transform.position.y < 0.1f|| transform.position.y > 0.5f)
         {
             transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
@@ -69,35 +72,59 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Allows the enemy to move towards a target position
+    /// </summary>
     public virtual void Move()
     {
         transform.LookAt(targetPos);
         transform.Translate(Vector3.forward * (enemySpeed * Time.deltaTime));
     }
 
+
+    /// <summary>
+    /// Passes points to whomever requests it
+    /// </summary>
+    /// <returns> the enemy point value </returns>
     public int PassPoints()
     {
         return enemyPoints;
     }
 
+    /// <summary>
+    /// Removes health from enemy
+    /// </summary>
+    /// <param name="amount"> the amount of incoming damage </param>
     public void TakeDamage(float amount)
     {
+        //if the enemy is not death
         if (transform != GetComponent<Death>())
         {
+            //remove health
             enemyHealth -= amount;
         }
 
+        //if the enemy has not health left and is not death
         if (enemyHealth <= 0 && !transform.GetComponent<Death>())
         {
+            //call on death method
             OnDeath();
         }
     }
 
+    /// <summary>
+    /// Removes enemy when dead
+    /// </summary>
     public virtual void OnDeath()
     {
+        //set active to false
         gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Applies the enemies behavior
+    /// </summary>
+    /// <param name="behavior"> the enemies unique behavior </param>
     public void ApplyBehavior(IEnemyBehavior behavior)
     {
         behavior.Behavior(this);

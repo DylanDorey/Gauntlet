@@ -10,6 +10,7 @@ using UnityEngine;
 
 public class Door : Item
 {
+    //the opening sound of the door
     public AudioClip openSound;
 
     private void Start()
@@ -20,6 +21,7 @@ public class Door : Item
 
     public override void OnCollisionEnter(Collision collision)
     {
+        //pass points and health
         base.OnCollisionEnter(collision);
 
         //if the colliding object is a player

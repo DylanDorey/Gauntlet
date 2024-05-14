@@ -40,14 +40,18 @@ public class PlayerController : MonoBehaviour
     public IMeleeBehavior meleeBehavior;
     public IShootBehavior shootBehavior;
 
+    //the various character prefabs
+    public GameObject[] characterPrefabs = new GameObject[4];
     //the various projectile prefabs
     public GameObject[] projectilePrefabs = new GameObject[4];
 
+    //all character audio clips
     public AudioClip[] warriorAudioClips;
     public AudioClip[] valkyrieAudioClips;
     public AudioClip[] wizardAudioClips;
     public AudioClip[] elfAudioClips;
 
+    //Vector2 movement values
     private Vector2 moveValueX;
     private Vector2 moveValueY;
 
@@ -65,13 +69,16 @@ public class PlayerController : MonoBehaviour
 
     public void Start()
     {
+        //initialize the player on spawn
         InitializePlayerController();
     }
 
     private void FixedUpdate()
     {
+        //move in the direction of the current x and y movement values * players speed
         transform.Translate(new Vector3(moveValueX.x, 0f, moveValueY.y) * (Time.deltaTime * playerData.playerSpeed));
 
+        //if the player is above or below the map set them back to default y pos
         if(transform.position.y < 0 || transform.position.y > 0.3f)
         {
             transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
@@ -84,36 +91,57 @@ public class PlayerController : MonoBehaviour
     /// <param name="context"> the context in which the button was pressed </param>
     public void OnMove(InputAction.CallbackContext context)
     {
+        //store x and y Vector 2 movement values and set the players looking direction on move
         moveValueX = context.ReadValue<Vector2>();
         moveValueY = context.ReadValue<Vector2>();
         SetRotation(moveValueX, moveValueY);
     }
 
+    /// <summary>
+    /// Allows the player to melee
+    /// </summary>
+    /// <param name="context"> the context of the input press </param>
     public void OnMelee(InputAction.CallbackContext context)
     {
+        //if the player has a melee ability
         if (GetComponent<PlayerData>().hasMelee)
         {
+            //when the action is performed
             if (context.performed)
             {
+                //apply the melee behavior
                 ApplyMeleeBehavior(meleeBehavior);
             }
         }
     }
 
+    /// <summary>
+    /// Allows the player to fire a projectile unique to them
+    /// </summary>
+    /// <param name="context"> the context of the input press </param>
     public void OnShoot(InputAction.CallbackContext context)
     {
+        //if the action is performed
         if (context.performed)
         {
+            //apply the shoot behavior
             ApplyShootBehavior(shootBehavior);
         }
     }
 
+    /// <summary>
+    /// Allows the player to use potions from their inventory
+    /// </summary>
+    /// <param name="context"> the context of the input press </param>
     public void OnPotionUse(InputAction.CallbackContext context)
     {
+        //if the action is performed
         if (context.performed)
         {
+            //if the player has at least one potion
             if (playerData.hasPotion)
             {
+                //apply the specific potions behavior and remove it after use
                 GetComponent<InventoryManager>().potionSlots.transform.GetChild(0).GetComponent<PotionSlot>().itemBehavior.Behavior(playerData);
                 GetComponent<InventoryManager>().RemovePotionOnUse();
             }
@@ -185,16 +213,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Resets the players position to 0,0,0
+    /// </summary>
     private void ResetPositionOnStart()
     {
+        //set pos to 0,0,0
         transform.position = Vector3.zero;
     }
 
     /// <summary>
-    /// initializes the player controller at the start of the game
+    /// Initializes all important player controller values on spawn
     /// </summary>
     public void InitializePlayerController()
     {
+        //set the players character type and assign index depending on what characters are available
         switch (GameManager.Instance.characters)
         {
             case 0:
@@ -218,8 +251,10 @@ public class PlayerController : MonoBehaviour
                 break;
         }
 
+        //Initialize each character type depending on the character they are
         switch (characterType)
         {
+            //if warrior
             case CharacterType.Warrior:
                 playerData = GetComponent<PlayerData>();
                 warriorInput = new WarriorInput();
@@ -230,6 +265,7 @@ public class PlayerController : MonoBehaviour
                 Camera.main.GetComponent<FollowCam>().player = this;
                 break;
 
+            //if wizard
             case CharacterType.Wizard:
                 playerData = GetComponent<PlayerData>();
                 wizardInput = new WizardInput();
@@ -239,6 +275,7 @@ public class PlayerController : MonoBehaviour
                 GetComponent<InventoryManager>().InitializeSlots();
                 break;
 
+            //if valkyrie
             case CharacterType.Valkyrie:
                 playerData = GetComponent<PlayerData>();
                 valkyrieInput = new ValkyrieInput();
@@ -248,7 +285,8 @@ public class PlayerController : MonoBehaviour
                 GetComponent<InventoryManager>().InitializeSlots();
                 break;
 
-                case CharacterType.Elf:
+            //if elf
+            case CharacterType.Elf:
                 playerData = GetComponent<PlayerData>();
                 elfInput = new ElfInput();
                 elfInput.Enable();
@@ -262,12 +300,14 @@ public class PlayerController : MonoBehaviour
     //apply a melee behavior
     public void ApplyMeleeBehavior(IMeleeBehavior behavior)
     {
+        //assign the melee bahavior to this player controller
         behavior.MeleeBehavior(this);
     }
 
     //apply a shoot behavior
     public void ApplyShootBehavior(IShootBehavior behavior)
     {
+        //assign the shooting bahavior to this player controller
         behavior.ShootBehavior(this);
     }
 }

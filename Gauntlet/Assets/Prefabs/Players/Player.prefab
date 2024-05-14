@@ -112,106 +112,22 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: e3a77a97-f724-43ff-b075-52a9c2139c0c
-    m_ActionName: Player/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6820546183079152682}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnShoot
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 4ca9540c-7948-41f2-8409-1ecbcbd241ae
-    m_ActionName: Player/Shoot[/XInputControllerWindows/rightTrigger]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6820546183079152682}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnMelee
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: cdaeee26-bef9-4437-9d5b-29111f9c3b80
-    m_ActionName: Player/Melee[/XInputControllerWindows/leftTrigger]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6820546183079152682}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnPotionUse
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 7b05c42e-d300-42a2-997f-afcff2942b8b
-    m_ActionName: Player/Use Potion[/XInputControllerWindows/rightShoulder]
+    m_ActionId: d29f514e-25ce-4155-a155-8388089e91c2
+    m_ActionName: Warrior/Move
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: b2a23aa5-824c-4ca9-aee6-fcf55e64226e
-    m_ActionName: Valkyrie/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+    m_ActionId: 3f1ebd62-e4a7-4059-bdb6-c4c4932385ef
+    m_ActionName: Warrior/Shoot
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 6c4ea622-9dea-4718-9fd8-d928989403fc
-    m_ActionName: Valkyrie/Shoot[/XInputControllerWindows/rightTrigger,/Keyboard/space]
+    m_ActionId: 6bc0e845-9a3d-4711-b82b-3d41b531fd12
+    m_ActionName: Warrior/Melee
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 5f60466b-1a22-4a6e-a2a0-a4776479ff73
-    m_ActionName: Valkyrie/Melee[/XInputControllerWindows/leftTrigger,/Keyboard/leftShift]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 988e2524-34ea-4954-9419-e71eb93ac5ff
-    m_ActionName: Valkyrie/Use Potion[/XInputControllerWindows/rightShoulder,/Keyboard/g]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ebe94225-13f2-41a5-a147-c844eab35931
-    m_ActionName: Wizard/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c5acba8d-bf17-4727-b3eb-62106707b105
-    m_ActionName: Wizard/Shoot[/XInputControllerWindows/rightTrigger,/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: dd57cb4b-188a-43ec-949c-945132901c54
-    m_ActionName: Wizard/Melee[/XInputControllerWindows/leftTrigger,/Keyboard/leftShift]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 7e819278-5896-41ba-8bc0-e43694195f24
-    m_ActionName: Wizard/Use Potion[/XInputControllerWindows/rightShoulder,/Keyboard/g]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1fa6b001-4ea6-4891-8706-0a5f15cb9a4f
-    m_ActionName: Elf/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: bfbb1d8f-f716-4f2b-b51c-9ee0ba18c13a
-    m_ActionName: Elf/Shoot[/XInputControllerWindows/rightTrigger,/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c8bc5a7d-744f-4ba8-9bea-d0c4b9a50418
-    m_ActionName: Elf/Melee[/XInputControllerWindows/leftTrigger,/Keyboard/leftShift]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2fc1f14b-a725-4ad0-9930-64ea1bb6e1ff
-    m_ActionName: Elf/Use Potion[/XInputControllerWindows/rightShoulder,/Keyboard/g]
+    m_ActionId: 7200aa3b-bc5e-4e62-9986-f2b26402f825
+    m_ActionName: Warrior/Use Potion
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Controller
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Warrior
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -228,12 +144,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIndex: 0
-  character: 0
+  characterType: 0
   characterPrefabs:
   - {fileID: 9023392820244342524, guid: 136380eb539d7854785e2658247ed621, type: 3}
   - {fileID: 6342615081377474035, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
   - {fileID: 7197700089058974574, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
-  - {fileID: 6621236399255312802, guid: 498086cb767c617438357224cb35eb96, type: 3}
+  - {fileID: 1941512526250094910, guid: 498086cb767c617438357224cb35eb96, type: 3}
   projectilePrefabs:
   - {fileID: 4870490442639679435, guid: e12352666ff85fb4f9649f0adb47a6ae, type: 3}
   - {fileID: 1744112362532714893, guid: fc30d22dd58b8fc48bfdbe2e44f0f6b4, type: 3}
@@ -289,7 +205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryFull: 0
-  characterPanels: {fileID: 0}
   keySlots: {fileID: 0}
   potionSlots: {fileID: 0}
   keyPrefab: {fileID: 120186224271754500, guid: ed15f84cac843d24ebc3dad87e676453, type: 3}

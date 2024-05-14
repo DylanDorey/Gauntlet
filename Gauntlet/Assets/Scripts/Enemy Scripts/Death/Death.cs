@@ -19,7 +19,7 @@ public class Death : Enemy
     {
         base.Start();
 
-        InitializeEnemy(1000, 3f, 5, 1f, 30f);
+        InitializeEnemy(1000, 3f, 5, 1000000f, 30f);
         gameObject.AddComponent<Sap>();
         enemyBehavior = GetComponent<Sap>();
     }

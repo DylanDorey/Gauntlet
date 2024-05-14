@@ -198,10 +198,10 @@ MonoBehaviour:
   playerIndex: 0
   characterType: 0
   characterPrefabs:
-  - {fileID: 9023392820244342524, guid: 136380eb539d7854785e2658247ed621, type: 3}
-  - {fileID: 6342615081377474035, guid: eee3363a6203010498b5ec0ca4172aa9, type: 3}
-  - {fileID: 7197700089058974574, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
-  - {fileID: 6621236399255312802, guid: 498086cb767c617438357224cb35eb96, type: 3}
+  - {fileID: 3008530524690894524}
+  - {fileID: 5704838608003067641, guid: f2229a30caec580458611a1f47128eff, type: 3}
+  - {fileID: 1272539359866741395, guid: ff16ff79fd2c7e94aa3e460bb746ee11, type: 3}
+  - {fileID: 1941512526250094910, guid: 498086cb767c617438357224cb35eb96, type: 3}
   projectilePrefabs:
   - {fileID: 4870490442639679435, guid: e12352666ff85fb4f9649f0adb47a6ae, type: 3}
   - {fileID: 1744112362532714893, guid: fc30d22dd58b8fc48bfdbe2e44f0f6b4, type: 3}

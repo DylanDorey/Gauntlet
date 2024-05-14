@@ -20,6 +20,7 @@ public enum GameState
 
 public class GameManager : Singleton<GameManager>
 {
+    //game manager variables
     public int characters = 0;
     public List<GameObject> players;
     public bool isPlaying;
@@ -37,19 +38,10 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     public void StartGame()
     {
-        //publish the startGame game event
+        //publish the startGame game event and set is playing to true
         GameEventBus.Publish(GameState.startGame);
         isPlaying = true;
     }
-
-    /// <summary>
-    /// This will send the user back to the main menu
-    /// </summary>
-    //public void ReturnToMenu()
-    //{
-    //    //publish the menu game event
-    //    GameEventBus.Publish(GameState.mainMenu);
-    //}
 
     /// <summary>
     /// This will allow the user to close/quit Gauntlet
