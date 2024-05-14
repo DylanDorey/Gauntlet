@@ -2786,7 +2786,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 50}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &551780204
 MonoBehaviour:
@@ -3741,7 +3741,6 @@ GameObject:
   m_Component:
   - component: {fileID: 726221248}
   - component: {fileID: 726221247}
-  - component: {fileID: 726221246}
   - component: {fileID: 726221249}
   m_Layer: 0
   m_Name: EventSystem
@@ -3750,26 +3749,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &726221246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726221245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &726221247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4895,7 +4874,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RETURN TO MENU
+  m_text: QUIT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6921,7 +6900,9 @@ MonoBehaviour:
   levelPrefabs:
   - {fileID: 256739098838908916, guid: 3bc1feb2468ad904991c13a2e11135f0, type: 3}
   - {fileID: 1877406137046820560, guid: e50dc469c62455346b8016061e3e20bb, type: 3}
+  - {fileID: 4710257524011340260, guid: fd0db5104e1c74d46a8bd93d211709f1, type: 3}
   playerSpawns: []
+  activeEnemies: []
   thiefItemSpawn: {x: 0, y: 0, z: 0}
   currentLevel: 0
 --- !u!1 &1418758901

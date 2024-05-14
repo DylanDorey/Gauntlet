@@ -5,7 +5,6 @@ using UnityEngine;
 public class Thief : Enemy
 {
     public AudioClip thiefTone;
-    private int targetPointValue;
 
     public bool hasStolen = false;
     public bool hasDied = false;
@@ -20,6 +19,8 @@ public class Thief : Enemy
 
         //initialize the target pos to a random player
         targetPos = GameObject.FindGameObjectWithTag("Player").gameObject.transform.position;
+
+        hasStolen = false;
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -44,7 +45,7 @@ public class Thief : Enemy
 
         if (enemyHealth <= 0)
         {
-            if (collision.transform.GetComponent<Axe>() || collision.transform.GetComponent<Fireball>() || collision.transform.GetComponent<Sword>())
+            if (collision.transform.GetComponent<Axe>() || collision.transform.GetComponent<Fireball>() || collision.transform.GetComponent<Sword>() || collision.transform.GetComponent<Arrow>())
             {
                 UIManager.Instance.warrior.gameObject.GetComponent<PlayerData>().playerScore += PassPoints();
                 OnDeath();

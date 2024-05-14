@@ -11,7 +11,7 @@ public class Sword : MonoBehaviour
     [Range(1f, 10f)]
     public float swordDamage;
 
-    private float rotateSpeed = 10f;
+    private readonly float rotateSpeed = 10f;
 
     public Vector3 moveDirection;
 
@@ -34,23 +34,18 @@ public class Sword : MonoBehaviour
         Destroy (gameObject, 4f);
     }
 
-    private void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
-        move();
-        firingSword();
+        Move();
+        FiringSword();
     }
 
-    private void move()
+    private void Move()
     {
         transform.position  += (moveDirection * (swordSpeed* Time.deltaTime));   
     }
 
-    private void firingSword()
+    private void FiringSword()
     {
         transform.Rotate(0f, rotateSpeed, 0f);
     }

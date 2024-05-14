@@ -63,23 +63,4 @@ public class AudioManager : Singleton<AudioManager>
             audioList.Remove(audioList[index]);
         }
     }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator PlaySounds()
-    {
-        while (true)
-        {
-            //if the audio list has more than 0 elements
-            if (audioList.Count > 0)
-            {
-                //play the sounds in it
-                PlaySound();
-            }
-
-            yield return new WaitForSeconds(0.2f);
-        }
-    }
 }

@@ -208,7 +208,6 @@ MonoBehaviour:
   - {fileID: 0}
   elfAudioClips:
   - {fileID: 8300000, guid: 41f50a60191c57549b8f3fb1974bf232, type: 3}
-  - {fileID: 0}
   - {fileID: 8300000, guid: 2a1049007f6f73a4396752a2ddbe4fdd, type: 3}
 --- !u!114 &8759783910585111760
 MonoBehaviour:
@@ -270,8 +269,8 @@ MonoBehaviour:
   elfPrefab: {fileID: 1941512526250094910}
   arrowPrefab: {fileID: 5665019585703974377, guid: 4e6f15f7f64fb4d43aacd8576f29a95d, type: 3}
   arrowSpawnPoint: {fileID: 0}
-  arrowShootSound: {fileID: 0}
-  hurtSound: {fileID: 0}
+  arrowShootSound: {fileID: 8300000, guid: 41f50a60191c57549b8f3fb1974bf232, type: 3}
+  hurtSound: {fileID: 8300000, guid: 2a1049007f6f73a4396752a2ddbe4fdd, type: 3}
 --- !u!114 &4003108231383888902
 MonoBehaviour:
   m_ObjectHideFlags: 0

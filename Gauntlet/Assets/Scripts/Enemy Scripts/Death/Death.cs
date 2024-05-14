@@ -5,21 +5,30 @@ using UnityEngine;
 public class Death : Enemy
 {
     public int[] deathPoints = { 1000, 2000, 1000, 4000, 2000, 6000, 8000 };
-    private int hitCounter = 0;
+    private int deathPointsIndex = 0;
 
     public bool hasSapped;
 
     public AudioClip deathSpawnSound;
     public AudioClip deathSapSound;
 
+    public PlayerData playerHealth;
+
+
     public override void Start()
     {
-        InitializeEnemy(1000, 3f, 5, 100f, 30f);
+        base.Start();
+
+        InitializeEnemy(1000, 3f, 5, 1f, 30f);
         gameObject.AddComponent<Sap>();
         enemyBehavior = GetComponent<Sap>();
-        targetPos = GameObject.FindAnyObjectByType<PlayerController>().transform.position;
     }
 
+    private void Update()
+    {
+        LoopPointIndex();
+        enemyPoints = deathPoints[deathPointsIndex];
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -27,22 +36,52 @@ public class Death : Enemy
         {
             if (!hasSapped)
             {
+                playerHealth = collision.gameObject.GetComponent<PlayerData>();
                 ApplyBehavior(enemyBehavior);
             }
         }
+
+        HitByShot(collision);
     }
 
-    public void HitByShot()
+    private void OnCollisionExit(Collision collision)
     {
-        int points = deathPoints[hitCounter];
-        //GameManager.Instance.AddPoints(points);
-        TakeDamage(1);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            StopCoroutine(GetComponent<Sap>().StartSap());
+            playerHealth = null;
+        }
     }
 
-    public void UsePotion()
+    private void HitByShot(Collision collision)
     {
-        hitCounter = 0;
+        if (collision.transform.GetComponent<Axe>())
+        {
+            GameObject.FindFirstObjectByType<Warrior>().gameObject.GetComponent<PlayerData>().playerScore += 1;
+            deathPointsIndex++;
+        }
+        else if (collision.transform.GetComponent<Fireball>())
+        {
+            GameObject.FindFirstObjectByType<Wizard>().gameObject.GetComponent<PlayerData>().playerScore += 1;
+            deathPointsIndex++;
+        }
+        else if (collision.transform.GetComponent<Sword>())
+        {
+            GameObject.FindFirstObjectByType<Valkyrie>().gameObject.GetComponent<PlayerData>().playerScore += 1;
+            deathPointsIndex++;
+        }
+        else if (collision.transform.GetComponent<Arrow>())
+        {
+            GameObject.FindFirstObjectByType<Elf>().gameObject.GetComponent<PlayerData>().playerScore += 1;
+            deathPointsIndex++;
+        }
+    }
 
-        OnDeath();
+    private void LoopPointIndex()
+    {
+        if(deathPointsIndex > deathPoints.Length)
+        {
+            deathPointsIndex = 0;
+        }
     }
 }

@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585413a52d38f6b4793b07272313aa52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordSpeed: 10
+  swordSpeed: 9
   swordDamage: 5
   moveDirection: {x: 0, y: 0, z: 0}
 --- !u!54 &-7685822848708033754

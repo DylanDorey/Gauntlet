@@ -267,8 +267,8 @@ MonoBehaviour:
   wizardPrefab: {fileID: 7197700089058974574, guid: 5c038da4489e5374a96d10a200acaa27, type: 3}
   fireballPrefab: {fileID: 656569471141158888, guid: ae7a70d0375f7384f8339e4aefb25685, type: 3}
   fireballSpawnPos: {fileID: 0}
-  throwFireballSound: {fileID: 0}
-  wizardHurt: {fileID: 0}
+  throwFireballSound: {fileID: 8300000, guid: f23fac68d05df34468a7354d78419619, type: 3}
+  wizardHurt: {fileID: 8300000, guid: d8ee3064fdc24fe45b93b4698df9935e, type: 3}
 --- !u!114 &5956722414824488443
 MonoBehaviour:
   m_ObjectHideFlags: 0

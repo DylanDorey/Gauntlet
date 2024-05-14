@@ -10,6 +10,7 @@ using UnityEngine.InputSystem.Users;
  * [Allows Player to move around and interact with game environment]
  */
 
+//Different character types
 public enum CharacterType
 {
     Warrior,
@@ -20,23 +21,25 @@ public enum CharacterType
 
 public class PlayerController : MonoBehaviour
 {
-    //reference to various scriptable objects, character inputs
+    //reference to various character inputs
     public WarriorInput warriorInput;
     public ValkyrieInput valkyrieInput;
     public WizardInput wizardInput;
     public ElfInput elfInput;
 
+    //reference to specific player data
     private PlayerData playerData;
-
+    
+    //the assigned index of the player
     public int playerIndex = 0;
 
     //the type of character the player is
     public CharacterType characterType;
+
+    //various ability behaviors
     public IMeleeBehavior meleeBehavior;
     public IShootBehavior shootBehavior;
 
-    //the various character prefabs
-    public GameObject[] characterPrefabs = new GameObject[4];
     //the various projectile prefabs
     public GameObject[] projectilePrefabs = new GameObject[4];
 

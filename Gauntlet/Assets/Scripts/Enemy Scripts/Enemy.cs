@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
             Move();
         }
 
-        if (transform.position.y < 0.1f|| transform.position.y > 0.3f)
+        if (transform.position.y < 0.1f|| transform.position.y > 0.5f)
         {
             transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
         }
@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour
             enemyHealth -= amount;
         }
 
-        if (enemyHealth <= 0)
+        if (enemyHealth <= 0 && !transform.GetComponent<Death>())
         {
             OnDeath();
         }

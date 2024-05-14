@@ -10,6 +10,7 @@ using UnityEngine;
 public class AOECollider : MonoBehaviour
 {
     public Vector3 scaleFactor;
+    public PlayerData usedBy;
 
     private void Start()
     {
@@ -20,6 +21,14 @@ public class AOECollider : MonoBehaviour
     {  
         if (other.transform.GetComponent<Enemy>())
         {
+            if(other.gameObject.GetComponent<Death>())
+            {
+                if(usedBy != null)
+                {
+                    usedBy.playerScore += other.gameObject.GetComponent<Death>().enemyPoints;
+                }
+            }
+
             other.gameObject.GetComponent<Enemy>().OnDeath();
         }
     }

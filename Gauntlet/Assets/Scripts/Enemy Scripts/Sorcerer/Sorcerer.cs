@@ -6,7 +6,7 @@ public class Sorcerer : Enemy
 {
     private bool hasMeleed = false;
     private bool inMeleeDistance = false;
-    private float meleeDelay = 3f;
+    private readonly float meleeDelay = 3f;
 
     public override void Start()
     {
@@ -33,7 +33,7 @@ public class Sorcerer : Enemy
 
         if (enemyHealth <= 0)
         {
-            if (collision.transform.GetComponent<Axe>() || collision.transform.GetComponent<Fireball>() || collision.transform.GetComponent<Sword>())
+            if (collision.transform.GetComponent<Axe>() || collision.transform.GetComponent<Fireball>() || collision.transform.GetComponent<Sword>() || collision.transform.GetComponent<Arrow>())
             {
                 UIManager.Instance.warrior.gameObject.GetComponent<PlayerData>().playerScore += PassPoints();
             }

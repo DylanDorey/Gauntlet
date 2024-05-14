@@ -4,20 +4,37 @@ using UnityEngine;
 
 public class Sap : MonoBehaviour, IEnemyBehavior
 {
+    private readonly float timeBetweenSap = 1f;
+    private int sapsHit;
+
     public void Behavior(Enemy enemy)
     {
         StartCoroutine(StartSap());
     }
 
-    private IEnumerator StartSap()
+    public IEnumerator StartSap()
     {
         Death death = GetComponent<Death>();
-        death.hasSapped = true;
 
-        AudioManager.Instance.AddToSoundQueue(death.deathSapSound);
+        while (death.playerHealth != null)
+        {
+            death.hasSapped = true;
 
-        //add time to wait before sapping again
-        yield return null;
+            death.playerHealth.playerHealth -= 10;
+            sapsHit++;
+
+            AudioManager.Instance.AddToSoundQueue(death.deathSapSound);
+
+            if (sapsHit >= 20)
+            {
+                death.playerHealth = null;
+                StopCoroutine(StartSap());
+                death.OnDeath();
+            }
+
+            //add time to wait before sapping again
+            yield return new WaitForSeconds(timeBetweenSap);
+        }
 
         death.hasSapped = false;
     }

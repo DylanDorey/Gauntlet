@@ -31,7 +31,7 @@ public class Grunt : Enemy
 
         if (enemyHealth <= 0)
         {
-            if (collision.transform.GetComponent<Axe>() || collision.transform.GetComponent<Fireball>() || collision.transform.GetComponent<Sword>())
+            if (collision.transform.GetComponent<Axe>() || collision.transform.GetComponent<Fireball>() || collision.transform.GetComponent<Sword>() || collision.transform.GetComponent<Arrow>())
             {
                 UIManager.Instance.warrior.gameObject.GetComponent<PlayerData>().playerScore += PassPoints();
             }

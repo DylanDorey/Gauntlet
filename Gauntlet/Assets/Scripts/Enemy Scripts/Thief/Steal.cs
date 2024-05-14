@@ -31,7 +31,6 @@ public class Steal : MonoBehaviour, IEnemyBehavior
             {
                 playerInventory.RemovePotionOnUse();
                 stolenItem = bluePotion;
-                stolenItem = orangePotion;
             }
             else
             {

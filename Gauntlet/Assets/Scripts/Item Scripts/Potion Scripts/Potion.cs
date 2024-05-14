@@ -52,7 +52,7 @@ public class Potion : Item, IItemBehavior
         }
     }
 
-    public void InitializePotion(bool destructable, int damage)
+    public void InitializePotion(bool destructable)
     {
         isDestructable = destructable;
     }
@@ -72,12 +72,13 @@ public class Potion : Item, IItemBehavior
         if (_playerData == null)
         {
             Collider AOE = Instantiate(aoeCollider, transform.position, Quaternion.identity);
-            AOE.GetComponent<AOECollider>().scaleFactor = new Vector3(playerData.playerMagic, playerData.playerMagic, playerData.playerMagic);
+            AOE.GetComponent<AOECollider>().scaleFactor = new Vector3(3f, 3f, 3f);
         }
         else
         {
             Collider AOE = Instantiate(aoeCollider, playerData.transform.position, Quaternion.identity);
             AOE.GetComponent<AOECollider>().scaleFactor = new Vector3(playerData.playerMagic, playerData.playerMagic, playerData.playerMagic);
+            AOE.GetComponent<AOECollider>().usedBy = playerData;
         }
 
         AudioManager.Instance.AddToSoundQueue(usePotionSound);

@@ -17,7 +17,7 @@ public class Axe : MonoBehaviour
     [Range(1f, 10f)]
     public float axeDamage;
 
-    private float rotateSpeed = 10f;
+    private readonly float rotateSpeed = 10f;
 
     public Vector3 moveDirection;
 
