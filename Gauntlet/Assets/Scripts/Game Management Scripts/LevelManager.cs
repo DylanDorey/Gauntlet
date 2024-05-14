@@ -73,7 +73,7 @@ public class LevelManager : Singleton<LevelManager>
         //set thief item spawn
         thiefItemSpawn = levelPrefabs[levelToSpawnIndex].transform.GetChild(1).position;
 
-        if(currentLevel > 1)
+        if (currentLevel > 1)
         {
             Invoke("SpawnThief", Random.Range(15f, 45f));
         }
@@ -97,7 +97,6 @@ public class LevelManager : Singleton<LevelManager>
     {
         foreach (GameObject enemy in activeEnemies)
         {
-            activeEnemies.Remove(enemy);
             Destroy(enemy);
         }
 

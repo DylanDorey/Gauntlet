@@ -22,13 +22,13 @@ public class Grunt : Enemy
 
     public void OnCollisionEnter(Collision collision)
     {
-        //if (collision.transform.GetComponent<PlayerController>())
-        //{
-        //    if (!hasMeleed)
-        //    {
-        //        ApplyBehavior(enemyBehavior);
-        //    }
-        //}
+        if (collision.transform.GetComponent<PlayerController>())
+        {
+            if (!hasMeleed)
+            {
+                ApplyBehavior(enemyBehavior);
+            }
+        }
 
         if (enemyHealth <= 0)
         {
@@ -41,18 +41,18 @@ public class Grunt : Enemy
 
     private void Update()
     {
-        rayDirection = transform.forward;
+        //rayDirection = transform.forward;
 
-        if (Physics.Raycast(transform.position, rayDirection, out hit, meleeDistance))
-        {
-            if (hit.transform.GetComponent<PlayerController>() && !hasMeleed)
-            {
-                ApplyBehavior(enemyBehavior);
-            }
-        }
-        else
-        {
-            hasMeleed = false;
-        }
+        //if (Physics.Raycast(transform.position, rayDirection, out hit, meleeDistance))
+        //{
+        //    if (hit.transform.GetComponent<PlayerController>() && !hasMeleed)
+        //    {
+        //        ApplyBehavior(enemyBehavior);
+        //    }
+        //}
+        //else
+        //{
+        //    hasMeleed = false;
+        //}
     }
 }

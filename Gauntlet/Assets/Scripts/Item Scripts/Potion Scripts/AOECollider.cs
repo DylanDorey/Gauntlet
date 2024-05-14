@@ -20,7 +20,7 @@ public class AOECollider : MonoBehaviour
     {  
         if (other.transform.GetComponent<Enemy>())
         {
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<Enemy>().OnDeath();
         }
     }
 

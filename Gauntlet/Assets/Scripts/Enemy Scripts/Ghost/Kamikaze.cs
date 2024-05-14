@@ -15,6 +15,6 @@ public class Kamikaze : MonoBehaviour, IEnemyBehavior
     {
         collision.gameObject.GetComponent<PlayerData>().TakeDamage(GetComponent<Enemy>().enemyDamage);
 
-        Destroy(gameObject);
+        GetComponent<Ghost>().OnDeath();
     }
 }

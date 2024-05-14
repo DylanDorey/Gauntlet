@@ -89,13 +89,13 @@ public class Enemy : MonoBehaviour
 
         if (enemyHealth <= 0)
         {
-            Destroy(gameObject);
+            OnDeath();
         }
     }
 
     public virtual void OnDeath()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public void ApplyBehavior(IEnemyBehavior behavior)

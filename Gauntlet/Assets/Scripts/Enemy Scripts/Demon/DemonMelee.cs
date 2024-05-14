@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GruntMelee : MonoBehaviour, IEnemyBehavior
+public class DemonMelee : MonoBehaviour, IEnemyBehavior
 {
     public void Behavior(Enemy enemy)
     {
@@ -14,15 +14,15 @@ public class GruntMelee : MonoBehaviour, IEnemyBehavior
     /// </summary>
     private IEnumerator Melee(Enemy enemy)
     {
-        Grunt grunt = enemy.GetComponent<Grunt>();
-        grunt.hasMeleed = true;
+        Demon demon = enemy.GetComponent<Demon>();
+        demon.hasMeleed = true;
 
         for (int index = 0; index < 1; index++)
         {
-            enemy.GetComponent<PlayerData>().TakeDamage(grunt.enemyDamage);
-            yield return new WaitForSeconds(grunt.meleeDelay);
+            enemy.GetComponent<PlayerData>().TakeDamage(demon.enemyDamage);
+            yield return new WaitForSeconds(demon.meleeDelay);
         }
 
-        grunt.hasMeleed = false;
+        demon.hasMeleed = false;
     }
 }

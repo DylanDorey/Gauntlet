@@ -8,11 +8,12 @@ public class Death : Enemy
     private int hitCounter = 0;
 
     private int currentHealth;
-    private void Start()
+    public override void Start()
     {
         currentHealth = Mathf.RoundToInt(enemyHealth);
-        InitializeEnemy(1000, 3f, 5, 100, 10f);
+        InitializeEnemy(1000, 3f, 5, 100f, 30f);
         ApplyBehavior(enemyBehavior);
+        targetPos = GameObject.FindAnyObjectByType<PlayerController>().transform.position;
     }
 
 
@@ -22,31 +23,20 @@ public class Death : Enemy
         {
             ApplyBehavior(enemyBehavior);
         }
-
-
-    }
-    public void takeDamage(float amount)
-    {
-        enemyHealth -= amount;
-
-        if (enemyHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void HitByShot()
     {
         int points = deathPoints[hitCounter];
         //GameManager.Instance.AddPoints(points);
-        takeDamage(1);
+        TakeDamage(1);
     }
 
     public void UsePotion()
     {
         hitCounter = 0;
 
-        Destroy(gameObject);
+        OnDeath();
     }
 
 }

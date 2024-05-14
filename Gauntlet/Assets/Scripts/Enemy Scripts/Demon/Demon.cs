@@ -11,10 +11,7 @@ public class Demon : Enemy
     public GameObject fireballPrefab;
     public Transform shootingPoint;
     public float shootDelay = 2f;
-    private readonly float meleeDistance = 3f;
     public float meleeDelay = 2f;
-    private Vector3 rayDirection;
-    public RaycastHit hit;
     public bool hasMeleed;
     public AudioClip shootSound;
     public AudioClip meleeSound;
@@ -25,10 +22,8 @@ public class Demon : Enemy
         base.Start();
 
         InitializeEnemy(10, 2f, 5, 5, 10f);
-        gameObject.AddComponent<GruntMelee>();
-        enemyBehavior = GetComponent<GruntMelee>();
-
-        gameObject.AddComponent<Demon>();
+        gameObject.AddComponent<DemonMelee>();
+        enemyBehavior = GetComponent<DemonMelee>();
     }
 
     private void FixedUpdate()
@@ -53,24 +48,16 @@ public class Demon : Enemy
                 UIManager.Instance.warrior.gameObject.GetComponent<PlayerData>().playerScore += PassPoints();
             }
         }
-    }
 
-    private void Update()
-    {
-        rayDirection = transform.forward;
-
-        if (Physics.Raycast(transform.position, rayDirection, out hit, meleeDistance))
+        if (collision.transform.GetComponent<PlayerController>())
         {
-            if (hit.transform.GetComponent<PlayerController>() && !hasMeleed)
+            if (!hasMeleed)
             {
                 ApplyBehavior(enemyBehavior);
             }
         }
-        else
-        {
-            hasMeleed = false;
-        }
     }
+
     void FindNearestPlayer()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");

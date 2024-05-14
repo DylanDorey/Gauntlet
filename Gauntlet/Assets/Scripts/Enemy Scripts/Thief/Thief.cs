@@ -81,6 +81,6 @@ public class Thief : Enemy
             LevelManager.Instance.thiefItem = GetComponent<Steal>().stolenItem;
         }
 
-        gameObject.SetActive(false);
+        OnDeath();
     }
 }

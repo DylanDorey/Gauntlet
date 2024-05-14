@@ -21,8 +21,6 @@ public class Ghost : Enemy
         {
             GetComponent<Kamikaze>().collision = collision;
             ApplyBehavior(enemyBehavior);
-
-            Destroy(gameObject);
         }
 
         if (enemyHealth <= 0)
