@@ -27,6 +27,11 @@ public class AOECollider : MonoBehaviour
             //But if it is death
             if(other.gameObject.GetComponent<Death>())
             {
+                if(other.transform.GetComponent<PlayerData>())
+                {
+                    usedBy = other.transform.GetComponent<PlayerData>();
+                }
+
                 //and if it was used by a player
                 if(usedBy != null)
                 {
